@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#E4E4F0</color>
+    <color name="colorPrimaryDark">#C7C7C9</color>
+    <color name="colorAccent">#ADB2CA</color>
+    <color name="navigatinBarColor">#29292B</color>
+    <color name="color1">#F8F4F8</color>
+    <color name="color2">#F3F2F5</color>
+    <color name="forbutton1">#560AF0</color>
+    <color name="forbutton2">#3A0999</color>
+    <color name="colorControlNormal">#302E33</color>
+    <color name="textColorPrimary">#9FA0A2</color>
+    <color name="windowBackground">#C9CACA</color>
+    <color name="colorControlHighlight">#C9C9CC</color>
+</resources>
