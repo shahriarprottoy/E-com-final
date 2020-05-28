@@ -1,25 +1,26 @@
-package com.example.e_comfinal;
+package com.example.zayans_eshop;
 
-import android.os.Build;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
-import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.view.MenuItem;
-import android.widget.Toolbar;
+
+import com.example.zayans_eshop.data.ProductList;
 
 public class MainActivity extends AppCompatActivity {
+
+    // The universal Product List used for storing products as per categories
+    public static ProductList productList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         BottomNavigationView bottomNavigationView=findViewById(R.id.bottom_navigation);
-        bottomNavigationView.setOnNavigationItemSelectedListener((BottomNavigationView.OnNavigationItemSelectedListener) navListener);
-        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new home__fragment());
-
+        bottomNavigationView.setOnNavigationItemSelectedListener(navListener);
+        getSupportFragmentManager().beginTransaction().add(R.id.fragment_container, new home__fragment()).commit();
     }
     private BottomNavigationView.OnNavigationItemSelectedListener navListener =
             new BottomNavigationView.OnNavigationItemSelectedListener() {

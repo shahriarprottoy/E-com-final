@@ -1,4 +1,4 @@
-package com.example.e_comfinal;
+package com.example.zayans_eshop;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
