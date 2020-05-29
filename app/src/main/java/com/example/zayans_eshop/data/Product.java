@@ -11,7 +11,7 @@ public class Product {
     private String image2Url;
     private String image3Url;
 
-    public Product(String name, int price, int stock, String image1Url, String image2Url, String image3Url) {
+    public Product(String name, int price, int stock,String image1Url,String image2Url,String image3Url) {
         this.name = name;
         this.price = price;
         this.stock = stock;
@@ -51,7 +51,7 @@ public class Product {
         this.stock = stock;
     }
 
-    public int getStock(int stock) {
+    public int getStock() {
         return this.stock;
     }
 
