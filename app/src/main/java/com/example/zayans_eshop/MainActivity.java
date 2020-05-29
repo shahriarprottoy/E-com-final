@@ -7,12 +7,14 @@ import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 
-import com.example.zayans_eshop.data.ProductList;
+import com.example.zayans_eshop.data.Product;
+
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
     // The universal Product List used for storing products as per categories
-    public static ProductList productList;
+    public static ArrayList<Product> products;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

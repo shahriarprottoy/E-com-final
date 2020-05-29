@@ -1,32 +1,9 @@
 package com.example.zayans_eshop;
 
-import android.annotation.SuppressLint;
-import android.app.ProgressDialog;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.widget.ListView;
 
-import com.example.zayans_eshop.data.Product;
-import com.example.zayans_eshop.data.ProductList;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.OutputStream;
-import java.io.OutputStreamWriter;
-import java.net.HttpURLConnection;
-import java.net.URL;
-import java.net.URLEncoder;
-import java.nio.charset.StandardCharsets;
-import java.util.ArrayList;
-import java.util.List;
+import com.example.zayans_eshop.data.DbRetriever;
 
 public class electronics extends AppCompatActivity {
 
@@ -37,12 +14,12 @@ public class electronics extends AppCompatActivity {
         setContentView(R.layout.electronics_layout);
 
 
-        DbRetriever retriever = new DbRetriever();
-        retriever.execute();
+        DbRetriever retriever = new DbRetriever(this, mAdapter);
+        retriever.execute("category");
     }
 
 
-    public class DbRetriever extends AsyncTask<String, Void, String> {
+    /*public class DbRetriever extends AsyncTask<String, Void, String> {
 
         @SuppressLint("StaticFieldLeak")
         private ProgressDialog progressDialog;
@@ -111,15 +88,13 @@ public class electronics extends AppCompatActivity {
              ArrayList<Product> products = new ArrayList<>();
             try {
                 home__fragment.jsonArray = new JSONArray(s);
-                MainActivity.productList = new ProductList(4);
                 for (int i = 0; i < home__fragment.jsonArray.length(); i++) {
                     JSONObject obj = home__fragment.jsonArray.getJSONObject(i);
                             String name= obj.getString("0");
-                            int price= obj.getInt("1");
-                            int stock= obj.getInt("2");
+                            int price= obj.getInt("1");int stock= obj.getInt("2");
                            String image1=obj.getString("4");
                            String image2=obj.getString("5");
-                            String image3=obj.getString("6");
+                           String image3=obj.getString("6");
                        Product product = new Product(name,price,stock,image1,image2,image3);
                        products.add(product);
                 }
@@ -131,7 +106,7 @@ public class electronics extends AppCompatActivity {
                progressDialog.dismiss();
            super.onPostExecute(s);
              // Find a reference to the {@link ListView} in the layout
-             ListView productListView = (ListView) findViewById(R.id.electronics_list);
+             ListView productListView = findViewById(R.id.electronics_list);
 
              // Create a new adapter that takes an empty list of Product as input
              mAdapter = new ProductAdapter(electronics.this,  products  );
@@ -140,5 +115,5 @@ public class electronics extends AppCompatActivity {
              // so the list can be populated in the user interface
              productListView.setAdapter(mAdapter);
         }
-    }
+    } */
 }

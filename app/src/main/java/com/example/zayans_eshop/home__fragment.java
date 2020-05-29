@@ -29,7 +29,7 @@ public class home__fragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_home, container, false);
-        Button button=(Button) root.findViewById(R.id.electronics);
+        Button button = root.findViewById(R.id.electronics);
         button.setOnClickListener(new View.OnClickListener()
         {
             public void onClick(View v)
@@ -40,7 +40,7 @@ public class home__fragment extends Fragment {
             }
 
         });
-        Button button2=(Button) root.findViewById(R.id.foods);
+        Button button2 = root.findViewById(R.id.foods);
         button2.setOnClickListener(new View.OnClickListener()
         {
             public void onClick(View v)
@@ -63,8 +63,4 @@ public class home__fragment extends Fragment {
     // Retrieves data from db and stores inside the Product
     // objects of MainActivity.productList
     // See the definition of ProductList.java class for insight
-    private void dataRetriever(String category) {
-        DbRetriever dbRetriever = new DbRetriever(getActivity());
-        dbRetriever.execute("electronics");
-    }
 }

@@ -1,12 +1,15 @@
-package com.example.zayans_eshop;
+package com.example.zayans_eshop.data;
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.app.ProgressDialog;
-import android.content.Context;
 import android.os.AsyncTask;
+import android.widget.ListView;
 
-import com.example.zayans_eshop.data.Product;
-import com.example.zayans_eshop.data.ProductList;
+import com.example.zayans_eshop.MainActivity;
+import com.example.zayans_eshop.ProductAdapter;
+import com.example.zayans_eshop.R;
+import com.example.zayans_eshop.home__fragment;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -23,15 +26,21 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
 
 public class DbRetriever extends AsyncTask<String, Void, String> {
 
     @SuppressLint("StaticFieldLeak")
     private ProgressDialog progressDialog;
+    private Activity context;
+    private ProductAdapter mAdapter;
 
-    DbRetriever(Context context) {
+    public DbRetriever(Activity context, ProductAdapter mAdapter) {
         progressDialog = new ProgressDialog(context);
         progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+
+        this.mAdapter = mAdapter;
+        this.context = context;
     }
 
     @Override
@@ -90,17 +99,19 @@ public class DbRetriever extends AsyncTask<String, Void, String> {
 
     @Override
     protected void onPostExecute(String s) {
+        MainActivity.products = new ArrayList<>();
         try {
             home__fragment.jsonArray = new JSONArray(s);
-            MainActivity.productList = new ProductList(4);
             for (int i = 0; i < home__fragment.jsonArray.length(); i++) {
                 JSONObject obj = home__fragment.jsonArray.getJSONObject(i);
-                MainActivity.productList.products[i] = new Product(obj.getString("0"),
-                        obj.getInt("1"),
-                        obj.getInt("2"),
-                        obj.getString("4"),
-                        obj.getString("5"),
-                        obj.getString("6"));
+                String name = obj.getString("0");
+                int price = obj.getInt("1");
+                int stock = obj.getInt("2");
+                String image1 = obj.getString("4");
+                String image2 = obj.getString("5");
+                String image3 = obj.getString("6");
+                Product product = new Product(name, price, stock, image1, image2, image3);
+                MainActivity.products.add(product);
             }
         } catch (JSONException e) {
             e.printStackTrace();
@@ -109,5 +120,15 @@ public class DbRetriever extends AsyncTask<String, Void, String> {
         if (progressDialog.isShowing())
             progressDialog.dismiss();
         super.onPostExecute(s);
+        // Find a reference to the {@link ListView} in the layout
+        ListView productListView = context.findViewById(R.id.electronics_list);
+
+
+        // Create a new adapter that takes an empty list of Product as input
+        mAdapter = new ProductAdapter(context, MainActivity.products);
+
+        // Set the adapter on the {@link ListView}
+        // so the list can be populated in the user interface
+        productListView.setAdapter(mAdapter);
     }
 }
