@@ -7,9 +7,8 @@ import android.os.AsyncTask;
 import android.widget.ListView;
 
 import com.example.zayans_eshop.MainActivity;
-import com.example.zayans_eshop.ProductAdapter;
 import com.example.zayans_eshop.R;
-import com.example.zayans_eshop.home__fragment;
+import com.example.zayans_eshop.ui.home__fragment;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -34,6 +33,7 @@ public class DbRetriever extends AsyncTask<String, Void, String> {
     private ProgressDialog progressDialog;
     private Activity context;
     private ProductAdapter mAdapter;
+    public Product product;
 
     public DbRetriever(Activity context, ProductAdapter mAdapter) {
         progressDialog = new ProgressDialog(context);
@@ -67,6 +67,7 @@ public class DbRetriever extends AsyncTask<String, Void, String> {
             HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
             httpURLConnection.setRequestMethod("POST");
             httpURLConnection.setDoOutput(true);
+            httpURLConnection.setDoInput(true);
             OutputStream outputStream = httpURLConnection.getOutputStream();
             BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(outputStream, StandardCharsets.UTF_8));
 
@@ -110,7 +111,7 @@ public class DbRetriever extends AsyncTask<String, Void, String> {
                 String image1 = obj.getString("4");
                 String image2 = obj.getString("5");
                 String image3 = obj.getString("6");
-                Product product = new Product(name, price, stock, image1, image2, image3);
+                product = new Product(name, price, stock, image1, image2, image3);
                 MainActivity.products.add(product);
             }
         } catch (JSONException e) {

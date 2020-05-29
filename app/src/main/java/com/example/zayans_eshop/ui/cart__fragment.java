@@ -1,4 +1,4 @@
-package com.example.zayans_eshop;
+package com.example.zayans_eshop.ui;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -7,6 +7,8 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.example.zayans_eshop.R;
 
 public class cart__fragment extends Fragment {
     @Nullable

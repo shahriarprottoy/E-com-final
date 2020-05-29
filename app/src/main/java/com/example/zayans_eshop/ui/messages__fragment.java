@@ -1,4 +1,4 @@
-package com.example.zayans_eshop;
+package com.example.zayans_eshop.ui;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -8,10 +8,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-public class account__fragment extends Fragment {
+import com.example.zayans_eshop.R;
+
+public class messages__fragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.account_fragment,container,false);
+        return inflater.inflate(R.layout.messages_fragment,container,false);
     }
 }

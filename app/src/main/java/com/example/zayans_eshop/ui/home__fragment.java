@@ -1,4 +1,4 @@
-package com.example.zayans_eshop;
+package com.example.zayans_eshop.ui;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -11,6 +11,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+
+import com.example.zayans_eshop.ProductList;
+import com.example.zayans_eshop.R;
 
 import org.json.JSONArray;
 
@@ -30,27 +33,30 @@ public class home__fragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_home, container, false);
         Button button = root.findViewById(R.id.electronics);
+
         button.setOnClickListener(new View.OnClickListener()
         {
             public void onClick(View v)
             {
-                Intent intent = new Intent(getActivity(), electronics.class);
+                Intent intent = new Intent(getActivity(), ProductList.class);
+                intent.putExtra("category", "electronics");
                 startActivity(intent);
-
             }
 
         });
+
         Button button2 = root.findViewById(R.id.foods);
         button2.setOnClickListener(new View.OnClickListener()
         {
             public void onClick(View v)
             {
-                Intent intent = new Intent(getActivity(), foods.class);
+                Intent intent = new Intent(getActivity(), ProductList.class);
+                intent.putExtra("category", "food");
                 startActivity(intent);
-
             }
 
         });
+
         return root;
 
     }
