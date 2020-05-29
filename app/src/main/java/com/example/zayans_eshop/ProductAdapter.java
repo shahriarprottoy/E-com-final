@@ -33,6 +33,12 @@ public class ProductAdapter extends ArrayAdapter<Product> {
         price.setText(currentProduct.getPrice());
         TextView stock=listItemview.findViewById(R.id.stock);
         stock.setText(currentProduct.getStock());
+        TextView image1=listItemview.findViewById(R.id.image1url);
+        image1.setText(currentProduct.getStock());
+        TextView image2=listItemview.findViewById(R.id.image2url);
+        image2.setText(currentProduct.getStock());
+        TextView image3=listItemview.findViewById(R.id.image3url);
+        image3.setText(currentProduct.getStock());
         return listItemview;
 
     }

@@ -17,5 +17,20 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/stock"
-        android:textSize="12sp"/>v
+        android:textSize="12sp"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/image1url"
+        android:textSize="12sp"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/image2url"
+        android:textSize="12sp"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/image3url"
+        android:textSize="12sp"/>
 </LinearLayout>

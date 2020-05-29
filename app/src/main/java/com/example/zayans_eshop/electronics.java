@@ -29,22 +29,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class electronics extends AppCompatActivity {
-    ArrayList<Product> products = new ArrayList<>();
+
     private ProductAdapter mAdapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.electronics_layout);
 
-        // Find a reference to the {@link ListView} in the layout
-        ListView productListView = (ListView) findViewById(R.id.electronics_list);
 
-        // Create a new adapter that takes an empty list of Product as input
-        mAdapter = new ProductAdapter(this , (ArrayList<Product>) products);
-
-        // Set the adapter on the {@link ListView}
-        // so the list can be populated in the user interface
-        productListView.setAdapter(mAdapter);
         DbRetriever retriever = new DbRetriever();
         retriever.execute();
     }
@@ -116,7 +108,7 @@ public class electronics extends AppCompatActivity {
 
          @Override
         protected void onPostExecute(String s) {
-
+             ArrayList<Product> products = new ArrayList<>();
             try {
                 home__fragment.jsonArray = new JSONArray(s);
                 MainActivity.productList = new ProductList(4);
@@ -138,7 +130,15 @@ public class electronics extends AppCompatActivity {
            if (progressDialog.isShowing())
                progressDialog.dismiss();
            super.onPostExecute(s);
+             // Find a reference to the {@link ListView} in the layout
+             ListView productListView = (ListView) findViewById(R.id.electronics_list);
 
+             // Create a new adapter that takes an empty list of Product as input
+             mAdapter = new ProductAdapter(electronics.this,  products  );
+
+             // Set the adapter on the {@link ListView}
+             // so the list can be populated in the user interface
+             productListView.setAdapter(mAdapter);
         }
     }
 }
