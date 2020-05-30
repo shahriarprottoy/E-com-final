@@ -15,13 +15,10 @@ import android.widget.Button;
 import com.example.zayans_eshop.ProductList;
 import com.example.zayans_eshop.R;
 
-import org.json.JSONArray;
-
 public class home__fragment extends Fragment {
 
     @SuppressLint("StaticFieldLeak")
-    // Used to store the JSONArray received from server
-    public static JSONArray jsonArray;
+
 
     // Note:  Use the function dataRetriever() to retrieve data from db
     // It automatically stores the data inside MainActivity.productList.products[]
@@ -32,14 +29,14 @@ public class home__fragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_home, container, false);
-        Button button = root.findViewById(R.id.electronics);
 
+        Button button = root.findViewById(R.id.electronics);
         button.setOnClickListener(new View.OnClickListener()
         {
             public void onClick(View v)
             {
                 Intent intent = new Intent(getActivity(), ProductList.class);
-                intent.putExtra("category", "electronics");
+                intent.putExtra("category", "Electric and Electronics");
                 startActivity(intent);
             }
 
@@ -51,7 +48,7 @@ public class home__fragment extends Fragment {
             public void onClick(View v)
             {
                 Intent intent = new Intent(getActivity(), ProductList.class);
-                intent.putExtra("category", "food");
+                intent.putExtra("category", "Grocery and Food");
                 startActivity(intent);
             }
 

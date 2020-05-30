@@ -12,7 +12,7 @@ public class ProductList extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.electronics_layout);
+        setContentView(R.layout.product_list);
 
         String category = getIntent().getStringExtra("category");
 

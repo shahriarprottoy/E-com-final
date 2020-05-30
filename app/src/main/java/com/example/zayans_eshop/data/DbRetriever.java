@@ -8,11 +8,9 @@ import android.widget.ListView;
 
 import com.example.zayans_eshop.MainActivity;
 import com.example.zayans_eshop.R;
-import com.example.zayans_eshop.ui.home__fragment;
 
 import org.json.JSONArray;
 import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -29,11 +27,11 @@ import java.util.ArrayList;
 
 public class DbRetriever extends AsyncTask<String, Void, String> {
 
+    public Product product;
     @SuppressLint("StaticFieldLeak")
     private ProgressDialog progressDialog;
     private Activity context;
     private ProductAdapter mAdapter;
-    public Product product;
 
     public DbRetriever(Activity context, ProductAdapter mAdapter) {
         progressDialog = new ProgressDialog(context);
@@ -101,18 +99,22 @@ public class DbRetriever extends AsyncTask<String, Void, String> {
     @Override
     protected void onPostExecute(String s) {
         MainActivity.products = new ArrayList<>();
+        JSONArray jsonArray;
         try {
-            home__fragment.jsonArray = new JSONArray(s);
-            for (int i = 0; i < home__fragment.jsonArray.length(); i++) {
-                JSONObject obj = home__fragment.jsonArray.getJSONObject(i);
-                String name = obj.getString("0");
-                int price = obj.getInt("1");
-                int stock = obj.getInt("2");
-                String image1 = obj.getString("4");
-                String image2 = obj.getString("5");
-                String image3 = obj.getString("6");
-                product = new Product(name, price, stock, image1, image2, image3);
-                MainActivity.products.add(product);
+            jsonArray = new JSONArray(s);
+            for (int i = 0; i < jsonArray.length(); i++) {
+                JSONArray obj = jsonArray.getJSONArray(i);
+
+                MainActivity.products.add(new Product(
+                        obj.getString(0),
+                        obj.getInt(1),
+                        obj.getInt(2),
+                        obj.getString(3),
+                        obj.getString(4),
+                        obj.getString(5),
+                        obj.getString(6),
+                        obj.getInt(7)
+                ));
             }
         } catch (JSONException e) {
             e.printStackTrace();

@@ -5,31 +5,50 @@ public class Product {
     private String name;
     private int price;
     private int stock;
+    private String description;
     // The variables which DO NOT contain image URL will be blank
     // e.g. image3Url == "";
     private String image1Url;
     private String image2Url;
     private String image3Url;
 
-    public Product(String name, int price, int stock,String image1Url,String image2Url,String image3Url) {
-        this.name = name;
-        this.price = price;
-        this.stock = stock;
-        this.image1Url = image1Url;
-        this.image2Url = image2Url;
-        this.image3Url = image3Url;
+    private int discountedPrice;
+
+    // Empty constructor
+    public Product() {
+
     }
 
-    public void setProductData(String name, int price, int stock, String image1Url, String image2Url, String image3Url) {
+    public Product(String name, int price, int stock,
+                   String description, String image1Url, String image2Url, String image3Url,
+                   int discountedPrice) {
         this.name = name;
         this.price = price;
         this.stock = stock;
+        this.description = description;
         this.image1Url = image1Url;
         this.image2Url = image2Url;
         this.image3Url = image3Url;
+        this.discountedPrice = discountedPrice;
     }
 
     // Refer to these functions for getting and setting
+
+    public int getDiscountedPrice() {
+        return discountedPrice;
+    }
+
+    public void setDiscountedPrice(int discountedPrice) {
+        this.discountedPrice = discountedPrice;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
 
     public String getName() {
         return this.name;
