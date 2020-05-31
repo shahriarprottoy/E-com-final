@@ -53,7 +53,94 @@ public class home__fragment extends Fragment {
             }
 
         });
+        Button button3 = root.findViewById(R.id.crockeries);
+        button3.setOnClickListener(new View.OnClickListener()
+        {
+            public void onClick(View v)
+            {
+                Intent intent = new Intent(getActivity(), ProductList.class);
+                intent.putExtra("category", "Home Appliances & Crockeries");
+                startActivity(intent);
+            }
 
+        });
+        Button button4 = root.findViewById(R.id.bicycle);
+        button4.setOnClickListener(new View.OnClickListener()
+        {
+            public void onClick(View v)
+            {
+                Intent intent = new Intent(getActivity(), ProductList.class);
+                intent.putExtra("category", "Bicycle and Tricycle");
+                startActivity(intent);
+            }
+
+        });
+        Button button5 = root.findViewById(R.id.furniture);
+        button5.setOnClickListener(new View.OnClickListener()
+        {
+            public void onClick(View v)
+            {
+                Intent intent = new Intent(getActivity(), ProductList.class);
+                intent.putExtra("category", "Furniture & Home Decor");
+                startActivity(intent);
+            }
+
+        });
+        Button button6 = root.findViewById(R.id.toolsandaccessories);
+        button6.setOnClickListener(new View.OnClickListener()
+        {
+            public void onClick(View v)
+            {
+                Intent intent = new Intent(getActivity(), ProductList.class);
+                intent.putExtra("category", "Tools & Accessories");
+                startActivity(intent);
+            }
+
+        });
+        Button button7 = root.findViewById(R.id.pump);
+        button7.setOnClickListener(new View.OnClickListener()
+        {
+            public void onClick(View v)
+            {
+                Intent intent = new Intent(getActivity(), ProductList.class);
+                intent.putExtra("category", "Pumps & Machineries");
+                startActivity(intent);
+            }
+
+        });
+        Button button8 = root.findViewById(R.id.fashion);
+        button8.setOnClickListener(new View.OnClickListener()
+        {
+            public void onClick(View v)
+            {
+                Intent intent = new Intent(getActivity(), ProductList.class);
+                intent.putExtra("category", "Fashion");
+                startActivity(intent);
+            }
+
+        });
+        Button button9 = root.findViewById(R.id.gifts);
+        button9.setOnClickListener(new View.OnClickListener()
+        {
+            public void onClick(View v)
+            {
+                Intent intent = new Intent(getActivity(), ProductList.class);
+                intent.putExtra("category", "Gifts and Toys");
+                startActivity(intent);
+            }
+
+        });
+        Button button10 = root.findViewById(R.id.others);
+        button10.setOnClickListener(new View.OnClickListener()
+        {
+            public void onClick(View v)
+            {
+                Intent intent = new Intent(getActivity(), ProductList.class);
+                intent.putExtra("category", "Others");
+                startActivity(intent);
+            }
+
+        });
         return root;
 
     }

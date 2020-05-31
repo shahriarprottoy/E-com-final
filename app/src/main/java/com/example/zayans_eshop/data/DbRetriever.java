@@ -130,8 +130,6 @@ public class DbRetriever extends AsyncTask<String, Void, String> {
         // Create a new adapter that takes an empty list of Product as input
         mAdapter = new ProductAdapter(context, MainActivity.products);
 
-        // Set the adapter on the {@link ListView}
-        // so the list can be populated in the user interface
-        productListView.setAdapter(mAdapter);
+
     }
 }
