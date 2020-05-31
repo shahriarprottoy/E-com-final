@@ -13,10 +13,18 @@ public class ProductList extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.product_list);
+        
+        Intent intent = getIntent();
+        String argument;
+        
+        if(!intent.getStringExtra("search") == null)
+        argument = getIntent().getStringExtra("search");
 
-        String category = getIntent().getStringExtra("category");
+        if(!intent.getStringExtra("category") == null)
+        argument = getIntent().getStringExtra("category");
 
         DbRetriever retriever = new DbRetriever(this, mAdapter);
-        retriever.execute(category);
+        
+        retriever.execute(argument);
     }
 }
