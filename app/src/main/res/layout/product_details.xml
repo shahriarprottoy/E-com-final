@@ -71,7 +71,18 @@
             android:textColor="@android:color/darker_gray"
             android:textSize="15sp"
             android:textStyle="bold"/>
+
+            <Button
+                android:id="@+id/addtocart"
+                android:layout_marginLeft="100dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/custom_buttons"
+                android:text="Add to cart"
+                android:textColor="@android:color/white"
+                android:textStyle="italic"/>
     </LinearLayout>
 
 
 </LinearLayout>
+

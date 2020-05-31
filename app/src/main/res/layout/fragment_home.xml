@@ -24,9 +24,9 @@
             android:layout_marginLeft="5dp"
             android:layout_weight="1"
 
-            android:background="@drawable/custom_buttons"
+
             android:drawableTop="@drawable/electronics"
-            android:drawablePadding="-25dp"
+            android:drawablePadding="-15dp"
             android:paddingTop="10dp"
             android:text="Electronics"
             android:textColor="@android:color/black"
@@ -41,9 +41,9 @@
 
             android:layout_weight="1"
 
-            android:background="@drawable/custom_buttons"
+
             android:drawableTop="@drawable/foods"
-            android:drawablePadding="-25dp"
+            android:drawablePadding="-15dp"
             android:paddingTop="10dp"
             android:text="Foods"
             android:textColor="@android:color/black"
@@ -57,9 +57,9 @@
             android:layout_gravity="center"
             android:layout_marginRight="5dp"
             android:layout_weight="1"
-            android:background="@drawable/custom_buttons"
+
             android:drawableTop="@drawable/crockeries"
-            android:drawablePadding="-25dp"
+            android:drawablePadding="-15dp"
             android:paddingTop="10dp"
             android:text="Crockeries"
             android:textColor="@android:color/black"
@@ -86,9 +86,8 @@
             android:layout_marginLeft="5dp"
             android:layout_marginTop="12dp"
             android:layout_weight="1"
-            android:background="@drawable/custom_buttons"
             android:drawableTop="@drawable/bycycle_tricycle"
-            android:drawablePadding="-25dp"
+            android:drawablePadding="-15dp"
             android:paddingTop="10dp"
             android:text="Bycylce and Tricycle"
             android:textColor="@android:color/black"
@@ -104,9 +103,9 @@
             android:layout_marginTop="12dp"
             android:layout_weight="1"
 
-            android:background="@drawable/custom_buttons"
+
             android:drawableTop="@drawable/fashion"
-            android:drawablePadding="-25dp"
+            android:drawablePadding="-15dp"
             android:paddingTop="10dp"
             android:text="Fashion"
             android:textColor="@android:color/black"
@@ -121,9 +120,9 @@
             android:layout_marginTop="12dp"
             android:layout_marginRight="5dp"
             android:layout_weight="1"
-            android:background="@drawable/custom_buttons"
+
             android:drawableTop="@drawable/furniture_homedecor"
-            android:drawablePadding="-25dp"
+            android:drawablePadding="-15dp"
             android:paddingTop="10dp"
             android:text="Furniture and home decoration"
             android:textColor="@android:color/black"
@@ -149,9 +148,9 @@
             android:layout_marginLeft="5dp"
             android:layout_marginTop="12dp"
             android:layout_weight="1"
-            android:background="@drawable/custom_buttons"
+
             android:drawableTop="@drawable/gifts_toys"
-            android:drawablePadding="-25dp"
+            android:drawablePadding="-15dp"
             android:paddingTop="10dp"
             android:text="Gifts and Toys"
             android:textColor="@android:color/black"
@@ -166,9 +165,9 @@
             android:layout_marginTop="12dp"
             android:layout_weight="1"
 
-            android:background="@drawable/custom_buttons"
+
             android:drawableTop="@drawable/pump"
-            android:drawablePadding="-25dp"
+            android:drawablePadding="-15dp"
             android:paddingTop="10dp"
             android:text="Pump and Machineries"
             android:textColor="@android:color/black"
@@ -183,9 +182,9 @@
             android:layout_marginTop="12dp"
             android:layout_marginRight="5dp"
             android:layout_weight="1"
-            android:background="@drawable/custom_buttons"
+
             android:drawableTop="@drawable/others"
-            android:drawablePadding="-25dp"
+            android:drawablePadding="-15dp"
             android:paddingTop="10dp"
             android:text="Others"
             android:textColor="@android:color/black"
@@ -212,9 +211,8 @@
             android:layout_marginLeft="15dp"
             android:layout_marginTop="12dp"
             android:layout_weight="1"
-            android:background="@drawable/custom_buttons"
             android:drawableTop="@drawable/tools_accessories"
-            android:drawablePadding="-25dp"
+            android:drawablePadding="-15dp"
             android:paddingTop="10dp"
             android:text="Tools and Accessories"
             android:textColor="@android:color/black"

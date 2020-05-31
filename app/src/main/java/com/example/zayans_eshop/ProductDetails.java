@@ -44,7 +44,7 @@ public class ProductDetails extends AppCompatActivity {
         offerPrice.setText("Discounted Price: " + product.getDiscountedPrice());
         TextView details = findViewById(R.id.details);
         details.setText("Discounted Price: " + product.getDescription());
-
+         //add button listener
     }
 }
 

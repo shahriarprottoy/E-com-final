@@ -1,23 +1,29 @@
 package com.example.zayans_eshop.ui;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.SearchView;
 
+import com.example.zayans_eshop.ProductDetails;
 import com.example.zayans_eshop.ProductList;
 import com.example.zayans_eshop.R;
 
 public class home__fragment extends Fragment {
 
     @SuppressLint("StaticFieldLeak")
-
+       private Context context;
 
     // Note:  Use the function dataRetriever() to retrieve data from db
     // It automatically stores the data inside MainActivity.productList.products[]
@@ -140,8 +146,40 @@ public class home__fragment extends Fragment {
             }
 
         });
+        //calling the search bar
+        setHasOptionsMenu(true);
         return root;
 
     }
 
+
+   @Override
+   public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+       super.onCreateOptionsMenu(menu, inflater);
+       menu.clear();
+       inflater.inflate(R.menu.search_menu, menu);
+       MenuItem item = menu.findItem(R.id.action_search);
+       item.setShowAsAction(MenuItem.SHOW_AS_ACTION_COLLAPSE_ACTION_VIEW | MenuItem.SHOW_AS_ACTION_IF_ROOM);
+
+       SearchView searchView = (SearchView) item.getActionView();
+       searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+
+          @Override
+           public boolean onQueryTextSubmit(String query) {
+               return false;
+           }
+
+           @Override
+           public boolean onQueryTextChange(String newText) {
+               // Here is where we are going to implement the search logic
+               Intent intent = new Intent(context, ProductDetails.class);
+               intent.putExtra("name", newText);
+               context.startActivity(intent);
+
+                return true;
+
+              }
+
+       });
+   }
 }
