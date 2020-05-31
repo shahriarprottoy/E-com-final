@@ -8,9 +8,8 @@ public class Product {
     private String description;
     // The variables which DO NOT contain image URL will be blank
     // e.g. image3Url == "";
-    private String image1Url;
-    private String image2Url;
-    private String image3Url;
+    private String[] imageUrls = new String[3];
+
 
     private int discountedPrice;
 
@@ -26,9 +25,9 @@ public class Product {
         this.price = price;
         this.stock = stock;
         this.description = description;
-        this.image1Url = image1Url;
-        this.image2Url = image2Url;
-        this.image3Url = image3Url;
+        this.imageUrls[0] = image1Url;
+        this.imageUrls[1] = image2Url;
+        this.imageUrls[2] = image3Url;
         this.discountedPrice = discountedPrice;
     }
 
@@ -75,27 +74,31 @@ public class Product {
     }
 
     public String getImage1Url() {
-        return this.image1Url;
+        return this.imageUrls[0];
     }
 
     public void setImage1Url(String image1Url) {
-        this.image1Url = image1Url;
+        this.imageUrls[0] = image1Url;
     }
 
     public String getImage2Url() {
-        return this.image2Url;
+        return this.imageUrls[1];
     }
 
     public void setImage2Url(String image2Url) {
-        this.image2Url = image2Url;
+        this.imageUrls[1] = image2Url;
     }
 
     public String getImage3Url() {
-        return this.image3Url;
+        return this.imageUrls[2];
     }
 
     public void setImage3Url(String image3Url) {
-        this.image3Url = image3Url;
+        this.imageUrls[2] = image3Url;
+    }
+
+    public String[] getImageUrls() {
+        return imageUrls;
     }
 
 }

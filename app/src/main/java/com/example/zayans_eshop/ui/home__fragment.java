@@ -1,7 +1,6 @@
 package com.example.zayans_eshop.ui;
 
 import android.annotation.SuppressLint;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -59,7 +58,7 @@ public class home__fragment extends Fragment {
             public void onClick(View v)
             {
                 Intent intent = new Intent(getActivity(), ProductList.class);
-                intent.putExtra("category", "Home Appliances & Crockeries");
+                intent.putExtra("category", "Home Appliances and Crockeries");
                 startActivity(intent);
             }
 
@@ -81,7 +80,7 @@ public class home__fragment extends Fragment {
             public void onClick(View v)
             {
                 Intent intent = new Intent(getActivity(), ProductList.class);
-                intent.putExtra("category", "Furniture & Home Decor");
+                intent.putExtra("category", "Furniture and Home Decor");
                 startActivity(intent);
             }
 
@@ -92,7 +91,7 @@ public class home__fragment extends Fragment {
             public void onClick(View v)
             {
                 Intent intent = new Intent(getActivity(), ProductList.class);
-                intent.putExtra("category", "Tools & Accessories");
+                intent.putExtra("category", "Tools and Accessories");
                 startActivity(intent);
             }
 
@@ -103,7 +102,7 @@ public class home__fragment extends Fragment {
             public void onClick(View v)
             {
                 Intent intent = new Intent(getActivity(), ProductList.class);
-                intent.putExtra("category", "Pumps & Machineries");
+                intent.putExtra("category", "Pumps and Machineries");
                 startActivity(intent);
             }
 
@@ -145,12 +144,4 @@ public class home__fragment extends Fragment {
 
     }
 
-    @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
-    }
-
-    // Retrieves data from db and stores inside the Product
-    // objects of MainActivity.productList
-    // See the definition of ProductList.java class for insight
 }

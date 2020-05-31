@@ -124,12 +124,12 @@ public class DbRetriever extends AsyncTask<String, Void, String> {
             progressDialog.dismiss();
         super.onPostExecute(s);
         // Find a reference to the {@link ListView} in the layout
-        ListView productListView = context.findViewById(R.id.electronics_list);
+        ListView productListView = context.findViewById(R.id.product_list);
 
 
         // Create a new adapter that takes an empty list of Product as input
         mAdapter = new ProductAdapter(context, MainActivity.products);
 
-
+        productListView.setAdapter(mAdapter);
     }
 }
