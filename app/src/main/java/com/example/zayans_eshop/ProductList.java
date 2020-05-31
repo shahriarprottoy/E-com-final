@@ -1,5 +1,6 @@
 package com.example.zayans_eshop;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
@@ -15,12 +16,12 @@ public class ProductList extends AppCompatActivity {
         setContentView(R.layout.product_list);
         
         Intent intent = getIntent();
-        String argument;
-        
-        if(!intent.getStringExtra("search") == null)
+        String argument = null;
+
+        if (!(intent.getStringExtra("search") == null))
         argument = getIntent().getStringExtra("search");
 
-        if(!intent.getStringExtra("category") == null)
+        if (!(intent.getStringExtra("category") == null))
         argument = getIntent().getStringExtra("category");
 
         DbRetriever retriever = new DbRetriever(this, mAdapter);
