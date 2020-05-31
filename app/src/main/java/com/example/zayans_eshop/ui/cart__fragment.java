@@ -1,6 +1,5 @@
 package com.example.zayans_eshop.ui;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -21,20 +20,17 @@ public class cart__fragment extends Fragment {
     public static ArrayList<Product> cartProducts = new ArrayList<Product>();
     private ProductAdapter mAdapter;
     private View root;
+    private ListView cartListView;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         root = inflater.inflate(R.layout.cart_fragment, container, false);
-        return root;
 
-    }
-
-    @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
         ListView cartListView = root.findViewById(R.id.cart_product_list);
         mAdapter = new ProductAdapter(getActivity(), cartProducts);
         cartListView.setAdapter(mAdapter);
+        return root;
     }
+
 }
