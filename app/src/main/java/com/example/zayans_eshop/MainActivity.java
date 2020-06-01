@@ -16,7 +16,7 @@ import com.example.zayans_eshop.ui.messages__fragment;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
-
+    private static int SPLASH_DISPLAY_LENGTH = 3000;
     // The universal Product List used for storing products as per categories
     public static ArrayList<Product> products = new ArrayList<>();
 

@@ -4,7 +4,7 @@ import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.os.AsyncTask;
-import android.widget.ListView;
+import android.widget.GridView;
 
 import com.example.zayans_eshop.MainActivity;
 import com.example.zayans_eshop.R;
@@ -43,9 +43,9 @@ public class DbRetriever extends AsyncTask<String, Void, String> {
 
     @Override
     protected void onPreExecute() {
-        progressDialog.setTitle("Querying");
-        progressDialog.setMessage("Getting products from server");
-        progressDialog.show();
+ //       progressDialog.setTitle("Querying");
+ //       progressDialog.setMessage("Getting products from server");
+//        progressDialog.show();
         super.onPreExecute();
     }
 
@@ -61,7 +61,7 @@ public class DbRetriever extends AsyncTask<String, Void, String> {
         URL url;
         try {
             url = new URL(checkUrl);
-            progressDialog.setMessage("Connecting to server.");
+     //       progressDialog.setMessage("Connecting to server.");
             HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
             httpURLConnection.setRequestMethod("POST");
             httpURLConnection.setDoOutput(true);
@@ -70,7 +70,7 @@ public class DbRetriever extends AsyncTask<String, Void, String> {
             BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(outputStream, StandardCharsets.UTF_8));
 
             String data = URLEncoder.encode("category", "UTF-8") + "=" + URLEncoder.encode(strings[0], "UTF-8");
-            progressDialog.setMessage("Querying category.");
+//            progressDialog.setMessage("Querying category.");
             bufferedWriter.write(data);
             bufferedWriter.flush();
             bufferedWriter.close();
@@ -124,7 +124,7 @@ public class DbRetriever extends AsyncTask<String, Void, String> {
             progressDialog.dismiss();
         super.onPostExecute(s);
         // Find a reference to the {@link ListView} in the layout
-        ListView productListView = context.findViewById(R.id.product_list);
+        GridView productListView = context.findViewById(R.id.product_list);
 
 
         // Create a new adapter that takes an empty list of Product as input
