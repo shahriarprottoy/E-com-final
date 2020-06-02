@@ -7,7 +7,7 @@
     <EditText
         android:layout_marginTop="75dp"
         android:layout_gravity="center"
-        android:id="@+id/edittext1"
+        android:id="@+id/username"
         android:layout_width="wrap_content"
         android:layout_height="40dp"
         android:layout_marginBottom="20dp"
@@ -17,40 +17,40 @@
         android:textColor="@android:color/white"
         android:hint="Full name(Compulsory)"/>
     <EditText
-        android:id="@+id/edittext2"
+        android:id="@+id/userpass"
         android:layout_gravity="center"
         android:layout_width="wrap_content"
         android:layout_height="40dp"
         android:layout_marginBottom="20dp"
         android:cursorVisible="true"
-        android:inputType="text"
+        android:inputType="textPassword"
         android:textSize="15sp"
         android:textColor="@android:color/white"
         android:hint="Password(Compulsory)"/>
     <EditText
-        android:id="@+id/edittext3"
+        android:id="@+id/phone"
         android:layout_gravity="center"
         android:layout_width="150dp"
         android:layout_height="40dp"
         android:layout_marginBottom="20dp"
         android:cursorVisible="true"
-        android:inputType="text"
+        android:inputType="phone"
         android:textSize="15sp"
         android:textColor="@android:color/white"
         android:hint="Phone(Compulsory)"/>
     <EditText
-        android:id="@+id/edittext4"
+        android:id="@+id/email"
         android:layout_gravity="center"
         android:layout_width="150dp"
         android:layout_height="40dp"
         android:layout_marginBottom="20dp"
         android:cursorVisible="true"
-        android:inputType="text"
+        android:inputType="textEmailAddress"
         android:textSize="15sp"
         android:textColor="@android:color/white"
         android:hint="Email(Optional)"/>
     <EditText
-        android:id="@+id/edittext5"
+        android:id="@+id/location"
         android:layout_width="150dp"
         android:layout_gravity="center"
         android:layout_height="40dp"
@@ -60,4 +60,10 @@
         android:textSize="15sp"
         android:textColor="@android:color/white"
         android:hint="Location(Optional)"/>
+
+    <Button
+        android:id="@+id/submit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Button" />
 </LinearLayout>

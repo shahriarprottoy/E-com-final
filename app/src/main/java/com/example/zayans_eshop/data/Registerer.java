@@ -1,15 +1,7 @@
 package com.example.zayans_eshop.data;
 
-import android.annotation.SuppressLint;
-import android.app.Activity;
 import android.os.AsyncTask;
-import android.widget.GridView;
-
-import com.example.zayans_eshop.MainActivity;
-import com.example.zayans_eshop.R;
-
-import org.json.JSONArray;
-import org.json.JSONException;
+import android.util.Log;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -22,20 +14,8 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
-import java.util.ArrayList;
 
-public class DbRetriever extends AsyncTask<String, Void, String> {
-
-    @SuppressLint("StaticFieldLeak")
-    private Activity context;
-    private ProductAdapter mAdapter;
-
-    public DbRetriever(Activity context, ProductAdapter mAdapter) {
-
-        this.mAdapter = mAdapter;
-        this.context = context;
-    }
-
+public class Registerer extends AsyncTask<String, Void, String> {
     @Override
     protected void onPreExecute() {
         super.onPreExecute();
@@ -49,10 +29,10 @@ public class DbRetriever extends AsyncTask<String, Void, String> {
     @Override
     protected String doInBackground(String... strings) {
         String retrievedData = "";
-        String checkUrl = "https://zayansshop.000webhostapp.com/retrieveapp.php";
+        String registerUrl = "https://zayansshop.000webhostapp.com/register.php";
         URL url;
         try {
-            url = new URL(checkUrl);
+            url = new URL(registerUrl);
             HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
             httpURLConnection.setRequestMethod("POST");
             httpURLConnection.setDoOutput(true);
@@ -60,7 +40,11 @@ public class DbRetriever extends AsyncTask<String, Void, String> {
             OutputStream outputStream = httpURLConnection.getOutputStream();
             BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(outputStream, StandardCharsets.UTF_8));
 
-            String data = URLEncoder.encode("category", "UTF-8") + "=" + URLEncoder.encode(strings[0], "UTF-8");
+            String data = URLEncoder.encode("username", "UTF-8") + "=" + URLEncoder.encode(strings[0], "UTF-8") + "&" +
+                    URLEncoder.encode("userpass", "UTF-8") + "=" + URLEncoder.encode(strings[1], "UTF-8") + "&" +
+                    URLEncoder.encode("phone", "UTF-8") + "=" + URLEncoder.encode(strings[2], "UTF-8") + "&" +
+                    URLEncoder.encode("email", "UTF-8") + "=" + URLEncoder.encode(strings[3], "UTF-8") + "&" +
+                    URLEncoder.encode("location", "UTF-8") + "=" + URLEncoder.encode(strings[4], "UTF-8");
             bufferedWriter.write(data);
             bufferedWriter.flush();
             bufferedWriter.close();
@@ -87,35 +71,13 @@ public class DbRetriever extends AsyncTask<String, Void, String> {
 
     @Override
     protected void onPostExecute(String s) {
-        super.onPostExecute(s);
-        MainActivity.products = new ArrayList<>();
-        JSONArray jsonArray;
-        try {
-            jsonArray = new JSONArray(s);
-            for (int i = 0; i < jsonArray.length(); i++) {
-                JSONArray obj = jsonArray.getJSONArray(i);
-
-                MainActivity.products.add(new Product(
-                        obj.getString(0),
-                        obj.getInt(1),
-                        obj.getInt(2),
-                        obj.getString(3),
-                        obj.getString(4),
-                        obj.getString(5),
-                        obj.getString(6),
-                        obj.getInt(7)
-                ));
-            }
-        } catch (JSONException e) {
-            e.printStackTrace();
+        if (s.equals("Successful")) {
+            Log.i("TESTING", s);
+            // TODO Update UI for successful creation of account
+        } else {
+            Log.i("TESTING", s);
+            // TODO Update UI for server-side failure
         }
-        // Find a reference to the {@link ListView} in the layout
-        GridView productListView = context.findViewById(R.id.product_list);
-
-
-        // Create a new adapter that takes an empty list of Product as input
-        mAdapter = new ProductAdapter(context, MainActivity.products);
-
-        productListView.setAdapter(mAdapter);
+        super.onPostExecute(s);
     }
 }

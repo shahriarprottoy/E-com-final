@@ -12,4 +12,6 @@
     <color name="textColorPrimary">#9FA0A2</color>
     <color name="windowBackground">#C9CACA</color>
     <color name="colorControlHighlight">#C9C9CC</color>
+    <color name="white">#FFFFFF</color>
+    <color name="button_colour">#2E79FB</color>
 </resources>
