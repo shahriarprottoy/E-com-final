@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 
 import com.example.zayans_eshop.data.Product;
+import com.example.zayans_eshop.data.UserAccount;
 import com.example.zayans_eshop.ui.account__fragment;
 import com.example.zayans_eshop.ui.cart__fragment;
 import com.example.zayans_eshop.ui.home__fragment;
@@ -16,9 +17,10 @@ import com.example.zayans_eshop.ui.messages__fragment;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
-    private static int SPLASH_DISPLAY_LENGTH = 3000;
-    // The universal Product List used for storing products as per categories
+
+    // The universal ArrayList<Product> used for storing products as per categories
     public static ArrayList<Product> products = new ArrayList<>();
+    public static UserAccount userAccount;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +50,7 @@ public class MainActivity extends AppCompatActivity {
                             break;
                     }
 
+                    assert selectedFragment != null;
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,selectedFragment).commit();
                     return  true;
                 }

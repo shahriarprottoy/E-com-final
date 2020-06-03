@@ -8,8 +8,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.zayans_eshop.data.AdapterViewPager;
 import com.example.zayans_eshop.data.Product;
-import com.example.zayans_eshop.data.ViewPagerAdapter;
 import com.example.zayans_eshop.ui.cart__fragment;
 
 
@@ -38,7 +38,7 @@ public class ProductDetails extends AppCompatActivity {
         fromCart = intent.getBooleanExtra("fromCart", false);
 
         ViewPager viewPager = findViewById(R.id.viewPager);
-        ViewPagerAdapter adapter = new ViewPagerAdapter(this, product.getImageUrls());
+        AdapterViewPager adapter = new AdapterViewPager(this, product.getImageUrls());
         viewPager.setAdapter(adapter);
 
         Button addToCartButton = findViewById(R.id.addtocart);

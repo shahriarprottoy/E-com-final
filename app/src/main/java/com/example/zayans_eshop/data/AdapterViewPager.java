@@ -9,12 +9,12 @@ import android.widget.ImageView;
 
 import com.squareup.picasso.Picasso;
 
-public class ViewPagerAdapter extends PagerAdapter {
+public class AdapterViewPager extends PagerAdapter {
 
     private Context context;
     private String[] imageUrls;
 
-    public ViewPagerAdapter(Context context, String[] imageUrls) {
+    public AdapterViewPager(Context context, String[] imageUrls) {
         this.context = context;
         this.imageUrls = imageUrls;
     }

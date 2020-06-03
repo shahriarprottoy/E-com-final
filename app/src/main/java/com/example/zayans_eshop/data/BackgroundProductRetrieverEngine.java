@@ -24,13 +24,13 @@ import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 
-public class DbRetriever extends AsyncTask<String, Void, String> {
+public class BackgroundProductRetrieverEngine extends AsyncTask<String, Void, String> {
 
     @SuppressLint("StaticFieldLeak")
     private Activity context;
-    private ProductAdapter mAdapter;
+    private AdapterProduct mAdapter;
 
-    public DbRetriever(Activity context, ProductAdapter mAdapter) {
+    public BackgroundProductRetrieverEngine(Activity context, AdapterProduct mAdapter) {
 
         this.mAdapter = mAdapter;
         this.context = context;
@@ -80,6 +80,7 @@ public class DbRetriever extends AsyncTask<String, Void, String> {
             httpURLConnection.disconnect();
         } catch (IOException e) {
             e.printStackTrace();
+            // TODO: update UI for server crash
         }
 
         return retrievedData;
@@ -114,7 +115,7 @@ public class DbRetriever extends AsyncTask<String, Void, String> {
 
 
         // Create a new adapter that takes an empty list of Product as input
-        mAdapter = new ProductAdapter(context, MainActivity.products);
+        mAdapter = new AdapterProduct(context, MainActivity.products);
 
         productListView.setAdapter(mAdapter);
     }

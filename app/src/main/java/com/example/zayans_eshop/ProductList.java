@@ -4,12 +4,12 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
-import com.example.zayans_eshop.data.DbRetriever;
-import com.example.zayans_eshop.data.ProductAdapter;
+import com.example.zayans_eshop.data.AdapterProduct;
+import com.example.zayans_eshop.data.BackgroundProductRetrieverEngine;
 
 public class ProductList extends AppCompatActivity {
 
-    private ProductAdapter mAdapter;
+    private AdapterProduct mAdapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,7 +24,7 @@ public class ProductList extends AppCompatActivity {
         if (!(intent.getStringExtra("category") == null))
         argument = getIntent().getStringExtra("category");
 
-        DbRetriever retriever = new DbRetriever(this, mAdapter);
+        BackgroundProductRetrieverEngine retriever = new BackgroundProductRetrieverEngine(this, mAdapter);
         
         retriever.execute(argument);
     }

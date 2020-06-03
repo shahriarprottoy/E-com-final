@@ -10,9 +10,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import com.example.zayans_eshop.LoginActivity;
 import com.example.zayans_eshop.R;
 import com.example.zayans_eshop.RegisterActivity;
-import com.example.zayans_eshop.loginactivity;
 
 public class account__fragment extends Fragment {
     @Nullable
@@ -34,7 +34,7 @@ public class account__fragment extends Fragment {
         {
             public void onClick(View v)
             {
-                Intent intent = new Intent(getActivity(), loginactivity.class);
+                Intent intent = new Intent(getActivity(), LoginActivity.class);
                 startActivity(intent);
             }
 

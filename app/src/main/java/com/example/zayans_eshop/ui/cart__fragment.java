@@ -10,7 +10,7 @@ import android.view.ViewGroup;
 import android.widget.ListView;
 
 import com.example.zayans_eshop.R;
-import com.example.zayans_eshop.data.CartProductAdapter;
+import com.example.zayans_eshop.data.AdapterCartProduct;
 import com.example.zayans_eshop.data.Product;
 
 import java.util.ArrayList;
@@ -18,7 +18,7 @@ import java.util.ArrayList;
 public class cart__fragment extends Fragment {
 
     public static ArrayList<Product> cartProducts = new ArrayList<Product>();
-    private CartProductAdapter mAdapter;
+    private AdapterCartProduct mAdapter;
     private View root;
     private ListView cartListView;
 
@@ -28,7 +28,7 @@ public class cart__fragment extends Fragment {
         root = inflater.inflate(R.layout.cart_fragment, container, false);
 
         ListView cartListView = root.findViewById(R.id.cart_product_list);
-        mAdapter = new CartProductAdapter(getActivity(), cartProducts);
+        mAdapter = new AdapterCartProduct(getActivity(), cartProducts);
         cartListView.setAdapter(mAdapter);
         return root;
     }

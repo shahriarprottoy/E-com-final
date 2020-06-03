@@ -1,7 +1,11 @@
 package com.example.zayans_eshop.data;
 
 import android.os.AsyncTask;
-import android.util.Log;
+
+import com.example.zayans_eshop.MainActivity;
+
+import org.json.JSONArray;
+import org.json.JSONException;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -15,7 +19,7 @@ import java.net.URL;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
 
-public class Registerer extends AsyncTask<String, Void, String> {
+public class BackgroundLoginEngine extends AsyncTask<String, Void, String> {
     @Override
     protected void onPreExecute() {
         super.onPreExecute();
@@ -29,7 +33,7 @@ public class Registerer extends AsyncTask<String, Void, String> {
     @Override
     protected String doInBackground(String... strings) {
         String retrievedData = "";
-        String registerUrl = "https://zayansshop.000webhostapp.com/register.php";
+        String registerUrl = "https://zayansshop.000webhostapp.com/login.php";
         URL url;
         try {
             url = new URL(registerUrl);
@@ -41,10 +45,7 @@ public class Registerer extends AsyncTask<String, Void, String> {
             BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(outputStream, StandardCharsets.UTF_8));
 
             String data = URLEncoder.encode("username", "UTF-8") + "=" + URLEncoder.encode(strings[0], "UTF-8") + "&" +
-                    URLEncoder.encode("userpass", "UTF-8") + "=" + URLEncoder.encode(strings[1], "UTF-8") + "&" +
-                    URLEncoder.encode("phone", "UTF-8") + "=" + URLEncoder.encode(strings[2], "UTF-8") + "&" +
-                    URLEncoder.encode("email", "UTF-8") + "=" + URLEncoder.encode(strings[3], "UTF-8") + "&" +
-                    URLEncoder.encode("location", "UTF-8") + "=" + URLEncoder.encode(strings[4], "UTF-8");
+                    URLEncoder.encode("userpass", "UTF-8") + "=" + URLEncoder.encode(strings[1], "UTF-8");
             bufferedWriter.write(data);
             bufferedWriter.flush();
             bufferedWriter.close();
@@ -64,6 +65,7 @@ public class Registerer extends AsyncTask<String, Void, String> {
             httpURLConnection.disconnect();
         } catch (IOException e) {
             e.printStackTrace();
+            // TODO: update UI for server crash
         }
 
         return retrievedData;
@@ -71,14 +73,23 @@ public class Registerer extends AsyncTask<String, Void, String> {
 
     @Override
     protected void onPostExecute(String s) {
-        if (s.equals("Successful")) {
-            Log.i("TESTING", s);
-            // TODO Update UI for successful creation of account
-           // Intent intent=new Intent(Registerer.this,)
-        } else {
-            Log.i("TESTING", s);
-            // TODO Update UI for server-side failure
-        }
         super.onPostExecute(s);
+        if (!s.equals("Failed")) {
+            try {
+                JSONArray obj = new JSONArray(s);
+
+                MainActivity.userAccount = new UserAccount(
+                        obj.getString(0),
+                        obj.getString(1),
+                        obj.getString(2),
+                        obj.getString(3),
+                        obj.getString(4));
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            // TODO: Update UI on Success
+        } else {
+            // TODO: Update UI for Wrong user-info or Server-side problems
+        }
     }
 }
