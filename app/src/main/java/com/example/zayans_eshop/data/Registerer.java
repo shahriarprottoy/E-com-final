@@ -74,6 +74,7 @@ public class Registerer extends AsyncTask<String, Void, String> {
         if (s.equals("Successful")) {
             Log.i("TESTING", s);
             // TODO Update UI for successful creation of account
+           // Intent intent=new Intent(Registerer.this,)
         } else {
             Log.i("TESTING", s);
             // TODO Update UI for server-side failure

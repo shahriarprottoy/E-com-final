@@ -12,6 +12,7 @@ import android.widget.Button;
 
 import com.example.zayans_eshop.R;
 import com.example.zayans_eshop.RegisterActivity;
+import com.example.zayans_eshop.loginactivity;
 
 public class account__fragment extends Fragment {
     @Nullable
@@ -25,6 +26,16 @@ public class account__fragment extends Fragment {
             {
                 Intent intent = new Intent(getActivity(),RegisterActivity.class);
                  startActivity(intent);
+            }
+
+        });
+        Button button2 = root.findViewById(R.id.loginbutton);
+        button2.setOnClickListener(new View.OnClickListener()
+        {
+            public void onClick(View v)
+            {
+                Intent intent = new Intent(getActivity(), loginactivity.class);
+                startActivity(intent);
             }
 
         });

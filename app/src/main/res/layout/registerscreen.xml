@@ -3,67 +3,96 @@
     xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@android:color/holo_blue_dark">
+    android:background="@drawable/gradient2">
     <EditText
         android:layout_marginTop="75dp"
         android:layout_gravity="center"
         android:id="@+id/username"
         android:layout_width="wrap_content"
         android:layout_height="40dp"
-        android:layout_marginBottom="20dp"
         android:cursorVisible="true"
         android:inputType="text"
+        android:background="@drawable/loginbackground"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp"
         android:textSize="15sp"
-        android:textColor="@android:color/white"
-        android:hint="Full name(Compulsory)"/>
+        android:textColorHint="#CFD8DC"
+        android:textColor="#CFD8DC"
+        android:layout_marginBottom="10dp"
+        android:hint="User name (Compulsory)"
+        />
     <EditText
         android:id="@+id/userpass"
         android:layout_gravity="center"
         android:layout_width="wrap_content"
         android:layout_height="40dp"
-        android:layout_marginBottom="20dp"
         android:cursorVisible="true"
         android:inputType="textPassword"
+        android:background="@drawable/loginbackground"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp"
         android:textSize="15sp"
-        android:textColor="@android:color/white"
-        android:hint="Password(Compulsory)"/>
+        android:textColorHint="#CFD8DC"
+        android:textColor="#CFD8DC"
+        android:layout_marginBottom="10dp"
+        android:hint="Password (Compulsory)"/>
     <EditText
         android:id="@+id/phone"
         android:layout_gravity="center"
-        android:layout_width="150dp"
+        android:layout_width="175dp"
         android:layout_height="40dp"
-        android:layout_marginBottom="20dp"
+
         android:cursorVisible="true"
         android:inputType="phone"
+        android:background="@drawable/loginbackground"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp"
         android:textSize="15sp"
-        android:textColor="@android:color/white"
-        android:hint="Phone(Compulsory)"/>
+        android:textColorHint="#CFD8DC"
+        android:textColor="#CFD8DC"
+        android:layout_marginBottom="10dp"
+        android:hint="Phone (Compulsory)"/>
     <EditText
         android:id="@+id/email"
         android:layout_gravity="center"
-        android:layout_width="150dp"
+        android:layout_width="175dp"
         android:layout_height="40dp"
-        android:layout_marginBottom="20dp"
+        android:background="@drawable/loginbackground"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp"
+
+        android:textColorHint="#CFD8DC"
+        android:textColor="#CFD8DC"
+        android:layout_marginBottom="10dp"
         android:cursorVisible="true"
         android:inputType="textEmailAddress"
         android:textSize="15sp"
-        android:textColor="@android:color/white"
-        android:hint="Email(Optional)"/>
+
+        android:hint="Email (Optional)"/>
     <EditText
         android:id="@+id/location"
-        android:layout_width="150dp"
+        android:layout_width="175dp"
         android:layout_gravity="center"
         android:layout_height="40dp"
-        android:layout_marginBottom="20dp"
         android:cursorVisible="true"
         android:inputType="text"
+        android:background="@drawable/loginbackground"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp"
         android:textSize="15sp"
-        android:textColor="@android:color/white"
-        android:hint="Location(Optional)"/>
+        android:textColorHint="#CFD8DC"
+        android:textColor="#CFD8DC"
+        android:layout_marginBottom="10dp"
+        android:hint="Location (Optional)"/>
 
     <Button
         android:id="@+id/submit"
-        android:layout_width="match_parent"
+        android:layout_width="230dp"
+        android:background="@drawable/custom_button2"
+        android:layout_gravity="center"
+        android:layout_marginTop="30dp"
+        android:textColor="#CFD8DC"
         android:layout_height="wrap_content"
-        android:text="Button" />
+        android:text="Register"
+        android:textSize="17dp"/>
 </LinearLayout>
