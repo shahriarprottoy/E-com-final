@@ -1,6 +1,8 @@
 package com.example.zayans_eshop.data;
 
+import android.app.Activity;
 import android.os.AsyncTask;
+import android.widget.Toast;
 
 import com.example.zayans_eshop.MainActivity;
 
@@ -20,6 +22,7 @@ import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
 
 public class BackgroundLoginEngine extends AsyncTask<String, Void, String> {
+    private Activity context;
     @Override
     protected void onPreExecute() {
         super.onPreExecute();
@@ -64,8 +67,8 @@ public class BackgroundLoginEngine extends AsyncTask<String, Void, String> {
             inputStream.close();
             httpURLConnection.disconnect();
         } catch (IOException e) {
-            e.printStackTrace();
-            // TODO: update UI for server crash
+          //  e.printStackTrace();
+           return "sorry for the server crash";
         }
 
         return retrievedData;
@@ -88,8 +91,16 @@ public class BackgroundLoginEngine extends AsyncTask<String, Void, String> {
                 e.printStackTrace();
             }
             // TODO: Update UI on Success
-        } else {
-            // TODO: Update UI for Wrong user-info or Server-side problems
+        }
+        else if(s.equalsIgnoreCase("sorry for the server crash")){
+            Toast.makeText(context,
+                    "sorry for the server crash",
+                    Toast.LENGTH_LONG).show();
+        }
+        else {
+            Toast.makeText(context,
+                    "incorrect username or password",
+                    Toast.LENGTH_LONG).show();
         }
     }
 }

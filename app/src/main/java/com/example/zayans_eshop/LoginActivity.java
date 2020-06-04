@@ -1,10 +1,12 @@
 package com.example.zayans_eshop;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.example.zayans_eshop.data.BackgroundLoginEngine;
 
@@ -28,23 +30,31 @@ public class LoginActivity extends AppCompatActivity {
                 userName = name.getText().toString();
                 userPass = pass.getText().toString();
 
-                // TODO: Impose more possible conditions to ensure prevention of invalid input
+
                 if (userName.length() < 4) {
                     if (userName.length() == 0) {
-                        // TODO: show Invalid
+                        Toast.makeText(LoginActivity.this, "enter name",
+                                Toast.LENGTH_LONG).show();
                     } else {
-                        // TODO: show Invalid
+                        Toast toast = Toast.makeText(LoginActivity.this, "invalid name",
+                                Toast.LENGTH_LONG);
+                        toast.getView().setBackgroundColor(Color.RED);
+                        toast.show();
                     }
                 } else if (userPass.length() < 6) {
                     if (userPass.length() == 0) {
-                        // TODO: show Invalid
+                       Toast.makeText(LoginActivity.this, "enter password",
+                                Toast.LENGTH_LONG).show();
                     } else {
-                        // TODO: show Invalid
+                        Toast toast = Toast.makeText(LoginActivity.this, "invalid password",
+                                Toast.LENGTH_LONG);
+                        toast.getView().setBackgroundColor(Color.RED);
+                        toast.show();
                     }
                 } else {
                     BackgroundLoginEngine loginEngine = new BackgroundLoginEngine();
                     loginEngine.execute(userName, userPass);
-                }
+                  }
             }
         });
     }

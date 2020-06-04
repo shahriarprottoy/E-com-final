@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.os.AsyncTask;
 import android.widget.GridView;
+import android.widget.Toast;
 
 import com.example.zayans_eshop.MainActivity;
 import com.example.zayans_eshop.R;
@@ -79,8 +80,8 @@ public class BackgroundProductRetrieverEngine extends AsyncTask<String, Void, St
             inputStream.close();
             httpURLConnection.disconnect();
         } catch (IOException e) {
-            e.printStackTrace();
-            // TODO: update UI for server crash
+           // e.printStackTrace();
+          return "server crash";
         }
 
         return retrievedData;
@@ -88,35 +89,42 @@ public class BackgroundProductRetrieverEngine extends AsyncTask<String, Void, St
 
     @Override
     protected void onPostExecute(String s) {
-        super.onPostExecute(s);
-        MainActivity.products = new ArrayList<>();
-        JSONArray jsonArray;
-        try {
-            jsonArray = new JSONArray(s);
-            for (int i = 0; i < jsonArray.length(); i++) {
-                JSONArray obj = jsonArray.getJSONArray(i);
-
-                MainActivity.products.add(new Product(
-                        obj.getString(0),
-                        obj.getInt(1),
-                        obj.getInt(2),
-                        obj.getString(3),
-                        obj.getString(4),
-                        obj.getString(5),
-                        obj.getString(6),
-                        obj.getInt(7)
-                ));
-            }
-        } catch (JSONException e) {
-            e.printStackTrace();
+        if (s.equalsIgnoreCase("server crash")) {
+            Toast.makeText(context,
+                    "sorry for the surver crash",
+                    Toast.LENGTH_LONG).show();
         }
-        // Find a reference to the {@link ListView} in the layout
-        GridView productListView = context.findViewById(R.id.product_list);
+        else {
+            super.onPostExecute(s);
+            MainActivity.products = new ArrayList<>();
+            JSONArray jsonArray;
+            try {
+                jsonArray = new JSONArray(s);
+                for (int i = 0; i < jsonArray.length(); i++) {
+                    JSONArray obj = jsonArray.getJSONArray(i);
+
+                    MainActivity.products.add(new Product(
+                            obj.getString(0),
+                            obj.getInt(1),
+                            obj.getInt(2),
+                            obj.getString(3),
+                            obj.getString(4),
+                            obj.getString(5),
+                            obj.getString(6),
+                            obj.getInt(7)
+                    ));
+                }
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            // Find a reference to the {@link ListView} in the layout
+            GridView productListView = context.findViewById(R.id.product_list);
 
 
-        // Create a new adapter that takes an empty list of Product as input
-        mAdapter = new AdapterProduct(context, MainActivity.products);
+            // Create a new adapter that takes an empty list of Product as input
+            mAdapter = new AdapterProduct(context, MainActivity.products);
 
-        productListView.setAdapter(mAdapter);
+            productListView.setAdapter(mAdapter);
+        }
     }
 }

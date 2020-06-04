@@ -1,7 +1,9 @@
 package com.example.zayans_eshop.data;
 
+import android.content.Context;
 import android.os.AsyncTask;
 import android.util.Log;
+import android.widget.Toast;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -16,6 +18,7 @@ import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
 
 public class BackgroundRegistrationEngine extends AsyncTask<String, Void, String> {
+    Context context;
     @Override
     protected void onPreExecute() {
         super.onPreExecute();
@@ -63,8 +66,8 @@ public class BackgroundRegistrationEngine extends AsyncTask<String, Void, String
             inputStream.close();
             httpURLConnection.disconnect();
         } catch (IOException e) {
-            e.printStackTrace();
-            // TODO: update UI for server crash
+           // e.printStackTrace();
+           return "server crash";
         }
 
         return retrievedData;
@@ -74,12 +77,13 @@ public class BackgroundRegistrationEngine extends AsyncTask<String, Void, String
     protected void onPostExecute(String s) {
         if (s.equals("Successful")) {
             Log.i("TESTING", s);
-            // TODO Update UI for successful creation of account
-           // Intent intent=new Intent(Registerer.this,)
-        } else {
-            Log.i("TESTING", s);
-            // TODO Update UI for server-side failure
         }
-        super.onPostExecute(s);
+        else if(s.equalsIgnoreCase("server crash")){
+            Log.i("TESTING", s);
+            Toast.makeText(context,
+                    "sorry for the server crash",
+                    Toast.LENGTH_LONG).show();
+        }
+         super.onPostExecute(s);
     }
 }
