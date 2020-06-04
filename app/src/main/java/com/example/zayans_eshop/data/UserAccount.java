@@ -7,6 +7,7 @@ public class UserAccount {
     private String userLocation;
     private String uniqId;
 
+
     public UserAccount(String userName, String userPhone, String userEmail, String userLocation, String uniqId) {
         this.userName = userName;
         this.userPhone = userPhone;

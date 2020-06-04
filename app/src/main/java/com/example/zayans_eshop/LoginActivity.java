@@ -43,8 +43,10 @@ public class LoginActivity extends AppCompatActivity {
                     }
                 } else if (userPass.length() < 6) {
                     if (userPass.length() == 0) {
-                       Toast.makeText(LoginActivity.this, "enter password",
-                                Toast.LENGTH_LONG).show();
+                        Toast toast = Toast.makeText(LoginActivity.this, "enter password",
+                                Toast.LENGTH_LONG);
+                        toast.getView().setBackgroundColor(Color.YELLOW);
+                        toast.show();
                     } else {
                         Toast toast = Toast.makeText(LoginActivity.this, "invalid password",
                                 Toast.LENGTH_LONG);
@@ -52,10 +54,10 @@ public class LoginActivity extends AppCompatActivity {
                         toast.show();
                     }
                 } else {
-                    BackgroundLoginEngine loginEngine = new BackgroundLoginEngine();
+                    BackgroundLoginEngine loginEngine = new BackgroundLoginEngine(LoginActivity.this);
                     loginEngine.execute(userName, userPass);
-                  }
+                }
             }
         });
     }
-    }
+}

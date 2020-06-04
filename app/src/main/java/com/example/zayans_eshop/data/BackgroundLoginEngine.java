@@ -1,6 +1,8 @@
 package com.example.zayans_eshop.data;
 
 import android.app.Activity;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.widget.Toast;
 
@@ -22,7 +24,13 @@ import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
 
 public class BackgroundLoginEngine extends AsyncTask<String, Void, String> {
+
     private Activity context;
+
+    public BackgroundLoginEngine(Activity context) {
+        this.context = context;
+    }
+
     @Override
     protected void onPreExecute() {
         super.onPreExecute();
@@ -90,16 +98,31 @@ public class BackgroundLoginEngine extends AsyncTask<String, Void, String> {
             } catch (JSONException e) {
                 e.printStackTrace();
             }
+
+            // Saving Login Details
+            SharedPreferences userAccountPrefs = context.getSharedPreferences("userAccount", 0);
+            SharedPreferences.Editor editor = userAccountPrefs.edit();
+
+            editor.putString("userName", MainActivity.userAccount.getUserName());
+            editor.putString("userPhone", MainActivity.userAccount.getUserPhone());
+            editor.putString("userEmail", MainActivity.userAccount.getUserEmail());
+            editor.putString("userLocation", MainActivity.userAccount.getUserLocation());
+            editor.putString("uniqId", MainActivity.userAccount.getUniqId());
+
+            editor.apply();
+            MainActivity.justLoggedFlag = true;
+            Intent intent = new Intent(context, MainActivity.class);
+            context.startActivity(intent);
+
             // TODO: Update UI on Success
-        }
-        else if(s.equalsIgnoreCase("sorry for the server crash")){
+        } else if (s.equalsIgnoreCase("Failed")) {
             Toast.makeText(context,
-                    "sorry for the server crash",
+                    "Incorrect username or password",
                     Toast.LENGTH_LONG).show();
         }
         else {
             Toast.makeText(context,
-                    "incorrect username or password",
+                    "Sorry for the server Crash",
                     Toast.LENGTH_LONG).show();
         }
     }
