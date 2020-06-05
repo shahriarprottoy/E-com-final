@@ -11,6 +11,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:orientation="horizontal"
+        android:background="@android:color/white"
         app:layout_constraintEnd_toEndOf="@+id/linearLayout"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -23,7 +24,7 @@
             android:layout_gravity="center"
             android:layout_marginLeft="5dp"
             android:layout_weight="1"
-
+            android:background="@android:color/white"
 
             android:drawableTop="@drawable/electronics"
             android:drawablePadding="-15dp"
@@ -40,7 +41,7 @@
             android:layout_gravity="center"
 
             android:layout_weight="1"
-
+            android:background="@android:color/white"
 
             android:drawableTop="@drawable/foods"
             android:drawablePadding="-15dp"
@@ -57,7 +58,7 @@
             android:layout_gravity="center"
             android:layout_marginRight="5dp"
             android:layout_weight="1"
-
+            android:background="@android:color/white"
             android:drawableTop="@drawable/crockeries"
             android:drawablePadding="-15dp"
             android:paddingTop="10dp"
@@ -83,6 +84,7 @@
             android:layout_width="0dp"
             android:layout_height="85dp"
             android:layout_gravity="center"
+            android:background="@android:color/white"
             android:layout_marginLeft="5dp"
             android:layout_marginTop="12dp"
             android:layout_weight="1"
@@ -103,7 +105,7 @@
             android:layout_marginTop="12dp"
             android:layout_weight="1"
 
-
+            android:background="@android:color/white"
             android:drawableTop="@drawable/fashion"
             android:drawablePadding="-15dp"
             android:paddingTop="10dp"
@@ -120,7 +122,7 @@
             android:layout_marginTop="12dp"
             android:layout_marginRight="5dp"
             android:layout_weight="1"
-
+           android:background="@android:color/white"
             android:drawableTop="@drawable/furniture_homedecor"
             android:drawablePadding="-15dp"
             android:paddingTop="10dp"
@@ -148,7 +150,7 @@
             android:layout_marginLeft="5dp"
             android:layout_marginTop="12dp"
             android:layout_weight="1"
-
+            android:background="@android:color/white"
             android:drawableTop="@drawable/gifts_toys"
             android:drawablePadding="-15dp"
             android:paddingTop="10dp"
@@ -164,6 +166,7 @@
             android:layout_gravity="center"
             android:layout_marginTop="12dp"
             android:layout_weight="1"
+            android:background="@android:color/white"
             android:drawableTop="@drawable/pump"
             android:drawablePadding="-15dp"
             android:paddingTop="10dp"
@@ -180,7 +183,7 @@
             android:layout_marginTop="12dp"
             android:layout_marginRight="5dp"
             android:layout_weight="1"
-
+            android:background="@android:color/white"
             android:drawableTop="@drawable/others"
             android:drawablePadding="-15dp"
             android:paddingTop="10dp"
@@ -208,6 +211,7 @@
             android:layout_marginLeft="5dp"
             android:layout_marginRight="5dp"
             android:layout_weight="1"
+            android:background="@android:color/white"
             android:drawableTop="@drawable/tools_accessories"
             android:drawablePadding="-15dp"
             android:paddingTop="10dp"
