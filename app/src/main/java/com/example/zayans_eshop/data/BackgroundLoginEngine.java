@@ -113,6 +113,7 @@ public class BackgroundLoginEngine extends AsyncTask<String, Void, String> {
             MainActivity.justLoggedFlag = true;
             Intent intent = new Intent(context, MainActivity.class);
             context.startActivity(intent);
+            context.finish();
 
             // TODO: Update UI on Success
         } else if (s.equalsIgnoreCase("Failed")) {

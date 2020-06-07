@@ -3,18 +3,10 @@
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
     <item>
         <layer-list>
-            <item android:right="5dp" android:top="5dp">
-                <shape>
-                    <corners android:radius="20dp" />
-                    <solid android:color="#D6D6D6" />
-                </shape>
-            </item>
             <item android:bottom="2dp" android:left="2dp">
                 <shape>
-                    <gradient android:angle="270"
-                        android:endColor="#11A1D8" android:startColor="#07759E" />
-
-                    <corners android:radius="20dp" />
+                    <solid android:color="@color/button_colour"/>
+                    <corners android:radius="5dp" />
                     <padding android:bottom="10dp" android:left="10dp"
                         android:right="10dp" android:top="10dp" />
                 </shape>

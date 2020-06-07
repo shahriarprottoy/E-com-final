@@ -1,9 +1,14 @@
 package com.example.zayans_eshop.data;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.util.Log;
 import android.widget.Toast;
+
+import com.example.zayans_eshop.MainActivity;
+import com.example.zayans_eshop.RegisterActivity;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -18,7 +23,13 @@ import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
 
 public class BackgroundRegistrationEngine extends AsyncTask<String, Void, String> {
-    Context context;
+
+    private Activity context;
+
+    public BackgroundRegistrationEngine(Activity context){
+        this.context = context;
+    }
+
     @Override
     protected void onPreExecute() {
         super.onPreExecute();
@@ -76,6 +87,11 @@ public class BackgroundRegistrationEngine extends AsyncTask<String, Void, String
     @Override
     protected void onPostExecute(String s) {
         if (s.equals("Successful")) {
+            Toast.makeText(context, "registration successful",
+                    Toast.LENGTH_LONG).show();
+
+            Intent intent = new Intent(context, MainActivity.class);
+            context.startActivity(intent);
             Log.i("TESTING", s);
         }
         else if(s.equalsIgnoreCase("server crash")){

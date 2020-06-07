@@ -71,12 +71,11 @@ public class RegisterActivity extends AppCompatActivity {
                         toast.show();
                     }
                 } else {
-                    BackgroundRegistrationEngine regitrationEngine = new BackgroundRegistrationEngine();
+                    BackgroundRegistrationEngine regitrationEngine = new BackgroundRegistrationEngine(RegisterActivity.this);
                     regitrationEngine.execute(userName, userPass, userPhone, userEmail, userLocation);
                     // Update UI on account created from Registerer onPostExecute;
                     // For later,, will redirect to login activity once account created
-                    Toast.makeText(RegisterActivity.this, "registration successful",
-                            Toast.LENGTH_LONG).show();
+
                     // getSupportFragmentManager().beginTransaction().add(R.id.fragment_container, new home__fragment()).commit();
                 }
             }
