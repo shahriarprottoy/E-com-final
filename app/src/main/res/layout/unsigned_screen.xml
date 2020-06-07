@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/shoppingwomen"
+
+    android:orientation="vertical">
+    <ImageView
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:src="@drawable/zayanlogo"
+        android:layout_gravity="center"
+        android:layout_marginTop="8dp"
+        android:layout_marginLeft="-12dp">
+
+    </ImageView>
+    <TextView
+        android:id="@+id/logintext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Your Best Choice is Here"
+        android:layout_marginBottom="10dp"
+        android:textSize="25sp"
+        android:textColor="#A735DD"
+        android:textStyle="bold"
+        android:layout_gravity="center"
+        android:layout_marginTop="1dp"
+        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:orientation="vertical"
+        android:layout_marginTop="130dp"
+        >
+        <Button
+            android:id="@+id/loginbutton"
+            android:layout_width="220dp"
+            android:elevation="12dp"
+            android:layout_height="37dp"
+            android:background="@drawable/custom_button2"
+            android:paddingHorizontal="30dp"
+            android:textAllCaps="false"
+            android:layout_gravity="center"
+            android:text="LOGIN"
+            android:textColor="@android:color/white"
+            />
+
+
+
+        <Button
+            android:id="@+id/register"
+            android:layout_width="220dp"
+            android:elevation="12dp"
+            android:layout_marginTop="12dp"
+            android:layout_height="37dp"
+            android:background="@drawable/custom_button2"
+            android:paddingHorizontal="30dp"
+            android:layout_gravity="center"
+            android:text="REGISTER"
+            android:textColor="@android:color/white"
+            />
+    </LinearLayout>
+</LinearLayout>
