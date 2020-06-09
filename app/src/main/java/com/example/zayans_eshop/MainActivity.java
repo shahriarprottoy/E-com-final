@@ -1,8 +1,6 @@
 package com.example.zayans_eshop;
 
 import android.content.SharedPreferences;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
@@ -27,6 +25,8 @@ public class MainActivity extends AppCompatActivity {
 
     // The universal ArrayList<Product> used for storing products as per categories
     public static ArrayList<Product> products = new ArrayList<>();
+    public static ArrayList<Product> cartProducts = new ArrayList<Product>();
+
     public static UserAccount userAccount;
     public static boolean justLoggedFlag = false;
     private BottomNavigationView.OnNavigationItemSelectedListener navListener =

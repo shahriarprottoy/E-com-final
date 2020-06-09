@@ -5,13 +5,14 @@ import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
+import android.text.Html;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.zayans_eshop.data.AdapterViewPager;
 import com.example.zayans_eshop.data.Product;
-import com.example.zayans_eshop.ui.cart__fragment;
 
 
 public class ProductDetails extends AppCompatActivity {
@@ -28,6 +29,7 @@ public class ProductDetails extends AppCompatActivity {
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayShowHomeEnabled(true);
         actionBar.setIcon(R.mipmap.ic_launcher);
+        actionBar.setTitle(Html.fromHtml("<font color='#2399DD'>ayan's Megashop</font>"));
 
         Intent intent = getIntent();
 
@@ -47,16 +49,34 @@ public class ProductDetails extends AppCompatActivity {
         viewPager.setAdapter(adapter);
 
         Button addToCartButton = findViewById(R.id.addtocart);
-        if (fromCart) {
+        if (fromCart || MainActivity.cartProducts.contains(product)) {
             addToCartButton.setVisibility(View.INVISIBLE);
         }
         addToCartButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (!cart__fragment.cartProducts.contains(product)) {
-                    cart__fragment.cartProducts.add(product);
-                } else {
 
+             /*   if (!MainActivity.cartProducts.contains(product)) {
+                    // Add to cart if not already added
+                    MainActivity.cartProducts.add(product);
+                } else {
+                    // Do nothing
+                }*/
+                boolean existsFlag = false;
+                if (MainActivity.cartProducts.size() > 0) {
+                    Log.i("TEST", String.valueOf(MainActivity.cartProducts.size()));
+                    for (int i = 0; i < MainActivity.cartProducts.size(); i++) {
+                        if (MainActivity.cartProducts.get(i).getName().equals(product.getName())) {
+                            existsFlag = true;
+                        }
+                    }
+                    if (!existsFlag) {
+                        MainActivity.cartProducts.add(product);
+                    }
+                } else {
+                    Log.i("TEST", String.valueOf(MainActivity.cartProducts.size()));
+
+                    MainActivity.cartProducts.add(product);
                 }
             }
         });

@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
+import android.text.Html;
 
 import com.example.zayans_eshop.data.AdapterProduct;
 import com.example.zayans_eshop.data.BackgroundProductRetrieverEngine;
@@ -19,6 +20,7 @@ public class ProductList extends AppCompatActivity {
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayShowHomeEnabled(true);
         actionBar.setIcon(R.mipmap.ic_launcher);
+        actionBar.setTitle(Html.fromHtml("<font color='#2399DD'>ayan's Megashop</font>"));
         
         Intent intent = getIntent();
         String argument = null;

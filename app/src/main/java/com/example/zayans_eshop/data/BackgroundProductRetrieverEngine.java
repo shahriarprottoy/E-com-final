@@ -81,7 +81,7 @@ public class BackgroundProductRetrieverEngine extends AsyncTask<String, Void, St
             httpURLConnection.disconnect();
         } catch (IOException e) {
            // e.printStackTrace();
-          return "server crash";
+            return "Connection error";
         }
 
         return retrievedData;
@@ -89,10 +89,10 @@ public class BackgroundProductRetrieverEngine extends AsyncTask<String, Void, St
 
     @Override
     protected void onPostExecute(String s) {
-        if (s.equalsIgnoreCase("server crash")) {
+        if (s.equalsIgnoreCase("Connection error")) {
             Toast.makeText(context,
-                    "sorry for the surver crash",
-                    Toast.LENGTH_LONG).show();
+                    "Could not connect. Please check network connection",
+                    Toast.LENGTH_SHORT).show();
         }
         else {
             super.onPostExecute(s);

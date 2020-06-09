@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,9 +15,9 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.example.zayans_eshop.MainActivity;
 import com.example.zayans_eshop.ProductDetails;
 import com.example.zayans_eshop.R;
-import com.example.zayans_eshop.ui.cart__fragment;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -60,16 +61,16 @@ public class AdapterCartProduct extends ArrayAdapter<Product> {
             }
         });
 
-        final EditText editText = listItemview.findViewById(R.id.numberOfProducts);
-        Button increment = listItemview.findViewById(R.id.incrementButton);
-        Button decrement = listItemview.findViewById(R.id.decrementButton);
-        Button remove = listItemview.findViewById(R.id.remove);
+        final EditText editText = product.findViewById(R.id.numberOfProducts);
+        Button increment = product.findViewById(R.id.incrementButton);
+        Button decrement = product.findViewById(R.id.decrementButton);
+        Button remove = product.findViewById(R.id.remove);
 
         remove.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                cart__fragment.cartProducts.remove(product);
-                listItemview.setVisibility(View.INVISIBLE);
+                MainActivity.cartProducts.remove(currentProduct);
+                product.setVisibility(View.INVISIBLE);
             }
         });
 
@@ -101,7 +102,8 @@ public class AdapterCartProduct extends ArrayAdapter<Product> {
         ImageView image1 = listItemview.findViewById(R.id.image1);
         if (currentProduct.getImage1Url() != "")
             Picasso.with(context).load(Uri.parse(currentProduct.getImage1Url())).into(image1);
-        return listItemview;
+        Log.i("TEST", String.valueOf(MainActivity.cartProducts.size()));
+        return product;
     }
 
 
