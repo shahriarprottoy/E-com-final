@@ -11,7 +11,16 @@
 <LinearLayout
     android:layout_width="match_parent"
     android:layout_height="150dp"
-    android:background="@drawable/plain_back">
+    android:background="@drawable/plain_back"
+    android:orientation="horizontal">
+    <ImageView
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:src="@drawable/ic_baseline_account_circle_24"
+        android:layout_gravity="center"
+        android:layout_marginLeft="40dp">
+
+    </ImageView>
     <TextView
         android:id="@+id/un"
         android:elevation="15dp"
@@ -19,40 +28,44 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:text="UserName"
+
         android:textSize="30sp"
-        android:textColor="@android:color/white"
+        android:textColor="#AAB7B8"
         android:textStyle="bold"
-        android:layout_marginLeft="130dp"
+        android:layout_marginLeft="15dp"
        android:layout_gravity="center"
+        android:layout_marginBottom="10dp"
+
   />
 </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:background="#9A8DE1 "
+        android:background="#F2F3F4"
         android:layout_marginTop="3dp">
     <TextView
         android:id="@+id/email"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
+        android:layout_marginLeft="0dp"
         android:layout_marginTop="5dp"
-        android:text="E-mail"
+        android:text=" E-mail"
+        android:drawableLeft="@drawable/ic_baseline_mail_outline_24"
         android:textSize="19sp"
         android:textStyle="bold"
-        android:textColor="@android:color/white"
+        android:textColor="#AAB7B8"
         android:layout_gravity="center"
  />
         <TextView
             android:id="@+id/emailAddress"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
+            android:layout_marginLeft="0dp"
             android:layout_marginTop="7dp"
             android:text="TextView"
             android:paddingBottom="3dp"
-            android:textColor="@android:color/white"
+            android:textColor="#AAB7B8"
             android:layout_gravity="center"
             />
 
@@ -62,16 +75,17 @@
 android:layout_width="match_parent"
 android:layout_height="wrap_content"
 android:orientation="vertical"
-android:background="#9A8DE1 "
+android:background="#F2F3F4"
 android:layout_marginTop="3dp">
      <TextView
         android:id="@+id/phone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
+        android:layout_marginLeft="0dp"
         android:layout_marginTop="5dp"
-        android:text="Phone"
-         android:textColor="@android:color/white"
+        android:text=" Phone"
+         android:drawableLeft="@drawable/ic_baseline_local_phone_24"
+         android:textColor="#AAB7B8"
         android:textSize="20sp"
         android:textStyle="bold"
         android:layout_gravity="center"
@@ -81,10 +95,10 @@ android:layout_marginTop="3dp">
         android:id="@+id/phoneNumber"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
+        android:layout_marginLeft="0dp"
         android:paddingBottom="3dp"
         android:layout_marginTop="6dp"
-        android:textColor="@android:color/white"
+        android:textColor="#AAB7B8"
         android:text="TextView"
         android:layout_gravity="center"
         />
@@ -93,17 +107,18 @@ android:layout_marginTop="3dp">
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:background="#9A8DE1 "
+        android:background="#F2F3F4"
         android:layout_marginTop="3dp">
     <TextView
         android:id="@+id/location"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
+        android:layout_marginLeft="0dp"
         android:layout_marginTop="5dp"
-        android:text="Location"
+        android:text=" Location"
+        android:drawableLeft="@drawable/ic_baseline_location_on_24"
         android:textSize="20sp"
-        android:textColor="@android:color/white"
+        android:textColor="#AAB7B8"
         android:textStyle="bold"
         android:layout_gravity="center"
         />
@@ -111,11 +126,11 @@ android:layout_marginTop="3dp">
         android:id="@+id/locationText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
+        android:layout_marginLeft="0dp"
         android:layout_marginTop="6dp"
         android:text="TextView"
         android:paddingBottom="3dp"
-        android:textColor="@android:color/white"
+        android:textColor="#AAB7B8"
         android:layout_gravity="center"
         />
     </LinearLayout>

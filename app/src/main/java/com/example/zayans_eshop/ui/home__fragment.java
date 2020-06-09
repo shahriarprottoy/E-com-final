@@ -152,9 +152,11 @@ public class home__fragment extends Fragment {
        inflater.inflate(R.menu.search_menu, menu);
 
        MenuItem item = menu.findItem(R.id.action_search);
+
        item.setShowAsAction(MenuItem.SHOW_AS_ACTION_COLLAPSE_ACTION_VIEW | MenuItem.SHOW_AS_ACTION_IF_ROOM);
 
        android.support.v7.widget.SearchView searchView = (android.support.v7.widget.SearchView) item.getActionView();
+       searchView.setQueryHint(Html.fromHtml("<font color = #2C3E50>" + "</font>"));
 
        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
 
@@ -169,7 +171,7 @@ public class home__fragment extends Fragment {
 
            @Override
            public boolean onQueryTextChange(String newText) {
-               // Here is where we are going to implement the search logic
+
                return true;
            }
        });
