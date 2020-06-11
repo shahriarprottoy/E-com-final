@@ -47,6 +47,7 @@ public class BackgroundProductRetrieverEngine extends AsyncTask<String, Void, St
         super.onProgressUpdate(values);
     }
 
+
     @Override
     protected String doInBackground(String... strings) {
         String retrievedData = "";

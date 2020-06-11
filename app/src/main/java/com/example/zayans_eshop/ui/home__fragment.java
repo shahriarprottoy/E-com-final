@@ -156,7 +156,7 @@ public class home__fragment extends Fragment {
        item.setShowAsAction(MenuItem.SHOW_AS_ACTION_COLLAPSE_ACTION_VIEW | MenuItem.SHOW_AS_ACTION_IF_ROOM);
 
        android.support.v7.widget.SearchView searchView = (android.support.v7.widget.SearchView) item.getActionView();
-       searchView.setQueryHint(Html.fromHtml("<font color = #2C3E50>" + "</font>"));
+       searchView.setQueryHint(Html.fromHtml("<font color = #2C3E50>"));
 
        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
 

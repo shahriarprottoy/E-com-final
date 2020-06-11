@@ -7,6 +7,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.example.zayans_eshop.R;
 
@@ -14,6 +15,8 @@ public class messages__fragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.messages_fragment,container,false);
+        View root= inflater.inflate(R.layout.messages_fragment,container,false);
+
+        return root;
     }
 }
