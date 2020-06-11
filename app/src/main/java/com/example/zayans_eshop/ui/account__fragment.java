@@ -20,8 +20,6 @@ public class account__fragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.account_fragment,container,false);
 
-        // TODO: Change to a standard UI for account frag
-
         Button button = root.findViewById(R.id.register);
         button.setOnClickListener(new View.OnClickListener()
         {
@@ -29,6 +27,7 @@ public class account__fragment extends Fragment {
             {
                 Intent intent = new Intent(getActivity(),RegisterActivity.class);
                  startActivity(intent);
+                getActivity().finish();
             }
 
         });
@@ -39,6 +38,7 @@ public class account__fragment extends Fragment {
             {
                 Intent intent = new Intent(getActivity(), LoginActivity.class);
                 startActivity(intent);
+                getActivity().finish();
             }
 
         });

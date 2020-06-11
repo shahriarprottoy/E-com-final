@@ -1,11 +1,14 @@
 package com.example.zayans_eshop;
 
-import android.graphics.Color;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.zayans_eshop.data.BackgroundRegistrationEngine;
@@ -17,6 +20,11 @@ public class RegisterActivity extends AppCompatActivity {
     private String userPhone;
     private String userEmail;
     private String userLocation;
+    private BackgroundRegistrationEngine regitrationEngine;
+    private Button submit;
+    private TextView tv;
+    private Toast warningToast;
+    private View toast;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,7 +37,14 @@ public class RegisterActivity extends AppCompatActivity {
         final EditText email = findViewById(R.id.email);
         final EditText location = findViewById(R.id.location);
 
-        Button submit = findViewById(R.id.submit);
+        submit = findViewById(R.id.submit);
+        LayoutInflater inflater = getLayoutInflater();
+        toast = inflater.inflate(R.layout.toast_warning, (ViewGroup) findViewById(R.id.toast));
+        tv = toast.findViewById(R.id.toast_text);
+
+        warningToast = new Toast(this);
+        warningToast.setDuration(Toast.LENGTH_SHORT);
+        warningToast.setView(toast);
 
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -43,42 +58,38 @@ public class RegisterActivity extends AppCompatActivity {
 
                 if (userName.length() < 4) {
                     if (userName.length() == 0) {
-                        Toast toast = Toast.makeText(RegisterActivity.this, "name required" + userName,
-                                Toast.LENGTH_LONG);
-                        toast.getView().setBackgroundColor(Color.RED);
-                        toast.show();
+                        tv.setText("Name required!");
+                        warningToast.show();
                     } else {
-                        Toast toast = Toast.makeText(RegisterActivity.this, "your name is too short",
-                                Toast.LENGTH_LONG);
-                        toast.getView().setBackgroundColor(Color.RED);
-                        toast.show();
+                        tv.setText("Too short! At least 4 letters.");
+                        warningToast.show();
                     }
                 } else if (userPass.length() < 6) {
-                    Toast toast = Toast.makeText(RegisterActivity.this, "password is too short",
-                            Toast.LENGTH_LONG);
-                    toast.getView().setBackgroundColor(Color.RED);
-                    toast.show();
-                } else if (userPhone.length() < 10 || userPhone.length() > 11) {
+                    tv.setText("Too short! At least 6 characters.");
+                    warningToast.show();
+                } else if (userPhone.length() < 10 || userPhone.length() > 15) {
                     if (userPhone.length() == 0) {
-                        Toast toast = Toast.makeText(RegisterActivity.this, "mobile number requied",
-                                Toast.LENGTH_LONG);
-                        toast.getView().setBackgroundColor(Color.RED);
-                        toast.show();
+                        tv.setText("Mobile number required!");
+                        warningToast.show();
                     } else {
-                        Toast toast = Toast.makeText(RegisterActivity.this, "mobile number invalid",
-                                Toast.LENGTH_LONG);
-                        toast.getView().setBackgroundColor(Color.RED);
-                        toast.show();
+                        tv.setText("Mobile number invalid!");
+                        warningToast.show();
                     }
                 } else {
-                    BackgroundRegistrationEngine regitrationEngine = new BackgroundRegistrationEngine(RegisterActivity.this);
+                    submit.setEnabled(false);
+                    regitrationEngine = new BackgroundRegistrationEngine(RegisterActivity.this, submit);
                     regitrationEngine.execute(userName, userPass, userPhone, userEmail, userLocation);
-                    // Update UI on account created from Registerer onPostExecute;
-                    // For later,, will redirect to login activity once account created
-
-                    // getSupportFragmentManager().beginTransaction().add(R.id.fragment_container, new home__fragment()).commit();
                 }
             }
         });
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (regitrationEngine != null)
+            regitrationEngine.cancel(true);
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+        finish();
     }
 }

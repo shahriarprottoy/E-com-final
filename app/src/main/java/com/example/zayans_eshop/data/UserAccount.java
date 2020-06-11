@@ -55,4 +55,16 @@ public class UserAccount {
     public void setUniqId(String uniqId) {
         this.uniqId = uniqId;
     }
+
+    public void logOut() {
+        userName = null;
+        userEmail = null;
+        userLocation = null;
+        userPhone = null;
+        uniqId = null;
+    }
+
+    public boolean isEmpty() {
+        return userName == null;
+    }
 }

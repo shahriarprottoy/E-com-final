@@ -64,13 +64,13 @@ public class AdapterCartProduct extends ArrayAdapter<Product> {
         final EditText editText = product.findViewById(R.id.numberOfProducts);
         Button increment = product.findViewById(R.id.incrementButton);
         Button decrement = product.findViewById(R.id.decrementButton);
-        Button remove = product.findViewById(R.id.remove);
+        final Button remove = product.findViewById(R.id.remove);
 
         remove.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 MainActivity.cartProducts.remove(currentProduct);
-                product.setVisibility(View.INVISIBLE);
+                notifyDataSetChanged();
             }
         });
 

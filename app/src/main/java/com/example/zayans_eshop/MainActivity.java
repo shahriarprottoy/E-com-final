@@ -8,7 +8,6 @@ import android.support.v4.app.Fragment;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Html;
-import android.util.Log;
 import android.view.MenuItem;
 
 import com.example.zayans_eshop.data.Product;
@@ -67,6 +66,7 @@ public class MainActivity extends AppCompatActivity {
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayShowHomeEnabled(true);
         actionBar.setIcon(R.mipmap.ic_launcher);
+        actionBar.setLogo(R.mipmap.ic_launcher);
         actionBar.setTitle(Html.fromHtml("<font color='#2399DD'>ayan's Megashop</font>"));
 
 
@@ -83,12 +83,10 @@ public class MainActivity extends AppCompatActivity {
         userAccount.setUserLocation(userAccountPrefs.getString("userLocation", null));
         userAccount.setUniqId(userAccountPrefs.getString("uniqId", null));
 
-        if (justLoggedFlag) {
-            Log.i("TEST", "restarted with flag");
+        if (justLoggedFlag && userAccount.getUserName() != null) {
             bottomNavigationView.getMenu().getItem(3).setChecked(true);
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new signed__in__account__fragment()).commit();
         } else {
-            Log.i("TEST", "restarted without flag");
         }
     }
 }

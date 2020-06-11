@@ -1,11 +1,14 @@
 package com.example.zayans_eshop;
 
-import android.graphics.Color;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.zayans_eshop.data.BackgroundLoginEngine;
@@ -14,6 +17,10 @@ public class LoginActivity extends AppCompatActivity {
 
     private String userName;
     private String userPass;
+    private BackgroundLoginEngine loginEngine;
+    private TextView tv;
+    private Toast warningToast;
+    private View toast;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,6 +31,14 @@ public class LoginActivity extends AppCompatActivity {
         final EditText pass = findViewById(R.id.userpass);
         final Button submit = findViewById(R.id.login);
 
+        LayoutInflater inflater = getLayoutInflater();
+        toast = inflater.inflate(R.layout.toast_warning, (ViewGroup) findViewById(R.id.toast));
+        tv = toast.findViewById(R.id.toast_text);
+
+        warningToast = new Toast(this);
+        warningToast.setDuration(Toast.LENGTH_SHORT);
+        warningToast.setView(toast);
+
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -33,31 +48,35 @@ public class LoginActivity extends AppCompatActivity {
 
                 if (userName.length() < 4) {
                     if (userName.length() == 0) {
-                        Toast.makeText(LoginActivity.this, "enter name",
-                                Toast.LENGTH_LONG).show();
+                        tv.setText("Enter name");
+                        warningToast.show();
                     } else {
-                        Toast toast = Toast.makeText(LoginActivity.this, "invalid name",
-                                Toast.LENGTH_LONG);
-                        toast.getView().setBackgroundColor(Color.RED);
-                        toast.show();
+                        tv.setText("Invalid username");
+                        warningToast.show();
                     }
                 } else if (userPass.length() < 6) {
                     if (userPass.length() == 0) {
-                        Toast toast = Toast.makeText(LoginActivity.this, "enter password",
-                                Toast.LENGTH_LONG);
-                        toast.getView().setBackgroundColor(Color.YELLOW);
-                        toast.show();
+                        tv.setText("Enter password");
+                        warningToast.show();
                     } else {
-                        Toast toast = Toast.makeText(LoginActivity.this, "invalid password",
-                                Toast.LENGTH_LONG);
-                        toast.getView().setBackgroundColor(Color.RED);
-                        toast.show();
+                        tv.setText("Invalid password");
+                        warningToast.show();
                     }
                 } else {
-                    BackgroundLoginEngine loginEngine = new BackgroundLoginEngine(LoginActivity.this);
+                    submit.setEnabled(false);
+                    loginEngine = new BackgroundLoginEngine(LoginActivity.this, submit);
                     loginEngine.execute(userName, userPass);
                 }
             }
         });
+    }
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+        if (loginEngine != null)
+            loginEngine.cancel(true);
+        finish();
     }
 }

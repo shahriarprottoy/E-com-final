@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
+import android.widget.Button;
 import android.widget.Toast;
 
 import com.example.zayans_eshop.MainActivity;
@@ -26,9 +27,11 @@ import java.nio.charset.StandardCharsets;
 public class BackgroundLoginEngine extends AsyncTask<String, Void, String> {
 
     private Activity context;
+    private Button submit;
 
-    public BackgroundLoginEngine(Activity context) {
+    public BackgroundLoginEngine(Activity context, Button submit) {
         this.context = context;
+        this.submit = submit;
     }
 
     @Override
@@ -76,7 +79,7 @@ public class BackgroundLoginEngine extends AsyncTask<String, Void, String> {
             httpURLConnection.disconnect();
         } catch (IOException e) {
           //  e.printStackTrace();
-           return "sorry for the server crash";
+            return "Network error";
         }
 
         return retrievedData;
@@ -85,7 +88,15 @@ public class BackgroundLoginEngine extends AsyncTask<String, Void, String> {
     @Override
     protected void onPostExecute(String s) {
         super.onPostExecute(s);
-        if (!s.equals("Failed")) {
+        if (s.equalsIgnoreCase("Failed")) {
+            Toast.makeText(context,
+                    "Incorrect username or password",
+                    Toast.LENGTH_LONG).show();
+            submit.setEnabled(true);
+        } else if (s.equalsIgnoreCase("network error")) {
+            submit.setEnabled(true);
+            Toast.makeText(context, "Network error! please check network connection", Toast.LENGTH_SHORT).show();
+        } else {
             try {
                 JSONArray obj = new JSONArray(s);
 
@@ -97,34 +108,26 @@ public class BackgroundLoginEngine extends AsyncTask<String, Void, String> {
                         obj.getString(4));
             } catch (JSONException e) {
                 e.printStackTrace();
+                submit.setEnabled(true);
+                Toast.makeText(context, "An unknown error occurred", Toast.LENGTH_SHORT).show();
             }
 
             // Saving Login Details
             SharedPreferences userAccountPrefs = context.getSharedPreferences("userAccount", 0);
             SharedPreferences.Editor editor = userAccountPrefs.edit();
 
-            editor.putString("userName", MainActivity.userAccount.getUserName());
-            editor.putString("userPhone", MainActivity.userAccount.getUserPhone());
-            editor.putString("userEmail", MainActivity.userAccount.getUserEmail());
-            editor.putString("userLocation", MainActivity.userAccount.getUserLocation());
-            editor.putString("uniqId", MainActivity.userAccount.getUniqId());
-
-            editor.apply();
-            MainActivity.justLoggedFlag = true;
-            Intent intent = new Intent(context, MainActivity.class);
-            context.startActivity(intent);
-            context.finish();
-
-            // TODO: Update UI on Success
-        } else if (s.equalsIgnoreCase("Failed")) {
-            Toast.makeText(context,
-                    "Incorrect username or password",
-                    Toast.LENGTH_LONG).show();
-        }
-        else {
-            Toast.makeText(context,
-                    "Sorry for the server Crash",
-                    Toast.LENGTH_LONG).show();
+            if (!MainActivity.userAccount.isEmpty()) {
+                editor.putString("userName", MainActivity.userAccount.getUserName());
+                editor.putString("userPhone", MainActivity.userAccount.getUserPhone());
+                editor.putString("userEmail", MainActivity.userAccount.getUserEmail());
+                editor.putString("userLocation", MainActivity.userAccount.getUserLocation());
+                editor.putString("uniqId", MainActivity.userAccount.getUniqId());
+                editor.apply();
+                MainActivity.justLoggedFlag = true;
+                Intent intent = new Intent(context, MainActivity.class);
+                context.startActivity(intent);
+                context.finish();
+            }
         }
     }
 }

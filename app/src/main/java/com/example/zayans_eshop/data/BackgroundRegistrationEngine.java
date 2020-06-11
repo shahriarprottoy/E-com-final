@@ -1,14 +1,12 @@
 package com.example.zayans_eshop.data;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
-import android.util.Log;
+import android.widget.Button;
 import android.widget.Toast;
 
 import com.example.zayans_eshop.MainActivity;
-import com.example.zayans_eshop.RegisterActivity;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -25,9 +23,11 @@ import java.nio.charset.StandardCharsets;
 public class BackgroundRegistrationEngine extends AsyncTask<String, Void, String> {
 
     private Activity context;
+    private Button submit;
 
-    public BackgroundRegistrationEngine(Activity context){
+    public BackgroundRegistrationEngine(Activity context, Button submit) {
         this.context = context;
+        this.submit = submit;
     }
 
     @Override
@@ -78,6 +78,7 @@ public class BackgroundRegistrationEngine extends AsyncTask<String, Void, String
             httpURLConnection.disconnect();
         } catch (IOException e) {
            // e.printStackTrace();
+            submit.setEnabled(true);
            return "server crash";
         }
 
@@ -86,18 +87,19 @@ public class BackgroundRegistrationEngine extends AsyncTask<String, Void, String
 
     @Override
     protected void onPostExecute(String s) {
-        if (s.equals("Successful")) {
+        if (s.equalsIgnoreCase("Successful")) {
             Toast.makeText(context, "registration successful",
                     Toast.LENGTH_LONG).show();
 
             Intent intent = new Intent(context, MainActivity.class);
             context.startActivity(intent);
-            Log.i("TESTING", s);
-        }
-        else if(s.equalsIgnoreCase("server crash")){
-            Log.i("TESTING", s);
+        } else if (s.equalsIgnoreCase("server crash")) {
             Toast.makeText(context,
-                    "sorry for the server crash",
+                    "An unknown error occurred",
+                    Toast.LENGTH_LONG).show();
+        } else {
+            Toast.makeText(context,
+                    "Connection problem! Please check network connection",
                     Toast.LENGTH_LONG).show();
         }
          super.onPostExecute(s);

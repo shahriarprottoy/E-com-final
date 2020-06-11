@@ -20,6 +20,7 @@ public  class Unsigned_screen extends AppCompatActivity {
             {
                 Intent intent = new Intent(Unsigned_screen.this, LoginActivity.class);
                 startActivity(intent);
+                finish();
             }
 
         });
@@ -29,6 +30,7 @@ public  class Unsigned_screen extends AppCompatActivity {
             {
                 Intent intent = new Intent(Unsigned_screen.this, RegisterActivity.class);
                 startActivity(intent);
+                finish();
             }
 
         });
@@ -38,5 +40,6 @@ public  class Unsigned_screen extends AppCompatActivity {
     public void onBackPressed() {
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
+        finish();
     }
 }

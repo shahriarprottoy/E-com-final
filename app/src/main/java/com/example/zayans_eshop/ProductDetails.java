@@ -55,13 +55,6 @@ public class ProductDetails extends AppCompatActivity {
         addToCartButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-             /*   if (!MainActivity.cartProducts.contains(product)) {
-                    // Add to cart if not already added
-                    MainActivity.cartProducts.add(product);
-                } else {
-                    // Do nothing
-                }*/
                 boolean existsFlag = false;
                 if (MainActivity.cartProducts.size() > 0) {
                     Log.i("TEST", String.valueOf(MainActivity.cartProducts.size()));
@@ -82,7 +75,7 @@ public class ProductDetails extends AppCompatActivity {
         });
 
         TextView name = findViewById(R.id.name);
-        name.setText("Name: " + product.getName());
+        name.setText(product.getName());
         TextView price = findViewById(R.id.price);
         price.setText("Regular Price: " + product.getPrice());
         TextView offerPrice = findViewById(R.id.offerPrice);
