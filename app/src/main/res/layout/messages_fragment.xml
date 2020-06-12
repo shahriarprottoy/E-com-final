@@ -1,55 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-android:background="@drawable/contactback"
-    >
+    android:background="@drawable/contactback"
+    android:orientation="vertical">
+
     <TextView
         android:id="@+id/text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="We'd love to hear from you"
-        android:textSize="25dp"
-        android:textStyle="bold"
-        android:textColor="#5C5F5F"
-        android:layout_marginTop="30dp"
         android:layout_marginLeft="20dp"
-        />
+        android:layout_marginTop="30dp"
+        android:text="We'd love to hear from you"
+        android:textColor="#5C5F5F"
+        android:textSize="25dp"
+        android:textStyle="bold" />
+
     <TextView
         android:id="@+id/text2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Whether you have question about feature,trial,pricing or anything else we are here to answer all your questions"
-        android:textSize="15dp"
-        android:textStyle="bold"
-        android:textColor="#969E9E"
-        android:layout_marginRight="20dp"
-        android:layout_marginTop="10dp"
         android:layout_marginLeft="20dp"
-        />
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="20dp"
+        android:text="Whether you have question about feature,trial,pricing or anything else we are here to answer all your questions"
+        android:textColor="#969E9E"
+        android:textSize="15dp"
+        android:textStyle="bold" />
+
     <ImageView
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:src="@drawable/contact2"
-        android:layout_marginTop="120dp"
         android:layout_marginLeft="270dp"
+        android:layout_marginTop="120dp"
         android:layout_marginBottom="-28dp"
-        />
+        android:src="@drawable/contact2" />
 
     <TextView
         android:id="@+id/text3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Contact us"
-        android:textSize="45dp"
-        android:textStyle="bold"
-        android:textColor="@android:color/holo_blue_light"
+        android:layout_gravity="center"
         android:layout_marginTop="0dp"
         android:shadowColor="#A0A3A9"
         android:shadowDx="-2"
         android:shadowDy="-2"
         android:shadowRadius="1"
-        android:layout_gravity="center"
-        />
+        android:text="Contact us"
+        android:textColor="@android:color/holo_blue_light"
+        android:textSize="45dp"
+        android:textStyle="bold" />
 </LinearLayout>

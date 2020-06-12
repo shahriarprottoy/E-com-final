@@ -1,11 +1,11 @@
 package com.example.zayans_eshop.ui;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v7.app.ActionBar;
 import android.support.v7.widget.SearchView;
 import android.text.Html;
 import android.view.LayoutInflater;
@@ -27,10 +27,8 @@ public class home__fragment extends Fragment {
         View root = inflater.inflate(R.layout.fragment_home, container, false);
 
         Button button = root.findViewById(R.id.electronics);
-        button.setOnClickListener(new View.OnClickListener()
-        {
-            public void onClick(View v)
-            {
+        button.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
                 Intent intent = new Intent(getActivity(), ProductList.class);
                 intent.putExtra("category", "Electric and Electronics");
                 startActivity(intent);
@@ -39,10 +37,8 @@ public class home__fragment extends Fragment {
         });
 
         Button button2 = root.findViewById(R.id.foods);
-        button2.setOnClickListener(new View.OnClickListener()
-        {
-            public void onClick(View v)
-            {
+        button2.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
                 Intent intent = new Intent(getActivity(), ProductList.class);
                 intent.putExtra("category", "Grocery and Food");
                 startActivity(intent);
@@ -50,10 +46,8 @@ public class home__fragment extends Fragment {
 
         });
         Button button3 = root.findViewById(R.id.crockeries);
-        button3.setOnClickListener(new View.OnClickListener()
-        {
-            public void onClick(View v)
-            {
+        button3.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
                 Intent intent = new Intent(getActivity(), ProductList.class);
                 intent.putExtra("category", "Home Appliances and Crockeries");
                 startActivity(intent);
@@ -61,10 +55,8 @@ public class home__fragment extends Fragment {
 
         });
         Button button4 = root.findViewById(R.id.bicycle);
-        button4.setOnClickListener(new View.OnClickListener()
-        {
-            public void onClick(View v)
-            {
+        button4.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
                 Intent intent = new Intent(getActivity(), ProductList.class);
                 intent.putExtra("category", "Bicycle and Tricycle");
                 startActivity(intent);
@@ -72,10 +64,8 @@ public class home__fragment extends Fragment {
 
         });
         Button button5 = root.findViewById(R.id.furniture);
-        button5.setOnClickListener(new View.OnClickListener()
-        {
-            public void onClick(View v)
-            {
+        button5.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
                 Intent intent = new Intent(getActivity(), ProductList.class);
                 intent.putExtra("category", "Furniture and Home Decor");
                 startActivity(intent);
@@ -83,10 +73,8 @@ public class home__fragment extends Fragment {
 
         });
         Button button6 = root.findViewById(R.id.toolsandaccessories);
-        button6.setOnClickListener(new View.OnClickListener()
-        {
-            public void onClick(View v)
-            {
+        button6.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
                 Intent intent = new Intent(getActivity(), ProductList.class);
                 intent.putExtra("category", "Tools and Accessories");
                 startActivity(intent);
@@ -94,10 +82,8 @@ public class home__fragment extends Fragment {
 
         });
         Button button7 = root.findViewById(R.id.pump);
-        button7.setOnClickListener(new View.OnClickListener()
-        {
-            public void onClick(View v)
-            {
+        button7.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
                 Intent intent = new Intent(getActivity(), ProductList.class);
                 intent.putExtra("category", "Pumps and Machineries");
                 startActivity(intent);
@@ -105,10 +91,8 @@ public class home__fragment extends Fragment {
 
         });
         Button button8 = root.findViewById(R.id.fashion);
-        button8.setOnClickListener(new View.OnClickListener()
-        {
-            public void onClick(View v)
-            {
+        button8.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
                 Intent intent = new Intent(getActivity(), ProductList.class);
                 intent.putExtra("category", "Fashion");
                 startActivity(intent);
@@ -116,10 +100,8 @@ public class home__fragment extends Fragment {
 
         });
         Button button9 = root.findViewById(R.id.gifts);
-        button9.setOnClickListener(new View.OnClickListener()
-        {
-            public void onClick(View v)
-            {
+        button9.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
                 Intent intent = new Intent(getActivity(), ProductList.class);
                 intent.putExtra("category", "Gifts and Toys");
                 startActivity(intent);
@@ -127,10 +109,8 @@ public class home__fragment extends Fragment {
 
         });
         Button button10 = root.findViewById(R.id.others);
-        button10.setOnClickListener(new View.OnClickListener()
-        {
-            public void onClick(View v)
-            {
+        button10.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
                 Intent intent = new Intent(getActivity(), ProductList.class);
                 intent.putExtra("category", "Others");
                 startActivity(intent);
@@ -145,35 +125,35 @@ public class home__fragment extends Fragment {
     }
 
 
-   @Override
-   public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-       super.onCreateOptionsMenu(menu, inflater);
-       menu.clear();
-       inflater.inflate(R.menu.search_menu, menu);
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        super.onCreateOptionsMenu(menu, inflater);
+        menu.clear();
+        inflater.inflate(R.menu.search_menu, menu);
 
-       MenuItem item = menu.findItem(R.id.action_search);
+        MenuItem item = menu.findItem(R.id.action_search);
 
-       item.setShowAsAction(MenuItem.SHOW_AS_ACTION_COLLAPSE_ACTION_VIEW | MenuItem.SHOW_AS_ACTION_IF_ROOM);
+        item.setShowAsAction(MenuItem.SHOW_AS_ACTION_COLLAPSE_ACTION_VIEW | MenuItem.SHOW_AS_ACTION_IF_ROOM);
 
-       android.support.v7.widget.SearchView searchView = (android.support.v7.widget.SearchView) item.getActionView();
-       searchView.setQueryHint(Html.fromHtml("<font color = #2C3E50>"));
+        final android.support.v7.widget.SearchView searchView = (android.support.v7.widget.SearchView) item.getActionView();
+        searchView.setQueryHint(Html.fromHtml("<font color =#DDDDDD>Search Product</font>"));
 
-       searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+        searchView.setBackgroundColor(Color.rgb(200, 200, 200));
 
-           @Override
-           public boolean onQueryTextSubmit(String query) {
-               // Here is what we do
-               Intent intent = new Intent(getActivity(), ProductList.class);
-               intent.putExtra("search", query);
-               getActivity().startActivity(intent);
-               return false;
-           }
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
 
-           @Override
-           public boolean onQueryTextChange(String newText) {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                Intent intent = new Intent(getActivity(), ProductList.class);
+                intent.putExtra("search", query);
+                getActivity().startActivity(intent);
+                return false;
+            }
 
-               return true;
-           }
-       });
-   }
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                return true;
+            }
+        });
+    }
 }

@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Html;
+import android.widget.GridView;
+import android.widget.ProgressBar;
 
 import com.example.zayans_eshop.data.AdapterProduct;
 import com.example.zayans_eshop.data.BackgroundProductRetrieverEngine;
@@ -12,6 +14,7 @@ import com.example.zayans_eshop.data.BackgroundProductRetrieverEngine;
 public class ProductList extends AppCompatActivity {
 
     private AdapterProduct mAdapter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,6 +33,9 @@ public class ProductList extends AppCompatActivity {
 
         if (!(intent.getStringExtra("category") == null))
         argument = getIntent().getStringExtra("category");
+
+        ProgressBar progressBar = findViewById(R.id.progressBar);
+        GridView gridView = findViewById(R.id.product_list);
 
         BackgroundProductRetrieverEngine retriever = new BackgroundProductRetrieverEngine(this, mAdapter);
         

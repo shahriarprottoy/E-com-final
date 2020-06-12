@@ -3,7 +3,10 @@ package com.example.zayans_eshop.data;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.os.AsyncTask;
+import android.view.View;
 import android.widget.GridView;
+import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.zayans_eshop.MainActivity;
@@ -30,15 +33,21 @@ public class BackgroundProductRetrieverEngine extends AsyncTask<String, Void, St
     @SuppressLint("StaticFieldLeak")
     private Activity context;
     private AdapterProduct mAdapter;
+    private GridView productListView;
+    private ProgressBar progressBar;
+    private TextView textView;
 
     public BackgroundProductRetrieverEngine(Activity context, AdapterProduct mAdapter) {
-
         this.mAdapter = mAdapter;
         this.context = context;
     }
 
     @Override
     protected void onPreExecute() {
+        // Find a reference to the {@link ListView} in the layout
+        productListView = context.findViewById(R.id.product_list);
+        progressBar = context.findViewById(R.id.progressBar);
+        textView = context.findViewById(R.id.nothing);
         super.onPreExecute();
     }
 
@@ -81,7 +90,8 @@ public class BackgroundProductRetrieverEngine extends AsyncTask<String, Void, St
             inputStream.close();
             httpURLConnection.disconnect();
         } catch (IOException e) {
-           // e.printStackTrace();
+            // e.printStackTrace();
+            progressBar.setVisibility(View.INVISIBLE);
             return "Connection error";
         }
 
@@ -90,12 +100,14 @@ public class BackgroundProductRetrieverEngine extends AsyncTask<String, Void, St
 
     @Override
     protected void onPostExecute(String s) {
+        // Hide progress bar
+        progressBar.setVisibility(View.INVISIBLE);
+
         if (s.equalsIgnoreCase("Connection error")) {
             Toast.makeText(context,
                     "Could not connect. Please check network connection",
                     Toast.LENGTH_SHORT).show();
-        }
-        else {
+        } else {
             super.onPostExecute(s);
             MainActivity.products = new ArrayList<>();
             JSONArray jsonArray;
@@ -118,14 +130,18 @@ public class BackgroundProductRetrieverEngine extends AsyncTask<String, Void, St
             } catch (JSONException e) {
                 e.printStackTrace();
             }
-            // Find a reference to the {@link ListView} in the layout
-            GridView productListView = context.findViewById(R.id.product_list);
-
 
             // Create a new adapter that takes an empty list of Product as input
             mAdapter = new AdapterProduct(context, MainActivity.products);
 
-            productListView.setAdapter(mAdapter);
+            if (MainActivity.products.size() <= 0) {
+                textView.setText("Nothing Found!");
+                textView.setVisibility(View.VISIBLE);
+            } else {
+                productListView.setVisibility(View.VISIBLE);
+                productListView.setAdapter(mAdapter);
+            }
+
         }
     }
 }
