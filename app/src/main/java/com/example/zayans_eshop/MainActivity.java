@@ -61,12 +61,14 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        overridePendingTransition(R.anim.fadein, R.anim.fadeout);
         setContentView(R.layout.activity_main);
 
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayShowHomeEnabled(true);
         actionBar.setIcon(R.mipmap.ic_launcher);
         actionBar.setLogo(R.mipmap.ic_launcher);
+
         actionBar.setTitle(Html.fromHtml("<font color='#2399DD'>ayan's Megashop</font>"));
 
 

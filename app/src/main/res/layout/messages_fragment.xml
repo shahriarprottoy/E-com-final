@@ -2,7 +2,6 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/contactback"
     android:orientation="vertical">
 
     <TextView
@@ -45,7 +44,7 @@
         android:shadowColor="#A0A3A9"
         android:shadowDx="-2"
         android:shadowDy="-2"
-        android:shadowRadius="1"
+        android:shadowRadius="2"
         android:text="Contact us"
         android:textColor="@android:color/holo_blue_light"
         android:textSize="45dp"

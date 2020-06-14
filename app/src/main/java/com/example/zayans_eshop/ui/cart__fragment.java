@@ -13,6 +13,7 @@ import android.widget.ListView;
 
 import com.example.zayans_eshop.MainActivity;
 import com.example.zayans_eshop.R;
+import com.example.zayans_eshop.RegisterActivity;
 import com.example.zayans_eshop.Unsigned_screen;
 import com.example.zayans_eshop.data.AdapterCartProduct;
 
@@ -36,6 +37,8 @@ public class cart__fragment extends Fragment {
     public void onAttach(Context context) {
         super.onAttach(context);
         if (MainActivity.userAccount.getUserName() == null) {
+            startActivity(new Intent(getActivity(), Unsigned_screen.class));
+            getActivity().overridePendingTransition(R.anim.slide_out_bottom, R.anim.slide_in_bottom);
             Intent intent = new Intent(getActivity(), Unsigned_screen.class);
             startActivity(intent);
             getActivity().finish();

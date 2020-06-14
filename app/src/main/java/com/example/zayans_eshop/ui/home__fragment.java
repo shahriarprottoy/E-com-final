@@ -138,7 +138,7 @@ public class home__fragment extends Fragment {
         final android.support.v7.widget.SearchView searchView = (android.support.v7.widget.SearchView) item.getActionView();
         searchView.setQueryHint(Html.fromHtml("<font color =#DDDDDD>Search Product</font>"));
 
-        searchView.setBackgroundColor(Color.rgb(200, 200, 200));
+        searchView.setBackgroundColor(Color.rgb(225, 225, 225));
 
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
 

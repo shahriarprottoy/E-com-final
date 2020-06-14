@@ -6,6 +6,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -29,6 +31,7 @@ public class RegisterActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+      //  overridePendingTransition(R.transition.fadein, R.transition.fadeout);
         setContentView(R.layout.registerscreen);
 
         final EditText name = findViewById(R.id.username);
@@ -92,4 +95,5 @@ public class RegisterActivity extends AppCompatActivity {
         startActivity(intent);
         finish();
     }
+
 }
