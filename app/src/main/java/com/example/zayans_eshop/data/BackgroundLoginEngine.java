@@ -1,7 +1,6 @@
 package com.example.zayans_eshop.data;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.widget.Button;
@@ -124,8 +123,7 @@ public class BackgroundLoginEngine extends AsyncTask<String, Void, String> {
                 editor.putString("uniqId", MainActivity.userAccount.getUniqId());
                 editor.apply();
                 MainActivity.justLoggedFlag = true;
-                Intent intent = new Intent(context, MainActivity.class);
-                context.startActivity(intent);
+                context.onBackPressed();
                 context.finish();
             }
         }

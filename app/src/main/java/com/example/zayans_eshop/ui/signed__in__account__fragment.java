@@ -1,6 +1,7 @@
 package com.example.zayans_eshop.ui;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -13,6 +14,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.zayans_eshop.EditAccount;
 import com.example.zayans_eshop.MainActivity;
 import com.example.zayans_eshop.R;
 import com.example.zayans_eshop.data.UserAccount;
@@ -32,6 +34,7 @@ public class signed__in__account__fragment extends Fragment {
         TextView userEmail = root.findViewById(R.id.emailAddress);
         TextView userLocation = root.findViewById(R.id.locationText);
         Button logOutButton = root.findViewById(R.id.log_out_btn);
+        Button editButton = root.findViewById(R.id.edit_account_button);
 
         this.userAccount = MainActivity.userAccount;
 
@@ -39,6 +42,14 @@ public class signed__in__account__fragment extends Fragment {
         userPhone.setText(userAccount.getUserPhone());
         userEmail.setText(userAccount.getUserEmail());
         userLocation.setText(userAccount.getUserLocation());
+
+        editButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), EditAccount.class);
+                startActivity(intent);
+            }
+        });
 
         logOutButton.setOnClickListener(new View.OnClickListener() {
             @Override

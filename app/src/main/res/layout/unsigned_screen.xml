@@ -52,17 +52,21 @@
                 android:textAllCaps="false"
                 android:textColor="@android:color/white" />
 
-            <Button
-                android:id="@+id/register"
-                android:layout_width="220dp"
-                android:layout_height="37dp"
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginTop="12dp"
-                android:background="@drawable/custom_button2"
-                android:elevation="12dp"
+                android:layout_marginTop="5dp"
+                android:text="or" />
+
+            <TextView
+                android:id="@+id/register"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="5dp"
                 android:paddingHorizontal="30dp"
-                android:text="REGISTER"
-                android:textColor="@android:color/white" />
+                android:text="REGISTER" />
 
         </LinearLayout>
 

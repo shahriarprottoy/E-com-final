@@ -21,6 +21,7 @@ public class LoginActivity extends AppCompatActivity {
     private TextView tv;
     private Toast warningToast;
     private View toast;
+    private boolean cartFlag;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,14 +71,20 @@ public class LoginActivity extends AppCompatActivity {
                 }
             }
         });
+
+        cartFlag = getIntent().getBooleanExtra("cartFlag", false);
     }
 
     @Override
     public void onBackPressed() {
-        Intent intent = new Intent(this, MainActivity.class);
-        startActivity(intent);
         if (loginEngine != null)
             loginEngine.cancel(true);
-        finish();
+        if (cartFlag) {
+            startActivity(new Intent(this, MainActivity.class));
+            finish();
+        } else {
+            super.onBackPressed();
+            finish();
+        }
     }
 }

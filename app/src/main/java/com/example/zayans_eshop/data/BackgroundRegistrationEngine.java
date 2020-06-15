@@ -1,12 +1,9 @@
 package com.example.zayans_eshop.data;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.os.AsyncTask;
 import android.widget.Button;
 import android.widget.Toast;
-
-import com.example.zayans_eshop.MainActivity;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -91,8 +88,7 @@ public class BackgroundRegistrationEngine extends AsyncTask<String, Void, String
             Toast.makeText(context, "registration successful",
                     Toast.LENGTH_LONG).show();
 
-            Intent intent = new Intent(context, MainActivity.class);
-            context.startActivity(intent);
+            context.onBackPressed();
         } else if (s.equalsIgnoreCase("server crash")) {
             Toast.makeText(context,
                     "An unknown error occurred",

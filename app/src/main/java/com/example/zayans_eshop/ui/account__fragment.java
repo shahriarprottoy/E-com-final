@@ -1,6 +1,5 @@
 package com.example.zayans_eshop.ui;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -10,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.example.zayans_eshop.LoginActivity;
 import com.example.zayans_eshop.R;
@@ -21,16 +21,14 @@ public class account__fragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.account_fragment,container,false);
 
-        Button button = root.findViewById(R.id.register);
+        TextView button = root.findViewById(R.id.register);
         button.setOnClickListener(new View.OnClickListener()
         {
             public void onClick(View v)
             {
-                startActivity(new Intent(getActivity(), RegisterActivity.class));
                 getActivity().overridePendingTransition(R.anim.slide_out_bottom, R.anim.slide_in_bottom);
                 Intent intent = new Intent(getActivity(),RegisterActivity.class);
                  startActivity(intent);
-                getActivity().finish();
             }
 
         });
@@ -39,11 +37,9 @@ public class account__fragment extends Fragment {
         {
             public void onClick(View v)
             {
-                startActivity(new Intent(getActivity(), LoginActivity.class));
                 getActivity().overridePendingTransition(R.anim.slide_out_bottom, R.anim.slide_in_bottom);
                 Intent intent = new Intent(getActivity(), LoginActivity.class);
                 startActivity(intent);
-                getActivity().finish();
             }
 
         });

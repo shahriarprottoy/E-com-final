@@ -6,8 +6,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -27,6 +25,7 @@ public class RegisterActivity extends AppCompatActivity {
     private TextView tv;
     private Toast warningToast;
     private View toast;
+    private boolean cartFlag;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -85,15 +84,21 @@ public class RegisterActivity extends AppCompatActivity {
                 }
             }
         });
+
+        cartFlag = getIntent().getBooleanExtra("cartFlag", false);
     }
 
     @Override
     public void onBackPressed() {
         if (regitrationEngine != null)
             regitrationEngine.cancel(true);
-        Intent intent = new Intent(this, MainActivity.class);
-        startActivity(intent);
-        finish();
+        if (cartFlag) {
+            startActivity(new Intent(this, MainActivity.class));
+            finish();
+        } else {
+            super.onBackPressed();
+            finish();
+        }
     }
 
 }
