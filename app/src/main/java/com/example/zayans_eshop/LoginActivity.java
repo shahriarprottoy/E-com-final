@@ -26,7 +26,7 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-       // overridePendingTransition(R.transition.fadein, R.transition.fadeout);
+
         setContentView(R.layout.loginscreen);
 
         final EditText name = findViewById(R.id.username);

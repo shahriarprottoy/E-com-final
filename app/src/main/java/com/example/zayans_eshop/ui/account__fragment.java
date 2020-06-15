@@ -26,7 +26,7 @@ public class account__fragment extends Fragment {
         {
             public void onClick(View v)
             {
-                getActivity().overridePendingTransition(R.anim.slide_out_bottom, R.anim.slide_in_bottom);
+              //  getActivity().overridePendingTransition(R.anim.slide_out_bottom, R.anim.slide_in_bottom);
                 Intent intent = new Intent(getActivity(),RegisterActivity.class);
                  startActivity(intent);
             }
@@ -37,9 +37,8 @@ public class account__fragment extends Fragment {
         {
             public void onClick(View v)
             {
+                startActivity(new Intent(getActivity(), LoginActivity.class));
                 getActivity().overridePendingTransition(R.anim.slide_out_bottom, R.anim.slide_in_bottom);
-                Intent intent = new Intent(getActivity(), LoginActivity.class);
-                startActivity(intent);
             }
 
         });

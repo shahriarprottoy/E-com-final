@@ -58,14 +58,15 @@
                 android:layout_gravity="center"
                 android:layout_marginTop="5dp"
                 android:text="or" />
-
-            <TextView
+            <Button
                 android:id="@+id/register"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="220dp"
+                android:layout_height="37dp"
                 android:layout_gravity="center"
                 android:layout_marginTop="5dp"
                 android:paddingHorizontal="30dp"
+                android:textColor="@color/button_colour"
+                android:background="@drawable/gradient"
                 android:text="REGISTER" />
 
         </LinearLayout>

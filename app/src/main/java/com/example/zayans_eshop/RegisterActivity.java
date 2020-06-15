@@ -1,11 +1,17 @@
 package com.example.zayans_eshop;
 
+import android.animation.Animator;
 import android.content.Intent;
+import android.content.res.Resources;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewAnimationUtils;
 import android.view.ViewGroup;
+import android.view.ViewTreeObserver;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -14,7 +20,7 @@ import android.widget.Toast;
 import com.example.zayans_eshop.data.BackgroundRegistrationEngine;
 
 public class RegisterActivity extends AppCompatActivity {
-
+   private View background;
     private String userName;
     private String userPass;
     private String userPhone;
@@ -30,9 +36,28 @@ public class RegisterActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-      //  overridePendingTransition(R.transition.fadein, R.transition.fadeout);
+        overridePendingTransition(R.anim.do_not_move, R.anim.do_not_move);
         setContentView(R.layout.registerscreen);
 
+        background = findViewById(R.id.background);
+        if (savedInstanceState == null) {
+            background.setVisibility(View.INVISIBLE);
+
+            final ViewTreeObserver viewTreeObserver = background.getViewTreeObserver();
+
+            if (viewTreeObserver.isAlive()) {
+                viewTreeObserver.addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
+
+                    @Override
+                    public void onGlobalLayout() {
+                        circularRevealActivity();
+                        background.getViewTreeObserver().removeOnGlobalLayoutListener(this);
+                    }
+
+                });
+            }
+
+        }
         final EditText name = findViewById(R.id.username);
         final EditText pass = findViewById(R.id.userpass);
         final EditText phone = findViewById(R.id.phone);
@@ -86,6 +111,8 @@ public class RegisterActivity extends AppCompatActivity {
         });
 
         cartFlag = getIntent().getBooleanExtra("cartFlag", false);
+
+
     }
 
     @Override
@@ -100,5 +127,30 @@ public class RegisterActivity extends AppCompatActivity {
             finish();
         }
     }
+    private void circularRevealActivity() {
+        int cx = background.getRight() - getDips(44);
+        int cy = background.getBottom() - getDips(44);
 
+        float finalRadius = Math.max(background.getWidth(), background.getHeight());
+
+        Animator circularReveal = ViewAnimationUtils.createCircularReveal(
+                background,
+                cx,
+                cy,
+                0,
+                finalRadius);
+
+        circularReveal.setDuration(3000);
+        background.setVisibility(View.VISIBLE);
+        circularReveal.start();
+
+    }
+
+    private int getDips(int dps) {
+        Resources resources = getResources();
+        return (int) TypedValue.applyDimension(
+                TypedValue.COMPLEX_UNIT_DIP,
+                dps,
+                resources.getDisplayMetrics());
+    }
 }

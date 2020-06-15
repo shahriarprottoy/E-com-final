@@ -18,7 +18,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:background="@drawable/rounded"
+        android:background="@android:color/white"
         android:backgroundTint="@android:color/white"
         app:itemIconTint="@drawable/bottom_nav_item_colorselector"
         app:itemTextColor="@drawable/bottom_nav_item_colorselector"

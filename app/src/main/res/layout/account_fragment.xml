@@ -5,13 +5,17 @@
     android:background="@drawable/account_back"
 
     android:orientation="vertical">
-
+    <ImageView
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:src="@drawable/zayanlogo"
+        android:layout_gravity="center"></ImageView>
     <TextView
         android:id="@+id/logintext2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="14dp"
         android:layout_marginBottom="10dp"
         android:text="Enjoy best shopping"
         android:textColor="@android:color/white"
@@ -33,7 +37,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="300dp"
-        android:layout_marginTop="110dp"
+        android:layout_marginTop="90dp"
         android:orientation="vertical">
 
         <Button
@@ -56,15 +60,17 @@
             android:text="or"
             android:textColor="@color/white" />
 
-        <TextView
+        <Button
             android:id="@+id/register"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="220dp"
+            android:layout_height="37dp"
             android:layout_gravity="center"
             android:layout_marginTop="5dp"
             android:paddingHorizontal="30dp"
             android:text="REGISTER"
-            android:textColor="@android:color/white"
+
+            android:textColor="@color/button_colour"
+            android:background="@drawable/gradient"
             android:textStyle="bold" />
 
     </LinearLayout>

@@ -13,7 +13,7 @@ public  class Unsigned_screen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.unsigned_screen);
         Button button = findViewById(R.id.loginbutton);
-        TextView button2 = findViewById(R.id.register);
+        Button button2 = findViewById(R.id.register);
 
         button.setOnClickListener(new View.OnClickListener()
         {
