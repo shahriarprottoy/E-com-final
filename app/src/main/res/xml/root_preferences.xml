@@ -12,13 +12,39 @@
             app:title="@string/phone_title"
             app:useSimpleSummaryProvider="true" />
 
+        <EditTextPreference
+            app:key="userEmail"
+            app:title="@string/email_title"
+            app:useSimpleSummaryProvider="true" />
+
+        <EditTextPreference
+            app:key="userLocation"
+            app:title="@string/location_title"
+            app:useSimpleSummaryProvider="true" />
+
+        <Preference
+            app:key="saveSettings"
+            app:title="Update account info" />
+
+        <Preference
+            app:key="logout"
+            app:title="Log out" />
+
     </PreferenceCategory>
 
     <PreferenceCategory app:title="@string/theme_header">
 
         <SwitchPreferenceCompat
             app:key="darkmode"
-            app:title="@string/darkmode_title" />
+            app:title="@string/dark_mode_title" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory app:title="Extras">
+
+        <Preference
+            app:summary="0.4"
+            app:title="Version" />
 
     </PreferenceCategory>
 

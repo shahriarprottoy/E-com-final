@@ -6,7 +6,6 @@
     <androidx.constraintlayout.widget.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="5dp"
         android:orientation="vertical">
 
         <LinearLayout
@@ -154,30 +153,17 @@
         </LinearLayout>
 
         <Button
-            android:id="@+id/log_out_btn"
+            android:id="@+id/edit_account_button"
             android:layout_width="150dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="15dp"
             android:background="#3850D9"
-            android:text="@string/log_out"
+            android:text="@string/title_activity_settings"
             android:textColor="@android:color/white"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/linearLayout9" />
-
-        <Button
-            android:id="@+id/edit_account_button"
-            android:layout_width="150dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:background="#3850D9"
-            android:text="@string/edit_account"
-            android:textColor="@android:color/white"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.498"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/log_out_btn" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

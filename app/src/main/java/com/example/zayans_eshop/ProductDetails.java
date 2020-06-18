@@ -3,10 +3,10 @@ package com.example.zayans_eshop;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Html;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
@@ -30,7 +30,7 @@ public class ProductDetails extends AppCompatActivity {
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayShowHomeEnabled(true);
         actionBar.setIcon(R.mipmap.ic_launcher);
-        actionBar.setTitle(Html.fromHtml("<font color='#2399DD'>ayan's Megashop</font>"));
+        actionBar.setTitle(Html.fromHtml("<font color='#2399DD'>eShop</font>"));
 
         Intent intent = getIntent();
 
@@ -58,18 +58,20 @@ public class ProductDetails extends AppCompatActivity {
             public void onClick(View view) {
                 boolean existsFlag = false;
                 if (MainActivity.cartProducts.size() > 0) {
-                    Log.i("TEST", String.valueOf(MainActivity.cartProducts.size()));
                     for (int i = 0; i < MainActivity.cartProducts.size(); i++) {
                         if (MainActivity.cartProducts.get(i).getName().equals(product.getName())) {
                             existsFlag = true;
+                            break;
                         }
                     }
                     if (!existsFlag) {
+                        Toast.makeText(ProductDetails.this, "Product added to cart", Toast.LENGTH_SHORT).show();
                         MainActivity.cartProducts.add(product);
+                    } else {
+                        Toast.makeText(ProductDetails.this, "Product already added to cart", Toast.LENGTH_SHORT).show();
                     }
                 } else {
-                    Log.i("TEST", String.valueOf(MainActivity.cartProducts.size()));
-
+                    Toast.makeText(ProductDetails.this, "Product added to cart", Toast.LENGTH_SHORT).show();
                     MainActivity.cartProducts.add(product);
                 }
             }

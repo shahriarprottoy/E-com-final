@@ -31,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
     public static BottomNavigationView bottomNavigationView;
 
     public static UserAccount userAccount;
+    public static boolean loginFlag;
     public static boolean justLoggedFlag = false;
     private BottomNavigationView.OnNavigationItemSelectedListener navListener =
             new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -51,6 +52,7 @@ public class MainActivity extends AppCompatActivity {
                             if (userAccount.getUserName() == null) {
                                 selectedFragment = new account__fragment();
                             } else {
+                                loginFlag = true;
                                 selectedFragment = new signed__in__account__fragment();
                             }
                             break;
@@ -67,13 +69,14 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         overridePendingTransition(R.anim.fadein, R.anim.fadeout);
         setContentView(R.layout.activity_main);
+        loginFlag = false;
 
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayShowHomeEnabled(true);
         actionBar.setIcon(R.mipmap.ic_launcher);
         actionBar.setLogo(R.mipmap.ic_launcher);
 
-        actionBar.setTitle(Html.fromHtml("<font color='#2399DD'>ayan's Megashop</font>"));
+        actionBar.setTitle(Html.fromHtml("<font color='#2399DD'>ayan's eShop</font>"));
 
 
         bottomNavigationView = findViewById(R.id.bottom_navigation);

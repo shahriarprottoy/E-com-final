@@ -15,7 +15,6 @@
         <activity
             android:name=".SettingsActivity"
             android:label="@string/title_activity_settings"></activity>
-        <activity android:name=".EditAccount" />
         <activity android:name=".MainActivity" />
         <activity android:name=".ProductList" />
         <activity android:name=".ProductDetails" />

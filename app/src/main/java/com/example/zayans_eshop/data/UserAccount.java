@@ -16,6 +16,10 @@ public class UserAccount {
         this.uniqId = uniqId;
     }
 
+    public UserAccount() {
+
+    }
+
     public String getUserName() {
         return userName;
     }

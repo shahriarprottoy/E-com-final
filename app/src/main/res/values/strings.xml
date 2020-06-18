@@ -6,7 +6,6 @@
     <string name="phone">Phone</string>
     <string name="location">Location</string>
     <string name="log_out">Log Out</string>
-    <string name="edit_account">Edit Account</string>
     <string name="profile_picture">Profile picture</string>
     <string name="title_activity_settings">Settings</string>
 
@@ -19,5 +18,7 @@
     <string name="phone_title">Edit phone</string>
 
     <!-- Sync Preferences -->
-    <string name="darkmode_title">Enable Dark mode</string>
+    <string name="dark_mode_title">Enable Dark mode</string>
+    <string name="email_title">Edit e-mail</string>
+    <string name="location_title">Edit location</string>
 </resources>

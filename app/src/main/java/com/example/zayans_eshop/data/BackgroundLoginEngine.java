@@ -125,6 +125,7 @@ public class BackgroundLoginEngine extends AsyncTask<String, Void, String> {
                 editor.putString("userLocation", MainActivity.userAccount.getUserLocation());
                 editor.putString("uniqId", MainActivity.userAccount.getUniqId());
                 editor.apply();
+                MainActivity.loginFlag = true;
                 context.onBackPressed();
                 context.finish();
             }

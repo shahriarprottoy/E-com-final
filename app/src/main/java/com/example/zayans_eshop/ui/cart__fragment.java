@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -20,6 +21,7 @@ public class cart__fragment extends Fragment {
 
     private AdapterCartProduct mAdapter;
     private View root;
+    public static TextView empty;
 
     @Nullable
     @Override
@@ -32,6 +34,11 @@ public class cart__fragment extends Fragment {
             return null;
         } else {
             root = inflater.inflate(R.layout.cart_fragment, container, false);
+
+            empty = root.findViewById(R.id.empty_cart);
+            if (MainActivity.cartProducts.size() > 0) {
+                empty.setVisibility(View.INVISIBLE);
+            }
             ListView cartListView = root.findViewById(R.id.cart_product_list);
             mAdapter = new AdapterCartProduct(getActivity(), MainActivity.cartProducts);
             cartListView.setAdapter(mAdapter);
