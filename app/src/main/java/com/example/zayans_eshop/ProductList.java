@@ -2,11 +2,12 @@ package com.example.zayans_eshop;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.ActionBar;
-import android.support.v7.app.AppCompatActivity;
 import android.text.Html;
 import android.widget.GridView;
 import android.widget.ProgressBar;
+
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.zayans_eshop.data.AdapterProduct;
 import com.example.zayans_eshop.data.BackgroundProductRetrieverEngine;

@@ -2,13 +2,14 @@ package com.example.zayans_eshop;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.design.widget.BottomNavigationView;
-import android.support.v4.app.Fragment;
-import android.support.v7.app.ActionBar;
-import android.support.v7.app.AppCompatActivity;
+import android.preference.PreferenceManager;
 import android.text.Html;
 import android.view.MenuItem;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 
 import com.example.zayans_eshop.data.Product;
 import com.example.zayans_eshop.data.UserAccount;
@@ -17,6 +18,7 @@ import com.example.zayans_eshop.ui.cart__fragment;
 import com.example.zayans_eshop.ui.home__fragment;
 import com.example.zayans_eshop.ui.messages__fragment;
 import com.example.zayans_eshop.ui.signed__in__account__fragment;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.ArrayList;
 
@@ -25,6 +27,8 @@ public class MainActivity extends AppCompatActivity {
     // The universal ArrayList<Product> used for storing products as per categories
     public static ArrayList<Product> products = new ArrayList<>();
     public static ArrayList<Product> cartProducts = new ArrayList<Product>();
+
+    public static BottomNavigationView bottomNavigationView;
 
     public static UserAccount userAccount;
     public static boolean justLoggedFlag = false;
@@ -72,23 +76,30 @@ public class MainActivity extends AppCompatActivity {
         actionBar.setTitle(Html.fromHtml("<font color='#2399DD'>ayan's Megashop</font>"));
 
 
-        BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
+        bottomNavigationView = findViewById(R.id.bottom_navigation);
         bottomNavigationView.setOnNavigationItemSelectedListener(navListener);
         getSupportFragmentManager().beginTransaction().add(R.id.fragment_container, new home__fragment()).commit();
 
         userAccount = new UserAccount(null, null, null, null, null);
 
-        SharedPreferences userAccountPrefs = getSharedPreferences("userAccount", MODE_PRIVATE);
+        SharedPreferences userAccountPrefs = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
         userAccount.setUserName(userAccountPrefs.getString("userName", null));
         userAccount.setUserPhone(userAccountPrefs.getString("userPhone", null));
         userAccount.setUserEmail(userAccountPrefs.getString("userEmail", null));
         userAccount.setUserLocation(userAccountPrefs.getString("userLocation", null));
         userAccount.setUniqId(userAccountPrefs.getString("uniqId", null));
 
+
         if (justLoggedFlag && userAccount.getUserName() != null) {
+            justLoggedFlag = false;
             bottomNavigationView.getMenu().getItem(3).setChecked(true);
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new signed__in__account__fragment()).commit();
         } else {
         }
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
     }
 }

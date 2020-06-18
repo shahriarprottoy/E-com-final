@@ -3,6 +3,7 @@ package com.example.zayans_eshop.data;
 import android.app.Activity;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
+import android.preference.PreferenceManager;
 import android.widget.Button;
 import android.widget.Toast;
 
@@ -112,8 +113,10 @@ public class BackgroundLoginEngine extends AsyncTask<String, Void, String> {
             }
 
             // Saving Login Details
-            SharedPreferences userAccountPrefs = context.getSharedPreferences("userAccount", 0);
+            SharedPreferences userAccountPrefs = PreferenceManager.getDefaultSharedPreferences(context);
             SharedPreferences.Editor editor = userAccountPrefs.edit();
+
+            MainActivity.justLoggedFlag = true;
 
             if (!MainActivity.userAccount.isEmpty()) {
                 editor.putString("userName", MainActivity.userAccount.getUserName());
@@ -122,7 +125,6 @@ public class BackgroundLoginEngine extends AsyncTask<String, Void, String> {
                 editor.putString("userLocation", MainActivity.userAccount.getUserLocation());
                 editor.putString("uniqId", MainActivity.userAccount.getUniqId());
                 editor.apply();
-                MainActivity.justLoggedFlag = true;
                 context.onBackPressed();
                 context.finish();
             }

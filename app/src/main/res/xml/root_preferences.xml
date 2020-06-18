@@ -1,0 +1,25 @@
+<PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <PreferenceCategory app:title="@string/account_header">
+
+        <EditTextPreference
+            app:key="userName"
+            app:title="@string/username_title"
+            app:useSimpleSummaryProvider="true" />
+
+        <EditTextPreference
+            app:key="userPhone"
+            app:title="@string/phone_title"
+            app:useSimpleSummaryProvider="true" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory app:title="@string/theme_header">
+
+        <SwitchPreferenceCompat
+            app:key="darkmode"
+            app:title="@string/darkmode_title" />
+
+    </PreferenceCategory>
+
+</PreferenceScreen>

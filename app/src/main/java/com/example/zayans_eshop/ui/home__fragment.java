@@ -3,10 +3,6 @@ package com.example.zayans_eshop.ui;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
-import android.support.v7.widget.SearchView;
 import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -15,6 +11,11 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.widget.SearchView;
+import androidx.fragment.app.Fragment;
 
 import com.example.zayans_eshop.ProductList;
 import com.example.zayans_eshop.R;
@@ -135,7 +136,7 @@ public class home__fragment extends Fragment {
 
         item.setShowAsAction(MenuItem.SHOW_AS_ACTION_COLLAPSE_ACTION_VIEW | MenuItem.SHOW_AS_ACTION_IF_ROOM);
 
-        final android.support.v7.widget.SearchView searchView = (android.support.v7.widget.SearchView) item.getActionView();
+        final androidx.appcompat.widget.SearchView searchView = (androidx.appcompat.widget.SearchView) item.getActionView();
         searchView.setQueryHint(Html.fromHtml("<font color =#DDDDDD>Search Product</font>"));
 
         searchView.setBackgroundColor(Color.rgb(225, 225, 225));

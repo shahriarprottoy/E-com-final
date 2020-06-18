@@ -1,17 +1,20 @@
 package com.example.zayans_eshop.ui;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+
 import com.example.zayans_eshop.LoginActivity;
+import com.example.zayans_eshop.MainActivity;
 import com.example.zayans_eshop.R;
 import com.example.zayans_eshop.RegisterActivity;
 
@@ -43,5 +46,21 @@ public class account__fragment extends Fragment {
 
         });
         return root;
+    }
+
+    @Override
+    public void onAttach(@NonNull Context context) {
+        super.onAttach(context);
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        if (MainActivity.justLoggedFlag && MainActivity.userAccount.getUserName() != null) {
+            MainActivity.justLoggedFlag = false;
+            MainActivity.bottomNavigationView.getMenu().getItem(3).setChecked(true);
+            getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new signed__in__account__fragment()).commit();
+        } else {
+        }
     }
 }

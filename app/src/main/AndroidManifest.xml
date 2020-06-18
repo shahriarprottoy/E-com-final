@@ -12,7 +12,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".EditAccount"></activity>
+        <activity
+            android:name=".SettingsActivity"
+            android:label="@string/title_activity_settings"></activity>
+        <activity android:name=".EditAccount" />
         <activity android:name=".MainActivity" />
         <activity android:name=".ProductList" />
         <activity android:name=".ProductDetails" />
@@ -28,19 +31,13 @@
         </activity>
         <activity
             android:name=".RegisterActivity"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
-           />
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
             android:name=".LoginActivity"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
-            />
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
             android:name=".Unsigned_screen"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
-        <activity
-            android:name=".Settings"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
-
     </application>
 
 </manifest>

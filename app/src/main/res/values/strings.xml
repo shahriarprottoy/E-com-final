@@ -8,4 +8,16 @@
     <string name="log_out">Log Out</string>
     <string name="edit_account">Edit Account</string>
     <string name="profile_picture">Profile picture</string>
+    <string name="title_activity_settings">Settings</string>
+
+    <!-- Preference Titles -->
+    <string name="account_header">Account</string>
+    <string name="theme_header">App theme</string>
+
+    <!-- Messages Preferences -->
+    <string name="username_title">Edit username</string>
+    <string name="phone_title">Edit phone</string>
+
+    <!-- Sync Preferences -->
+    <string name="darkmode_title">Enable Dark mode</string>
 </resources>
