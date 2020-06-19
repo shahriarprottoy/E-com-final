@@ -18,6 +18,7 @@ public class messages__fragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+
         View root= inflater.inflate(R.layout.messages_fragment,container,false);
         Button phoneContact = root.findViewById(R.id.phoneContact);
         Button emailContact = root.findViewById(R.id.emailContact);

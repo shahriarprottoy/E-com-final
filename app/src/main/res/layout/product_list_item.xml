@@ -19,6 +19,7 @@
             android:layout_width="match_parent"
             android:layout_height="120dp"
             android:layout_margin="0dp"
+            android:transitionName="shareImage"
             android:textColor="@android:color/black"
             android:textSize="15sp" />
 
@@ -36,6 +37,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="2dp"
+            android:transitionName="shareName"
             android:layout_marginBottom="10dp"
             android:textColor="@android:color/black"
             android:textSize="14sp" />
@@ -45,6 +47,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="2dp"
+            android:transitionName="sharePrice"
             android:textColor="@android:color/darker_gray"
             android:textSize="9sp" />
 
@@ -53,6 +56,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="2dp"
+            android:transitionName="shareOffer"
             android:textColor="@android:color/holo_orange_dark"
             android:textSize="11sp"
             android:textStyle="bold" />

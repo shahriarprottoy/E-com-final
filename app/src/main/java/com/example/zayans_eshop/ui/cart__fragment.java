@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -22,12 +23,12 @@ public class cart__fragment extends Fragment {
     private AdapterCartProduct mAdapter;
     private View root;
     public static TextView empty;
-
+    public Button button;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+
         if (MainActivity.userAccount.getUserName() == null) {
-            getActivity().overridePendingTransition(R.anim.slide_out_bottom, R.anim.slide_in_bottom);
             Intent intent = new Intent(getActivity(), Unsigned_screen.class);
             startActivity(intent);
             getActivity().finish();
@@ -42,6 +43,8 @@ public class cart__fragment extends Fragment {
             ListView cartListView = root.findViewById(R.id.cart_product_list);
             mAdapter = new AdapterCartProduct(getActivity(), MainActivity.cartProducts);
             cartListView.setAdapter(mAdapter);
+
+            button=root.findViewById(R.id.orderbutton);
             return root;
         }
     }

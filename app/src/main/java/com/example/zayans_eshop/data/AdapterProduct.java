@@ -1,9 +1,11 @@
 package com.example.zayans_eshop.data;
 
 import android.app.Activity;
+import android.app.ActivityOptions;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
+import android.util.Pair;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -35,6 +37,17 @@ public class AdapterProduct extends ArrayAdapter<Product> {
             listItemview= LayoutInflater.from(getContext()).inflate(R.layout.product_list_item,parent,false);
         }
 
+
+        final TextView name = listItemview.findViewById(R.id.name);
+        name.setText(currentProduct.getName());
+        final TextView price = listItemview.findViewById(R.id.price);
+        price.setText("Regular Price: " + currentProduct.getPrice());
+        TextView offerPrice = listItemview.findViewById(R.id.offerPrice);
+        offerPrice.setText("Discounted Price: " + currentProduct.getDiscountedPrice());
+        final ImageView image1 = listItemview.findViewById(R.id.image1);
+        if (currentProduct.getImage1Url() != "")
+            Picasso.with(context).load(Uri.parse(currentProduct.getImage1Url())).into(image1);
+
         // onClick listener for each product item in list
         LinearLayout product = listItemview.findViewById(R.id.currentProduct);
         product.setOnClickListener(new View.OnClickListener() {
@@ -50,19 +63,15 @@ public class AdapterProduct extends ArrayAdapter<Product> {
                 intent.putExtra("im2", currentProduct.getImage2Url());
                 intent.putExtra("im3", currentProduct.getImage3Url());
                 intent.putExtra("fromCart", false);
-
-                context.startActivity(intent);
+                Pair[] pairs=new Pair[4];
+                pairs[0]=new Pair<View, String>(image1,"imageTransition");
+                pairs[1]=new Pair<View,String >(name,"nameTransition");
+                pairs[2]=new Pair<View,String >(price,"priceTransition");
+                pairs[3]=new Pair<View,String >(name,"offerTransition");
+                ActivityOptions options=ActivityOptions.makeSceneTransitionAnimation((Activity) context,pairs);
+                context.startActivity(intent,options.toBundle());
             }
         });
-        TextView name = listItemview.findViewById(R.id.name);
-        name.setText(currentProduct.getName());
-        TextView price = listItemview.findViewById(R.id.price);
-        price.setText("Regular Price: " + currentProduct.getPrice());
-        TextView offerPrice = listItemview.findViewById(R.id.offerPrice);
-        offerPrice.setText("Discounted Price: " + currentProduct.getDiscountedPrice());
-        ImageView image1 = listItemview.findViewById(R.id.image1);
-        if (currentProduct.getImage1Url() != "")
-            Picasso.with(context).load(Uri.parse(currentProduct.getImage1Url())).into(image1);
         return listItemview;
     }
 

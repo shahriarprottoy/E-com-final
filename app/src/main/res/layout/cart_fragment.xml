@@ -22,6 +22,15 @@
         android:layout_centerInParent="true"
         android:text="Empty Cart"
         android:textSize="35sp" />
-
+   <Button
+       android:id="@+id/orderbutton"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:text="Click Here to ORDER"
+       android:layout_alignParentBottom="true"
+       android:layout_marginLeft="120dp"
+       android:background="@drawable/custom_button2"
+       android:textColor="@android:color/white"
+       ></Button>
 </RelativeLayout>
 

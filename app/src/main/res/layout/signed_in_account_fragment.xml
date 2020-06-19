@@ -3,20 +3,20 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-    <androidx.constraintlayout.widget.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+    <LinearLayout xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
-
+        <include
+            layout="@menu/toolbar"
+            android:id="@+id/toolbar"/>
         <LinearLayout
             android:id="@+id/linearLayout7"
             android:layout_width="match_parent"
             android:layout_height="150dp"
             android:background="@drawable/plain_back"
             android:orientation="horizontal"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+           >
 
             <ImageView
                 android:layout_width="80dp"
@@ -52,9 +52,7 @@
             android:layout_height="wrap_content"
             android:background="#F2F3F4"
             android:orientation="vertical"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayout7">
+           >
 
             <TextView
                 android:id="@+id/email"
@@ -79,7 +77,8 @@
                 android:layout_marginTop="7dp"
                 android:paddingBottom="3dp"
                 android:text="@string/textview"
-                android:textColor="#AAB7B8" />
+                android:textColor="#2471A3"
+                android:layout_marginBottom="3dp"/>
 
         </LinearLayout>
 
@@ -89,8 +88,7 @@
             android:layout_height="wrap_content"
             android:background="#F2F3F4"
             android:orientation="vertical"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayout6">
+           >
 
             <TextView
                 android:id="@+id/phone"
@@ -103,7 +101,8 @@
                 android:text="@string/phone"
                 android:textColor="#AAB7B8"
                 android:textSize="20sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                />
 
             <TextView
                 android:id="@+id/phoneNumber"
@@ -114,7 +113,8 @@
                 android:layout_marginTop="6dp"
                 android:paddingBottom="3dp"
                 android:text="@string/textview"
-                android:textColor="#AAB7B8" />
+                android:textColor="#2471A3"
+                android:layout_marginBottom="3dp"/>
         </LinearLayout>
 
         <LinearLayout
@@ -123,9 +123,7 @@
             android:layout_height="wrap_content"
             android:background="#F2F3F4"
             android:orientation="vertical"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayout8">
+           >
 
             <TextView
                 android:id="@+id/location"
@@ -138,7 +136,8 @@
                 android:text="@string/location"
                 android:textColor="#AAB7B8"
                 android:textSize="20sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                />
 
             <TextView
                 android:id="@+id/locationText"
@@ -149,22 +148,11 @@
                 android:layout_marginTop="6dp"
                 android:paddingBottom="3dp"
                 android:text="@string/textview"
-                android:textColor="#AAB7B8" />
+                android:textColor="#2471A3" />
         </LinearLayout>
 
-        <Button
-            android:id="@+id/edit_account_button"
-            android:layout_width="150dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:background="#3850D9"
-            android:text="@string/title_activity_settings"
-            android:textColor="@android:color/white"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.498"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayout9" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </LinearLayout>
 
 </ScrollView>

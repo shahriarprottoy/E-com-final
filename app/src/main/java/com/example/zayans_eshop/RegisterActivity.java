@@ -41,7 +41,7 @@ public class RegisterActivity extends AppCompatActivity {
 
         background = findViewById(R.id.background);
         if (savedInstanceState == null) {
-            background.setVisibility(View.INVISIBLE);
+            background.setVisibility(View.VISIBLE);
 
             final ViewTreeObserver viewTreeObserver = background.getViewTreeObserver();
 
@@ -140,7 +140,7 @@ public class RegisterActivity extends AppCompatActivity {
                 0,
                 finalRadius);
 
-        circularReveal.setDuration(3000);
+        circularReveal.setDuration(800);
         background.setVisibility(View.VISIBLE);
         circularReveal.start();
 

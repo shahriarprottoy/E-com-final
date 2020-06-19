@@ -1,9 +1,14 @@
 package com.example.zayans_eshop;
 
+import android.animation.Animator;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.text.Html;
+import android.util.TypedValue;
 import android.view.View;
+import android.view.ViewAnimationUtils;
+import android.view.ViewTreeObserver;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -21,11 +26,11 @@ public class ProductDetails extends AppCompatActivity {
     // This is the product to show details of
     private Product product = new Product();
     private boolean fromCart;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.product_details);
+
 
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayShowHomeEnabled(true);
@@ -87,5 +92,6 @@ public class ProductDetails extends AppCompatActivity {
         details.setText("Discounted Price: " + product.getDescription());
 
     }
+
 }
 

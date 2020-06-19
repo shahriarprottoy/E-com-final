@@ -3,6 +3,7 @@ package com.example.zayans_eshop.ui;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -29,8 +30,7 @@ public class account__fragment extends Fragment {
         {
             public void onClick(View v)
             {
-              //  getActivity().overridePendingTransition(R.anim.slide_out_bottom, R.anim.slide_in_bottom);
-                Intent intent = new Intent(getActivity(),RegisterActivity.class);
+                 Intent intent = new Intent(getActivity(),RegisterActivity.class);
                  startActivity(intent);
             }
 

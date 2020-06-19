@@ -93,7 +93,7 @@ public class BackgroundLoginEngine extends AsyncTask<String, Void, String> {
                     "Incorrect username or password",
                     Toast.LENGTH_LONG).show();
             submit.setEnabled(true);
-        } else if (s.equalsIgnoreCase("network error")) {
+        } else if (s.equalsIgnoreCase("Network error")) {
             submit.setEnabled(true);
             Toast.makeText(context, "Network error! please check network connection", Toast.LENGTH_SHORT).show();
         } else {
