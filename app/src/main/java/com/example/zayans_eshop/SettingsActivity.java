@@ -85,6 +85,16 @@ public class SettingsActivity extends AppCompatActivity {
                     return false;
                 }
             });
+
+            Preference updatePass = findPreference("changePassword");
+            assert updatePass != null;
+            updatePass.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
+                @Override
+                public boolean onPreferenceClick(Preference preference) {
+                    // TODO: go to password changer activity;
+                    return false;
+                }
+            });
         }
     }
 }

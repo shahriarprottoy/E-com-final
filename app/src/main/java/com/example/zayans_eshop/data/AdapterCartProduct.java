@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -102,7 +101,6 @@ public class AdapterCartProduct extends ArrayAdapter<Product> {
         ImageView image1 = listItemview.findViewById(R.id.image1);
         if (currentProduct.getImage1Url() != "")
             Picasso.with(context).load(Uri.parse(currentProduct.getImage1Url())).into(image1);
-        Log.i("TEST", String.valueOf(MainActivity.cartProducts.size()));
         return product;
     }
 

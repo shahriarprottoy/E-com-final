@@ -24,19 +24,15 @@
 
         <Preference
             app:key="saveSettings"
-            app:title="Update account info" />
+            app:title="Save account info" />
+
+        <Preference
+            app:key="changePassword"
+            app:title="@string/pass_title" />
 
         <Preference
             app:key="logout"
             app:title="Log out" />
-
-    </PreferenceCategory>
-
-    <PreferenceCategory app:title="@string/theme_header">
-
-        <SwitchPreferenceCompat
-            app:key="darkmode"
-            app:title="@string/dark_mode_title" />
 
     </PreferenceCategory>
 

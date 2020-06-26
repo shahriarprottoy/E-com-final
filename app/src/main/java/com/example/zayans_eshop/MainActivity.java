@@ -26,7 +26,8 @@ public class MainActivity extends AppCompatActivity {
 
     // The universal ArrayList<Product> used for storing products as per categories
     public static ArrayList<Product> products = new ArrayList<>();
-    public static ArrayList<Product> cartProducts = new ArrayList<Product>();
+    public static ArrayList<Product> cartProducts = new ArrayList<>();
+    public static ActionBar actionBar;
 
     public static BottomNavigationView bottomNavigationView;
 
@@ -72,13 +73,13 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         loginFlag = false;
 
-        ActionBar actionBar = getSupportActionBar();
-        actionBar.setDisplayShowHomeEnabled(true);
-        actionBar.setIcon(R.mipmap.ic_launcher);
-        actionBar.setLogo(R.mipmap.ic_launcher);
-
-        actionBar.setTitle(Html.fromHtml("<font color='#2399DD'>ayan's eShop</font>"));
-
+        actionBar = getSupportActionBar();
+        if (actionBar != null) {
+            actionBar.setDisplayShowHomeEnabled(true);
+            actionBar.setIcon(R.mipmap.ic_launcher);
+            actionBar.setLogo(R.mipmap.ic_launcher);
+            actionBar.setTitle(Html.fromHtml("<font color='#2399DD'>ayan's eShop</font>"));
+        }
 
         bottomNavigationView = findViewById(R.id.bottom_navigation);
         bottomNavigationView.setOnNavigationItemSelectedListener(navListener);
@@ -98,12 +99,6 @@ public class MainActivity extends AppCompatActivity {
             justLoggedFlag = false;
             bottomNavigationView.getMenu().getItem(3).setChecked(true);
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new signed__in__account__fragment()).commit();
-        } else {
         }
-    }
-
-    @Override
-    protected void onRestart() {
-        super.onRestart();
     }
 }

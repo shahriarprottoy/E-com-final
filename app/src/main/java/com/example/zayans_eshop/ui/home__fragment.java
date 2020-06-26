@@ -14,7 +14,6 @@ import android.widget.Button;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SearchView;
 import androidx.fragment.app.Fragment;
 
@@ -139,8 +138,7 @@ public class home__fragment extends Fragment {
         item.setShowAsAction(MenuItem.SHOW_AS_ACTION_COLLAPSE_ACTION_VIEW | MenuItem.SHOW_AS_ACTION_IF_ROOM);
 
         final androidx.appcompat.widget.SearchView searchView = (androidx.appcompat.widget.SearchView) item.getActionView();
-        searchView.setQueryHint(Html.fromHtml("<font color =#DDDDDD>Search Product</font>"));
-
+        searchView.setQueryHint(Html.fromHtml("<font color =#999999>Search Product</font>"));
         searchView.setBackgroundColor(Color.rgb(225, 225, 225));
 
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {

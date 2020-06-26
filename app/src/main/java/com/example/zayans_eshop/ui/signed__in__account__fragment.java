@@ -1,20 +1,18 @@
 package com.example.zayans_eshop.ui;
 
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
+import android.text.Html;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 
 import com.example.zayans_eshop.MainActivity;
@@ -36,33 +34,12 @@ public class signed__in__account__fragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.signed_in_account_fragment, container, false);
 
+        MainActivity.actionBar.setTitle(Html.fromHtml("<FONT color='#999999'>My Account</FONT>"));
 
-        androidx.appcompat.widget.Toolbar  mToolbar;
-
-        mToolbar =(androidx.appcompat.widget.Toolbar)  root.findViewById(R.id.toolbar);
-        mToolbar.setTitle("My Account");
-        mToolbar.setTitleTextColor(Color.GRAY);
-        mToolbar.inflateMenu(R.menu.settings_menu);
-        mToolbar.setOnMenuItemClickListener(new androidx.appcompat.widget.Toolbar.OnMenuItemClickListener() {
-            @Override
-            public boolean onMenuItemClick(MenuItem item) {
-
-                String title = (String) item.getTitle() ;
-
-                switch (item.getItemId()) {
-
-                    case R.id.settings:
-                       Intent intent=new Intent(getActivity(),SettingsActivity.class);
-                        startActivity(intent);
-                }
-                return true;
-            }
-        });
         userName = root.findViewById(R.id.un);
         userPhone = root.findViewById(R.id.phoneNumber);
         userEmail = root.findViewById(R.id.emailAddress);
         userLocation = root.findViewById(R.id.locationText);
-
 
         UserAccount userAccount = MainActivity.userAccount;
 
@@ -71,15 +48,33 @@ public class signed__in__account__fragment extends Fragment {
         userEmail.setText(userAccount.getUserEmail());
         userLocation.setText(userAccount.getUserLocation());
 
-
+        setHasOptionsMenu(true);
 
         return root;
     }
 
     @Override
+    public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
+        super.onCreateOptionsMenu(menu, inflater);
+
+        inflater.inflate(R.menu.settings_menu, menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if (item.getItemId() == R.id.settings) {
+            Intent intent = new Intent(getActivity(), SettingsActivity.class);
+            startActivity(intent);
+            return true;
+        }
+        return false;
+    }
+
+    @Override
     public void onStop() {
         super.onStop();
-        ((AppCompatActivity)getActivity()).getSupportActionBar().show();
+        MainActivity.actionBar.setIcon(R.mipmap.ic_launcher);
+        MainActivity.actionBar.setTitle(Html.fromHtml("<font color='#2399DD'>ayan's eShop</font>"));
     }
 
     @Override
@@ -95,6 +90,7 @@ public class signed__in__account__fragment extends Fragment {
             userEmail.setText(userAccount.getUserEmail());
             userLocation.setText(userAccount.getUserLocation());
         }
-        ((AppCompatActivity)getActivity()).getSupportActionBar().hide();
+        MainActivity.actionBar.setTitle(Html.fromHtml("<FONT color='#999999'>My Account</FONT>"));
+        MainActivity.actionBar.setIcon(null);
     }
 }

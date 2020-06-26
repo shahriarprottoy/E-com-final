@@ -11,7 +11,7 @@
         android:layout_marginLeft="5dp"
         android:layout_marginTop="5dp"
         android:layout_marginRight="5dp"
-        android:layout_marginBottom="65dp"
+        android:layout_marginBottom="125dp"
         android:dividerHeight="4dp"
         android:orientation="vertical" />
 
@@ -26,11 +26,12 @@
        android:id="@+id/orderbutton"
        android:layout_width="wrap_content"
        android:layout_height="wrap_content"
-       android:text="Click Here to ORDER"
+       android:layout_centerHorizontal="true"
+       android:layout_marginBottom="65dp"
        android:layout_alignParentBottom="true"
-       android:layout_marginLeft="120dp"
+       android:text="Place Order"
        android:background="@drawable/custom_button2"
-       android:textColor="@android:color/white"
-       ></Button>
+       android:textColor="@android:color/white" />
+
 </RelativeLayout>
 

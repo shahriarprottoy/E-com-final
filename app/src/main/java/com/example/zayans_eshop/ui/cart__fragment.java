@@ -20,8 +20,6 @@ import com.example.zayans_eshop.data.AdapterCartProduct;
 
 public class cart__fragment extends Fragment {
 
-    private AdapterCartProduct mAdapter;
-    private View root;
     public static TextView empty;
     public Button button;
     @Nullable
@@ -34,17 +32,21 @@ public class cart__fragment extends Fragment {
             getActivity().finish();
             return null;
         } else {
-            root = inflater.inflate(R.layout.cart_fragment, container, false);
+            View root = inflater.inflate(R.layout.cart_fragment, container, false);
+
+            Button btn = root.findViewById(R.id.orderbutton);
+            btn.setVisibility(View.INVISIBLE);
 
             empty = root.findViewById(R.id.empty_cart);
             if (MainActivity.cartProducts.size() > 0) {
+                btn.setVisibility(View.VISIBLE);
                 empty.setVisibility(View.INVISIBLE);
             }
             ListView cartListView = root.findViewById(R.id.cart_product_list);
-            mAdapter = new AdapterCartProduct(getActivity(), MainActivity.cartProducts);
+            AdapterCartProduct mAdapter = new AdapterCartProduct(getActivity(), MainActivity.cartProducts);
             cartListView.setAdapter(mAdapter);
 
-            button=root.findViewById(R.id.orderbutton);
+            button = root.findViewById(R.id.orderbutton);
             return root;
         }
     }

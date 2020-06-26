@@ -21,4 +21,5 @@
     <string name="dark_mode_title">Enable Dark mode</string>
     <string name="email_title">Edit e-mail</string>
     <string name="location_title">Edit location</string>
+    <string name="pass_title">Change Password</string>
 </resources>
