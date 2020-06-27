@@ -37,6 +37,9 @@
         <activity
             android:name=".Unsigned_screen"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity
+            android:name=".data.ChangePassword"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
     </application>
 
 </manifest>

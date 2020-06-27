@@ -1,6 +1,7 @@
 package com.example.zayans_eshop;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.Html;
@@ -12,6 +13,7 @@ import androidx.preference.Preference;
 import androidx.preference.PreferenceFragmentCompat;
 import androidx.preference.PreferenceManager;
 
+import com.example.zayans_eshop.data.ChangePassword;
 import com.example.zayans_eshop.data.UserAccountUpdaterEngine;
 
 import java.util.Objects;
@@ -91,7 +93,8 @@ public class SettingsActivity extends AppCompatActivity {
             updatePass.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
                 @Override
                 public boolean onPreferenceClick(Preference preference) {
-                    // TODO: go to password changer activity;
+                    Intent  intent=new Intent(getActivity(), ChangePassword.class);
+                    getActivity().startActivity(intent);
                     return false;
                 }
             });
