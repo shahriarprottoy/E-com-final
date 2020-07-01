@@ -1,225 +1,242 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="@drawable/ic_homeback"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:layout_marginBottom="30dp"
 
-    <LinearLayout
-        android:id="@+id/linearLayout3"
+    >
+
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:orientation="horizontal"
-        android:background="@android:color/white"
-        app:layout_constraintEnd_toEndOf="@+id/linearLayout"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent ">
+        android:layout_height="wrap_content">
 
-        <Button
-            android:id="@+id/electronics"
-            android:layout_width="0dp"
-            android:layout_height="85dp"
-            android:layout_gravity="center"
-            android:layout_marginLeft="5dp"
-            android:layout_weight="1"
-            android:background="@android:color/white"
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+           <TextView
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:text="Shop by Category"
+               android:textSize="25sp"
+               android:layout_marginLeft="20dp"
+               android:layout_marginTop="15dp"
+               android:textStyle="bold"
+               android:textColor="@android:color/white"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginTop="30dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
 
-            android:drawableTop="@drawable/electronics"
-            android:drawablePadding="-15dp"
-            android:paddingTop="10dp"
-            android:text="Electronics"
-            android:textColor="@android:color/black"
-            android:textSize="9sp"
-            android:textStyle="bold" />
+                <Button
+                    android:id="@+id/electronics"
+                    android:layout_width="130dp"
+                    android:layout_height="100dp"
+                    android:layout_marginLeft="40dp"
 
-        <Button
-            android:id="@+id/foods"
-            android:layout_width="0dp"
-            android:layout_height="85dp"
-            android:layout_gravity="center"
+                    android:layout_marginBottom="30dp"
+                    android:background="@drawable/custom_button_3"
+                    android:drawableTop="@drawable/ic_fridge"
+                    android:drawablePadding="-15dp"
+                    android:paddingTop="10dp"
+                    android:text="Electronics"
+                    android:textColor="@android:color/black"
+                    android:textSize="9sp"
+                    android:textStyle="bold"
+                    tools:layout_editor_absoluteX="47dp"
+                    tools:layout_editor_absoluteY="5dp" />
 
-            android:layout_weight="1"
-            android:background="@android:color/white"
+                <Button
+                    android:id="@+id/foods"
+                    android:layout_width="130dp"
+                    android:layout_height="100dp"
+                    android:layout_marginLeft="40dp"
 
-            android:drawableTop="@drawable/foods"
-            android:drawablePadding="-15dp"
-            android:paddingTop="10dp"
-            android:text="Foods"
-            android:textColor="@android:color/black"
-            android:textSize="9sp"
-            android:textStyle="bold" />
+                    android:layout_marginBottom="30dp"
+                    android:background="@drawable/custom_button_3"
+                    android:drawableTop="@drawable/foods"
+                    android:drawablePadding="-15dp"
+                    android:paddingTop="10dp"
+                    android:text="Foods"
+                    android:textColor="@android:color/black"
+                    android:textSize="9sp"
+                    android:textStyle="bold"
+                    tools:layout_editor_absoluteX="47dp"
+                    tools:layout_editor_absoluteY="148dp" />
 
-        <Button
-            android:id="@+id/crockeries"
-            android:layout_width="0dp"
-            android:layout_height="85dp"
-            android:layout_gravity="center"
-            android:layout_marginRight="5dp"
-            android:layout_weight="1"
-            android:background="@android:color/white"
-            android:drawableTop="@drawable/crockeries"
-            android:drawablePadding="-15dp"
-            android:paddingTop="10dp"
-            android:text="Crockeries"
-            android:textColor="@android:color/black"
-            android:textSize="9sp"
-            android:textStyle="bold" />
-    </LinearLayout>
+                <Button
+                    android:id="@+id/furniture"
+                    android:layout_width="130dp"
+                    android:layout_height="100dp"
+                    android:layout_marginLeft="40dp"
 
-    <LinearLayout
-        android:id="@+id/linearLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="260dp"
-        android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout3">
+                    android:layout_marginBottom="30dp"
+                    android:background="@drawable/custom_button_3"
+                    android:drawableTop="@drawable/furniture_homedecor"
+                    android:drawablePadding="-15dp"
+                    android:paddingTop="10dp"
+                    android:text="Furniture and home decoration"
+                    android:textColor="@android:color/black"
+                    android:textSize="9sp"
+                    android:textStyle="bold"
+                    tools:layout_editor_absoluteX="228dp"
+                    tools:layout_editor_absoluteY="5dp" />
 
-        <Button
-            android:id="@+id/bicycle"
-            android:layout_width="0dp"
-            android:layout_height="85dp"
-            android:layout_gravity="center"
-            android:background="@android:color/white"
-            android:layout_marginLeft="5dp"
-            android:layout_marginTop="12dp"
-            android:layout_weight="1"
-            android:drawableTop="@drawable/bycycle_tricycle"
-            android:drawablePadding="-15dp"
-            android:paddingTop="10dp"
-            android:text="Bycylce and Tricycle"
-            android:textColor="@android:color/black"
-            android:textSize="9sp"
-            android:textStyle="bold" />
+                <Button
+                    android:id="@+id/crockeries"
+                    android:layout_width="130dp"
+                    android:layout_height="100dp"
+                    android:layout_gravity="center"
 
-        <Button
-            android:id="@+id/fashion"
-            android:layout_width="0dp"
-            android:layout_height="85dp"
-            android:layout_gravity="center"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginBottom="30dp"
+                    android:background="@drawable/custom_button_3"
 
-            android:layout_marginTop="12dp"
-            android:layout_weight="1"
+                    android:drawableTop="@drawable/crockeries"
+                    android:drawablePadding="-15dp"
+                    android:paddingTop="10dp"
+                    android:text="Crockeries"
+                    android:textColor="@android:color/black"
+                    android:textSize="9sp"
+                    android:textStyle="bold"
+                    tools:layout_editor_absoluteX="251dp"
+                    tools:layout_editor_absoluteY="138dp" />
 
-            android:background="@android:color/white"
-            android:drawableTop="@drawable/fashion"
-            android:drawablePadding="-15dp"
-            android:paddingTop="10dp"
-            android:text="Fashion"
-            android:textColor="@android:color/black"
-            android:textSize="9sp"
-            android:textStyle="bold" />
+                <Button
+                    android:id="@+id/toolsandaccessories"
+                    android:layout_width="130dp"
+                    android:layout_height="100dp"
+                    android:layout_gravity="center"
 
-        <Button
-            android:id="@+id/furniture"
-            android:layout_width="0dp"
-            android:layout_height="85dp"
-            android:layout_gravity="center"
-            android:layout_marginTop="12dp"
-            android:layout_marginRight="5dp"
-            android:layout_weight="1"
-           android:background="@android:color/white"
-            android:drawableTop="@drawable/furniture_homedecor"
-            android:drawablePadding="-15dp"
-            android:paddingTop="10dp"
-            android:text="Furniture and home decoration"
-            android:textColor="@android:color/black"
-            android:textSize="9sp"
-            android:textStyle="bold" />
-    </LinearLayout>
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginBottom="30dp"
+                    android:background="@drawable/custom_button_3"
 
-    <LinearLayout
-        android:id="@+id/linearLayout2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout">
+                    android:drawableTop="@drawable/accessories"
+                    android:drawablePadding="-15dp"
+                    android:paddingTop="10dp"
+                    android:text="Tools and Accessories"
+                    android:textColor="@android:color/black"
+                    android:textSize="9sp"
+                    android:textStyle="bold"
+                    app:layout_constraintTop_toBottomOf="parent"
+                    tools:layout_editor_absoluteX="228dp" />
+            </LinearLayout>
 
-        <Button
-            android:id="@+id/gifts"
-            android:layout_width="0dp"
-            android:layout_height="85dp"
-            android:layout_gravity="center"
-            android:layout_marginLeft="5dp"
-            android:layout_marginTop="12dp"
-            android:layout_weight="1"
-            android:background="@android:color/white"
-            android:drawableTop="@drawable/gifts_toys"
-            android:drawablePadding="-15dp"
-            android:paddingTop="10dp"
-            android:text="Gifts and Toys"
-            android:textColor="@android:color/black"
-            android:textSize="9sp"
-            android:textStyle="bold" />
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginTop="30dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
 
-        <Button
-            android:id="@+id/pump"
-            android:layout_width="0dp"
-            android:layout_height="85dp"
-            android:layout_gravity="center"
-            android:layout_marginTop="12dp"
-            android:layout_weight="1"
-            android:background="@android:color/white"
-            android:drawableTop="@drawable/pump"
-            android:drawablePadding="-15dp"
-            android:paddingTop="10dp"
-            android:text="Pump and Machineries"
-            android:textColor="@android:color/black"
-            android:textSize="9sp"
-            android:textStyle="bold" />
+                <Button
+                    android:id="@+id/others"
+                    android:layout_width="130dp"
+                    android:layout_height="100dp"
+                    android:layout_gravity="center"
 
-        <Button
-            android:id="@+id/others"
-            android:layout_width="0dp"
-            android:layout_height="85dp"
-            android:layout_gravity="center"
-            android:layout_marginTop="12dp"
-            android:layout_marginRight="5dp"
-            android:layout_weight="1"
-            android:background="@android:color/white"
-            android:drawableTop="@drawable/others"
-            android:drawablePadding="-15dp"
-            android:paddingTop="10dp"
-            android:text="Others"
-            android:textColor="@android:color/black"
-            android:textSize="9sp"
-            android:textStyle="bold" />
-    </LinearLayout>
+                    android:layout_marginRight="20dp"
+                    android:layout_marginBottom="30dp"
+                    android:background="@drawable/custom_button_3"
 
-    <LinearLayout
-        android:id="@+id/linearLayout4"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
+                    android:drawableTop="@drawable/others"
+                    android:drawablePadding="-15dp"
+                    android:paddingTop="10dp"
+                    android:text="Others"
+                    android:textColor="@android:color/black"
+                    android:textSize="9sp"
+                    android:textStyle="bold"
+                    tools:layout_editor_absoluteX="47dp"
+                    tools:layout_editor_absoluteY="559dp" />
 
-        <Button
-            android:id="@+id/toolsandaccessories"
-            android:layout_width="0dp"
-            android:layout_height="85dp"
-            android:layout_gravity="center"
-            android:layout_marginTop="12dp"
-            android:layout_marginLeft="5dp"
-            android:layout_marginRight="5dp"
-            android:layout_weight="1"
-            android:background="@android:color/white"
-            android:drawableTop="@drawable/tools_accessories"
-            android:drawablePadding="-15dp"
-            android:paddingTop="10dp"
-            android:text="Tools and Accessories"
-            android:textColor="@android:color/black"
-            android:textSize="9sp"
-            android:textStyle="bold" />
+                <Button
+                    android:id="@+id/pump"
+                    android:layout_width="130dp"
+                    android:layout_height="100dp"
+                    android:layout_gravity="center"
 
+                    android:layout_marginRight="20dp"
+                    android:layout_marginBottom="30dp"
+                    android:background="@drawable/custom_button_3"
+                    android:drawableTop="@drawable/pump"
+                    android:drawablePadding="-15dp"
+                    android:paddingTop="10dp"
+                    android:text="Pump and Machineries"
+                    android:textColor="@android:color/black"
+                    android:textSize="9sp"
+                    android:textStyle="bold"
+                    tools:layout_editor_absoluteX="47dp"
+                    tools:layout_editor_absoluteY="424dp" />
 
-    </LinearLayout>
-</androidx.constraintlayout.widget.ConstraintLayout>
+                <Button
+                    android:id="@+id/gifts"
+                    android:layout_width="130dp"
+                    android:layout_height="100dp"
+                    android:layout_gravity="center"
+
+                    android:layout_marginRight="20dp"
+                    android:layout_marginBottom="30dp"
+                    android:background="@drawable/custom_button_3"
+                    android:drawableTop="@drawable/gifts_toys"
+                    android:drawablePadding="-15dp"
+                    android:paddingTop="10dp"
+                    android:text="Gifts and Toys"
+                    android:textColor="@android:color/black"
+                    android:textSize="9sp"
+                    android:textStyle="bold"
+                    tools:layout_editor_absoluteX="251dp"
+                    tools:layout_editor_absoluteY="424dp" />
+
+                <Button
+                    android:id="@+id/bicycle"
+                    android:layout_width="130dp"
+                    android:layout_height="100dp"
+                    android:layout_gravity="center"
+
+                    android:layout_marginRight="20dp"
+                    android:layout_marginBottom="30dp"
+                    android:background="@drawable/custom_button_3"
+                    android:drawableTop="@drawable/bycycle_tricycle"
+                    android:drawablePadding="-15dp"
+                    android:paddingTop="10dp"
+                    android:text="Bycylce and Tricycle"
+                    android:textColor="@android:color/black"
+                    android:textSize="9sp"
+                    android:textStyle="bold"
+                    tools:layout_editor_absoluteX="47dp"
+                    tools:layout_editor_absoluteY="282dp" />
+
+                <Button
+                    android:id="@+id/fashion"
+                    android:layout_width="130dp"
+                    android:layout_height="100dp"
+                    android:layout_gravity="center"
+
+                    android:layout_marginRight="20dp"
+                    android:layout_marginBottom="30dp"
+                    android:background="@drawable/custom_button_3"
+                    android:drawableTop="@drawable/coat"
+                    android:drawablePadding="-15dp"
+                    android:paddingTop="10dp"
+                    android:text="Fashion"
+                    android:textColor="@android:color/black"
+                    android:textSize="9sp"
+                    android:textStyle="bold"
+                    tools:layout_editor_absoluteX="251dp"
+                    tools:layout_editor_absoluteY="282dp" />
+            </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

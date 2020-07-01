@@ -17,6 +17,7 @@ import com.example.zayans_eshop.MainActivity;
 import com.example.zayans_eshop.R;
 import com.example.zayans_eshop.Unsigned_screen;
 import com.example.zayans_eshop.data.AdapterCartProduct;
+import com.example.zayans_eshop.data.Checkout;
 
 public class cart__fragment extends Fragment {
 
@@ -47,6 +48,13 @@ public class cart__fragment extends Fragment {
             cartListView.setAdapter(mAdapter);
 
             button = root.findViewById(R.id.orderbutton);
+            button.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {
+                    Intent intent = new Intent(getActivity(), Checkout.class);
+                    startActivity(intent);
+                }
+
+            });
             return root;
         }
     }

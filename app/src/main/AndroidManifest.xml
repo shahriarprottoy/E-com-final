@@ -11,6 +11,7 @@
         android:label="Zayan&apos;s Mega "
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
+        android:usesCleartextTraffic="true"
         android:theme="@style/AppTheme">
         <activity
             android:name=".SettingsActivity"
@@ -39,6 +40,15 @@
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
             android:name=".data.ChangePassword"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity
+            android:name=".data.BkashActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity
+            android:name=".data.Checkout"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity
+            android:name=".data.PaymentSuccess_Activity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
     </application>
 
