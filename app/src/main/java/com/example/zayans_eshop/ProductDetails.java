@@ -1,14 +1,9 @@
 package com.example.zayans_eshop;
 
-import android.animation.Animator;
 import android.content.Intent;
-import android.content.res.Resources;
 import android.os.Bundle;
 import android.text.Html;
-import android.util.TypedValue;
 import android.view.View;
-import android.view.ViewAnimationUtils;
-import android.view.ViewTreeObserver;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -48,6 +43,7 @@ public class ProductDetails extends AppCompatActivity {
         product.setImage1Url(intent.getStringExtra("im1"));
         product.setImage2Url(intent.getStringExtra("im2"));
         product.setImage3Url(intent.getStringExtra("im3"));
+        product.setQuantity(1);
         fromCart = intent.getBooleanExtra("fromCart", false);
 
         ViewPager viewPager = findViewById(R.id.viewPager);

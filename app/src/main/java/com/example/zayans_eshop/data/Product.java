@@ -5,13 +5,12 @@ public class Product {
     private String name;
     private int price;
     private int stock;
+    private int quantity;
+    private int discountedPrice;
     private String description;
     // The variables which DO NOT contain image URL will be blank
     // e.g. image3Url == "";
     private String[] imageUrls = new String[3];
-
-
-    private int discountedPrice;
 
     // Empty constructor
     public Product() {
@@ -65,12 +64,20 @@ public class Product {
         this.price = price;
     }
 
-    public void setStock(int price) {
+    public void setStock(int stock) {
         this.stock = stock;
     }
 
     public int getStock() {
         return this.stock;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
     }
 
     public String getImage1Url() {

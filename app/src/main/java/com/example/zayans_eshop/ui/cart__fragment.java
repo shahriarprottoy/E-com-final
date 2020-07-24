@@ -17,12 +17,15 @@ import com.example.zayans_eshop.MainActivity;
 import com.example.zayans_eshop.R;
 import com.example.zayans_eshop.Unsigned_screen;
 import com.example.zayans_eshop.data.AdapterCartProduct;
+import com.example.zayans_eshop.data.BackgroundOrderEngine;
 import com.example.zayans_eshop.data.Checkout;
+import com.example.zayans_eshop.data.Order;
 
 public class cart__fragment extends Fragment {
 
     public static TextView empty;
     public Button button;
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -50,6 +53,24 @@ public class cart__fragment extends Fragment {
             button = root.findViewById(R.id.orderbutton);
             button.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View v) {
+                    // Order code starts here
+                    String tempName;
+                    Order order = new Order(MainActivity.cartProducts.size());
+                    for (int i = 0; i < MainActivity.cartProducts.size(); i++) {
+                        tempName = MainActivity.cartProducts.get(i).getName();
+                        tempName = tempName.replace("\"", "&:1:&");
+                        tempName = tempName.replace("[", "&:2:&");
+                        tempName = tempName.replace("]", "&:3:&");
+                        order.addProduct(tempName,
+                                MainActivity.cartProducts.get(i).getDiscountedPrice(),
+                                MainActivity.cartProducts.get(i).getStock(),
+                                MainActivity.cartProducts.get(i).getQuantity());
+                    }
+
+                    BackgroundOrderEngine backgroundOrderEngine = new BackgroundOrderEngine(getActivity());
+                    backgroundOrderEngine.execute(order.getOrder(), MainActivity.userAccount.getUniqId());
+                    // Order code finishes here
+
                     Intent intent = new Intent(getActivity(), Checkout.class);
                     startActivity(intent);
                 }

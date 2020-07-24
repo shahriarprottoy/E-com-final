@@ -13,6 +13,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.zayans_eshop.MainActivity;
 import com.example.zayans_eshop.ProductDetails;
@@ -80,7 +81,13 @@ public class AdapterCartProduct extends ArrayAdapter<Product> {
                     editText.setText(String.valueOf(1));
                     return;
                 }
-                editText.setText(String.valueOf(Integer.parseInt(editText.getText().toString()) + 1));
+                if (Integer.parseInt(editText.getText().toString()) < currentProduct.getStock()) {
+                    editText.setText(String.valueOf(Integer.parseInt(editText.getText().toString()) + 1));
+                    currentProduct.setQuantity(Integer.parseInt(editText.getText().toString()));
+                } else {
+                    Toast.makeText(context, "Out of stock", Toast.LENGTH_SHORT).show();
+                }
+
             }
         });
 
@@ -89,6 +96,8 @@ public class AdapterCartProduct extends ArrayAdapter<Product> {
             public void onClick(View view) {
                 if (!(Integer.parseInt(editText.getText().toString()) <= 1))
                     editText.setText(String.valueOf(Integer.parseInt(editText.getText().toString()) - 1));
+                currentProduct.setQuantity(Integer.parseInt(editText.getText().toString()));
+
             }
         });
 
