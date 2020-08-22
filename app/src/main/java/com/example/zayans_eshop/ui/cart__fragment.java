@@ -78,4 +78,12 @@ public class cart__fragment extends Fragment {
             return root;
         }
     }
+    
+    @Override
+    public void onAttach(){
+      if (MainActivity.userAccount.getUserName() == null) {
+                  Intent intent = new Intent(getActivity(), Unsigned_screen.class);
+                  startActivity(intent);
+              }
+    }
 }

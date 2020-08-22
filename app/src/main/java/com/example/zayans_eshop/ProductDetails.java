@@ -57,6 +57,10 @@ public class ProductDetails extends AppCompatActivity {
         addToCartButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if (MainActivity.userAccount.getUserName() == null) {
+                            Intent intent = new Intent(this, Unsigned_screen.class);
+                            startActivity(intent);
+                        }
                 boolean existsFlag = false;
                 if (MainActivity.cartProducts.size() > 0) {
                     for (int i = 0; i < MainActivity.cartProducts.size(); i++) {
