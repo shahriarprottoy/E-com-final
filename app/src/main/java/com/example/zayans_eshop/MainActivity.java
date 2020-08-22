@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
 
     public static UserAccount userAccount;
     public static boolean loginFlag;
-    public static boolean justLoggedFlag = false;
+
     private BottomNavigationView.OnNavigationItemSelectedListener navListener =
             new BottomNavigationView.OnNavigationItemSelectedListener() {
                 @Override
@@ -94,11 +94,10 @@ public class MainActivity extends AppCompatActivity {
         userAccount.setUserLocation(userAccountPrefs.getString("userLocation", null));
         userAccount.setUniqId(userAccountPrefs.getString("uniqId", null));
 
-
-        if (justLoggedFlag && userAccount.getUserName() != null) {
-            justLoggedFlag = false;
+        if (loginFlag && userAccount.getUserName() != null) {
             bottomNavigationView.getMenu().getItem(3).setChecked(true);
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new signed__in__account__fragment()).commit();
         }
     }
+
 }

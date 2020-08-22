@@ -33,7 +33,6 @@ public class cart__fragment extends Fragment {
         if (MainActivity.userAccount.getUserName() == null) {
             Intent intent = new Intent(getActivity(), Unsigned_screen.class);
             startActivity(intent);
-            getActivity().finish();
             return null;
         } else {
             View root = inflater.inflate(R.layout.cart_fragment, container, false);

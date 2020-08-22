@@ -2,6 +2,7 @@ package com.example.zayans_eshop;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -67,7 +68,7 @@ public class LoginActivity extends AppCompatActivity {
                             }
                         } else {
                             submit.setEnabled(false);
-                            loginEngine = new BackgroundLoginEngine(LoginActivity.this, submit);
+                            loginEngine = new BackgroundLoginEngine(LoginActivity.this, submit, warningToast, tv);
                             loginEngine.execute(userName, userPass);
                         }
                     }
@@ -82,6 +83,11 @@ public class LoginActivity extends AppCompatActivity {
                     loginEngine.cancel(true);
                 if (cartFlag) {
                     startActivity(new Intent(this, MainActivity.class));
+                    finish();
+                } else if (MainActivity.loginFlag) {
+                    Intent intent = new Intent(this, MainActivity.class);
+                    startActivity(intent);
+                    Log.i("TEST", "here");
                     finish();
                 } else {
                     super.onBackPressed();

@@ -48,12 +48,13 @@ public class SettingsActivity extends AppCompatActivity {
                     builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
-                            SharedPreferences userAccountPrefs = getActivity().getSharedPreferences("userAccount", 0);
+                            SharedPreferences userAccountPrefs = PreferenceManager.getDefaultSharedPreferences(getActivity());
                             SharedPreferences.Editor editor = userAccountPrefs.edit();
 
                             editor.clear().apply();
-
                             MainActivity.userAccount.logOut();
+                            MainActivity.loginFlag = false;
+                            getActivity().onBackPressed();
                         }
                     });
                     builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
@@ -65,7 +66,6 @@ public class SettingsActivity extends AppCompatActivity {
                     AlertDialog alertDialog = builder.create();
                     alertDialog.setTitle("Log out?");
                     alertDialog.show();
-                    MainActivity.loginFlag = false;
                     return false;
                 }
             });

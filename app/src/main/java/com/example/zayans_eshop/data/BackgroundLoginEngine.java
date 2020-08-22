@@ -5,6 +5,7 @@ import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.preference.PreferenceManager;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.zayans_eshop.MainActivity;
@@ -28,10 +29,14 @@ public class BackgroundLoginEngine extends AsyncTask<String, Void, String> {
 
     private Activity context;
     private Button submit;
+    private Toast warningToast;
+    private TextView tv;
 
-    public BackgroundLoginEngine(Activity context, Button submit) {
+    public BackgroundLoginEngine(Activity context, Button submit, Toast toast, TextView tv) {
         this.context = context;
         this.submit = submit;
+        this.warningToast = toast;
+        this.tv = tv;
     }
 
     @Override
@@ -89,13 +94,13 @@ public class BackgroundLoginEngine extends AsyncTask<String, Void, String> {
     protected void onPostExecute(String s) {
         super.onPostExecute(s);
         if (s.equalsIgnoreCase("Failed")) {
-            Toast.makeText(context,
-                    "Incorrect username or password",
-                    Toast.LENGTH_LONG).show();
+            tv.setText("Incorrect username or password");
+            warningToast.show();
             submit.setEnabled(true);
         } else if (s.equalsIgnoreCase("Network error")) {
             submit.setEnabled(true);
-            Toast.makeText(context, "Network error! please check network connection", Toast.LENGTH_SHORT).show();
+            tv.setText("Network error! please check network connection");
+            warningToast.show();
         } else {
             try {
                 JSONArray obj = new JSONArray(s);
@@ -109,14 +114,13 @@ public class BackgroundLoginEngine extends AsyncTask<String, Void, String> {
             } catch (JSONException e) {
                 e.printStackTrace();
                 submit.setEnabled(true);
-                Toast.makeText(context, "An unknown error occurred", Toast.LENGTH_SHORT).show();
+                tv.setText("An unknown error occurred");
+                warningToast.show();
             }
 
             // Saving Login Details
             SharedPreferences userAccountPrefs = PreferenceManager.getDefaultSharedPreferences(context);
             SharedPreferences.Editor editor = userAccountPrefs.edit();
-
-            MainActivity.justLoggedFlag = true;
 
             if (!MainActivity.userAccount.isEmpty()) {
                 editor.putString("userName", MainActivity.userAccount.getUserName());

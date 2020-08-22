@@ -3,34 +3,41 @@
     <PreferenceCategory app:title="@string/account_header">
 
         <EditTextPreference
+            app:icon="@drawable/ic_baseline_account_circle_24"
             app:key="userName"
             app:title="@string/username_title"
             app:useSimpleSummaryProvider="true" />
 
         <EditTextPreference
+            app:icon="@drawable/ic_baseline_local_phone_24"
             app:key="userPhone"
             app:title="@string/phone_title"
             app:useSimpleSummaryProvider="true" />
 
         <EditTextPreference
+            app:icon="@drawable/ic_baseline_mail_outline_24"
             app:key="userEmail"
             app:title="@string/email_title"
             app:useSimpleSummaryProvider="true" />
 
         <EditTextPreference
+            app:icon="@drawable/ic_baseline_location_on_24"
             app:key="userLocation"
             app:title="@string/location_title"
             app:useSimpleSummaryProvider="true" />
 
         <Preference
+            app:icon="@drawable/ic_save_black_24dp"
             app:key="saveSettings"
             app:title="Save account info" />
 
         <Preference
+            app:icon="@drawable/ic_key_black_24dp"
             app:key="changePassword"
             app:title="@string/pass_title" />
 
         <Preference
+            app:icon="@drawable/ic_logout_black_24dp"
             app:key="logout"
             app:title="Log out" />
 
@@ -39,6 +46,7 @@
     <PreferenceCategory app:title="Extras">
 
         <Preference
+            app:icon="@drawable/ic_info_24dp"
             app:summary="0.4"
             app:title="Version" />
 

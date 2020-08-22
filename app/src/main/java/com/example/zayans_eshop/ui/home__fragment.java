@@ -1,13 +1,8 @@
 package com.example.zayans_eshop.ui;
 
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
-import android.text.Html;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -21,6 +16,8 @@ import com.example.zayans_eshop.ProductList;
 import com.example.zayans_eshop.R;
 
 public class home__fragment extends Fragment {
+
+    private SearchView searchView;
 
     @Nullable
     @Override
@@ -119,35 +116,14 @@ public class home__fragment extends Fragment {
 
         });
 
-        //calling the search bar
-        setHasOptionsMenu(true);
-        return root;
-
-    }
-
-
-    @Override
-    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-
-        super.onCreateOptionsMenu(menu, inflater);
-        menu.clear();
-        inflater.inflate(R.menu.search_menu, menu);
-
-        MenuItem item = menu.findItem(R.id.action_search);
-
-        item.setShowAsAction(MenuItem.SHOW_AS_ACTION_COLLAPSE_ACTION_VIEW | MenuItem.SHOW_AS_ACTION_IF_ROOM);
-
-        final androidx.appcompat.widget.SearchView searchView = (androidx.appcompat.widget.SearchView) item.getActionView();
-        searchView.setQueryHint(Html.fromHtml("<font color =#999999>Search Product</font>"));
-        searchView.setBackgroundColor(Color.rgb(225, 225, 225));
-
+        searchView = root.findViewById(R.id.searchView);
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
 
             @Override
             public boolean onQueryTextSubmit(String query) {
                 Intent intent = new Intent(getActivity(), ProductList.class);
                 intent.putExtra("search", query);
-                getActivity().startActivity(intent);
+                startActivity(intent);
                 return false;
             }
 
@@ -156,5 +132,7 @@ public class home__fragment extends Fragment {
                 return true;
             }
         });
+
+        return root;
     }
 }

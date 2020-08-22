@@ -22,4 +22,7 @@
     <string name="email_title">Edit e-mail</string>
     <string name="location_title">Edit location</string>
     <string name="pass_title">Change Password</string>
+
+    <!-- Search Texts -->
+    <string name="search_hint">Search for product</string>
 </resources>

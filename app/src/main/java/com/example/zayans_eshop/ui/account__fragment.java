@@ -3,7 +3,6 @@ package com.example.zayans_eshop.ui;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -51,16 +50,18 @@ public class account__fragment extends Fragment {
     @Override
     public void onAttach(@NonNull Context context) {
         super.onAttach(context);
+        if (MainActivity.loginFlag && MainActivity.userAccount.getUserName() != null) {
+            MainActivity.bottomNavigationView.getMenu().getItem(3).setChecked(true);
+            getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new signed__in__account__fragment()).commit();
+        }
     }
 
     @Override
     public void onResume() {
         super.onResume();
-        if (MainActivity.justLoggedFlag && MainActivity.userAccount.getUserName() != null) {
-            MainActivity.justLoggedFlag = false;
+        if (MainActivity.loginFlag && MainActivity.userAccount.getUserName() != null) {
             MainActivity.bottomNavigationView.getMenu().getItem(3).setChecked(true);
             getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new signed__in__account__fragment()).commit();
-        } else {
         }
     }
 }
