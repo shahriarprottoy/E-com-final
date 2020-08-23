@@ -58,7 +58,7 @@ public class ProductDetails extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if (MainActivity.userAccount.getUserName() == null) {
-                            Intent intent = new Intent(this, Unsigned_screen.class);
+                    Intent intent = new Intent(ProductDetails.this, Unsigned_screen.class);
                             startActivity(intent);
                         }
                 boolean existsFlag = false;
@@ -90,8 +90,12 @@ public class ProductDetails extends AppCompatActivity {
         offerPrice.setText("Discounted Price: " + product.getDiscountedPrice());
         TextView details = findViewById(R.id.details);
         details.setText("Discounted Price: " + product.getDescription());
-
     }
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        finish();
+    }
 }
 

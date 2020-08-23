@@ -2,7 +2,9 @@ package com.example.zayans_eshop.data;
 
 import android.app.Activity;
 import android.os.AsyncTask;
-import android.widget.Toast;
+import android.view.View;
+import android.widget.ProgressBar;
+import android.widget.TextView;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -19,9 +21,13 @@ import java.nio.charset.StandardCharsets;
 public class BackgroundOrderEngine extends AsyncTask<String, Void, String> {
 
     private Activity context;
+    private ProgressBar orderProgress;
+    private TextView placeholder;
 
-    public BackgroundOrderEngine(Activity context) {
+    public BackgroundOrderEngine(Activity context, ProgressBar orderProgress, TextView placeholder) {
+        this.orderProgress = orderProgress;
         this.context = context;
+        this.placeholder = placeholder;
     }
 
     @Override
@@ -77,16 +83,17 @@ public class BackgroundOrderEngine extends AsyncTask<String, Void, String> {
     @Override
     protected void onPostExecute(String s) {
         if (s.equalsIgnoreCase("success")) {
-            Toast.makeText(context, "Order placed!",
-                    Toast.LENGTH_LONG).show();
+            orderProgress.setVisibility(View.INVISIBLE);
+            placeholder.setVisibility(View.VISIBLE);
+            placeholder.setText("Order Placed!");
         } else if (s.equalsIgnoreCase("server crash")) {
-            Toast.makeText(context,
-                    "An unknown error occurred",
-                    Toast.LENGTH_LONG).show();
+            orderProgress.setVisibility(View.INVISIBLE);
+            placeholder.setVisibility(View.VISIBLE);
+            placeholder.setText("Please Check Network Connection!");
         } else {
-            Toast.makeText(context,
-                    "Connection problem! Please check network connection",
-                    Toast.LENGTH_LONG).show();
+            orderProgress.setVisibility(View.INVISIBLE);
+            placeholder.setVisibility(View.VISIBLE);
+            placeholder.setText("Unknown Error!");
         }
         super.onPostExecute(s);
     }

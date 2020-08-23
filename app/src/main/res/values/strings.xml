@@ -25,4 +25,6 @@
 
     <!-- Search Texts -->
     <string name="search_hint">Search for product</string>
+    <string name="confirm_and_place_order">Confirm and Place Order</string>
+    <string name="confirmation_dialogue">Please confirm that your phone number and location are correct before placing an order. If wrong, correct them from account section.</string>
 </resources>

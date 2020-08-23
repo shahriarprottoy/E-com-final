@@ -10,6 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 
 import com.example.zayans_eshop.data.Product;
 import com.example.zayans_eshop.data.UserAccount;
@@ -32,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
     public static BottomNavigationView bottomNavigationView;
 
     public static UserAccount userAccount;
+    public static FragmentManager fragmentManager;
     public static boolean loginFlag;
 
     private BottomNavigationView.OnNavigationItemSelectedListener navListener =
@@ -73,6 +75,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         loginFlag = false;
 
+        fragmentManager = getSupportFragmentManager();
+
         actionBar = getSupportActionBar();
         if (actionBar != null) {
             actionBar.setDisplayShowHomeEnabled(true);
@@ -99,5 +103,4 @@ public class MainActivity extends AppCompatActivity {
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new signed__in__account__fragment()).commit();
         }
     }
-
 }

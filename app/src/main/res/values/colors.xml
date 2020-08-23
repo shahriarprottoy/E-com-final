@@ -20,4 +20,5 @@
     <color name="text_shadow">#7F000000</color>
     <color name="text_shadow_white">#FFFFFF</color>
     <color name="home_color">#4477ff</color>
+    <color name="light_gray">#E9E9E9</color>
 </resources>

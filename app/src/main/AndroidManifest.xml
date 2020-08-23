@@ -13,6 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
+        <activity android:name=".SuccessActivity"></activity>
         <activity
             android:name=".SettingsActivity"
             android:label="@string/title_activity_settings" />
@@ -46,13 +47,7 @@
             android:name=".data.ChangePassword"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
-            android:name=".data.BkashActivity"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
-        <activity
-            android:name=".data.Checkout"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
-        <activity
-            android:name=".data.PaymentSuccess_Activity"
+            android:name=".Checkout"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
     </application>
 

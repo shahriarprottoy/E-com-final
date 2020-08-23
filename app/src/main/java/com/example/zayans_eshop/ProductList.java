@@ -42,4 +42,10 @@ public class ProductList extends AppCompatActivity {
         
         retriever.execute(argument);
     }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        finish();
+    }
 }
