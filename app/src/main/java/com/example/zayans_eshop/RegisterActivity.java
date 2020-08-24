@@ -88,11 +88,14 @@ public class RegisterActivity extends AppCompatActivity {
                         tv.setText("Name required!");
                         warningToast.show();
                     } else {
-                        tv.setText("Too short! At least 4 letters.");
+                        tv.setText("Too short name! At least 4 letters.");
                         warningToast.show();
                     }
                 } else if (userPass.length() < 6) {
-                    tv.setText("Too short! At least 6 characters.");
+                    tv.setText("Too short password! At least 6 characters.");
+                    warningToast.show();
+                } else if (userLocation.length() == 0 || userLocation.length() < 4) {
+                    tv.setText("Invalid location! Please give correct location.");
                     warningToast.show();
                 } else if (userPhone.length() < 10 || userPhone.length() > 15) {
                     if (userPhone.length() == 0) {
