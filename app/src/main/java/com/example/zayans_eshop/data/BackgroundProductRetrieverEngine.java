@@ -33,8 +33,11 @@ public class BackgroundProductRetrieverEngine extends AsyncTask<String, Void, St
     @SuppressLint("StaticFieldLeak")
     private Activity context;
     private AdapterProduct mAdapter;
+    @SuppressLint("StaticFieldLeak")
     private GridView productListView;
+    @SuppressLint("StaticFieldLeak")
     private ProgressBar progressBar;
+    @SuppressLint("StaticFieldLeak")
     private TextView textView;
 
     public BackgroundProductRetrieverEngine(Activity context, AdapterProduct mAdapter) {
@@ -124,7 +127,9 @@ public class BackgroundProductRetrieverEngine extends AsyncTask<String, Void, St
                             obj.getString(4),
                             obj.getString(5),
                             obj.getString(6),
-                            obj.getInt(7)
+                            obj.getInt(7),
+                            obj.getInt(8),
+                            obj.getInt(9)
                     ));
                 }
             } catch (JSONException e) {
@@ -135,7 +140,7 @@ public class BackgroundProductRetrieverEngine extends AsyncTask<String, Void, St
             mAdapter = new AdapterProduct(context, MainActivity.products);
 
             if (MainActivity.products.size() <= 0) {
-                textView.setText("Nothing Found!");
+                textView.setText(R.string.nothing_found);
                 textView.setVisibility(View.VISIBLE);
             } else {
                 productListView.setVisibility(View.VISIBLE);

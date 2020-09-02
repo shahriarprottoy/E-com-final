@@ -8,6 +8,9 @@ public class Product {
     private int quantity;
     private int discountedPrice;
     private String description;
+    private int setupCost;
+    private int deliveryCost;
+
     // The variables which DO NOT contain image URL will be blank
     // e.g. image3Url == "";
     private String[] imageUrls = new String[3];
@@ -17,9 +20,9 @@ public class Product {
 
     }
 
-    public Product(String name, int price, int stock,
-                   String description, String image1Url, String image2Url, String image3Url,
-                   int discountedPrice) {
+    Product(String name, int price, int stock,
+            String description, String image1Url, String image2Url, String image3Url,
+            int discountedPrice, int setupCost, int deliveryCost) {
         this.name = name;
         this.price = price;
         this.stock = stock;
@@ -28,6 +31,8 @@ public class Product {
         this.imageUrls[1] = image2Url;
         this.imageUrls[2] = image3Url;
         this.discountedPrice = discountedPrice;
+        this.setupCost = setupCost;
+        this.deliveryCost = deliveryCost;
     }
 
     // Refer to these functions for getting and setting
@@ -80,7 +85,7 @@ public class Product {
         this.quantity = quantity;
     }
 
-    public String getImage1Url() {
+    String getImage1Url() {
         return this.imageUrls[0];
     }
 
@@ -88,7 +93,7 @@ public class Product {
         this.imageUrls[0] = image1Url;
     }
 
-    public String getImage2Url() {
+    String getImage2Url() {
         return this.imageUrls[1];
     }
 
@@ -96,7 +101,7 @@ public class Product {
         this.imageUrls[1] = image2Url;
     }
 
-    public String getImage3Url() {
+    String getImage3Url() {
         return this.imageUrls[2];
     }
 
@@ -106,6 +111,22 @@ public class Product {
 
     public String[] getImageUrls() {
         return imageUrls;
+    }
+
+    public int getSetupCost() {
+        return setupCost;
+    }
+
+    public void setSetupCost(int setupCost) {
+        this.setupCost = setupCost;
+    }
+
+    public int getDeliveryCost() {
+        return deliveryCost;
+    }
+
+    public void setDeliveryCost(int deliveryCost) {
+        this.deliveryCost = deliveryCost;
     }
 
 }
