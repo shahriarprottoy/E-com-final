@@ -26,13 +26,14 @@ public class cart__fragment extends Fragment {
     public Button button;
 
     private TextView total;
-    private int totalAmount = 0;
+
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
         View root = inflater.inflate(R.layout.cart_fragment, container, false);
+        MainActivity.actionBar.show();
         total = root.findViewById(R.id.total);
         if (MainActivity.userAccount.getUserName() != null) {
             Button btn = root.findViewById(R.id.orderbutton);
@@ -75,11 +76,11 @@ public class cart__fragment extends Fragment {
             MainActivity.bottomNavigationView.getMenu().getItem(0).setChecked(true);
             MainActivity.fragmentManager.beginTransaction().replace(R.id.fragment_container, new home__fragment()).commit();
         } else {
-            totalAmount = 0;
+            MainActivity.totalAmount = 0;
             for (int i = 0; i < MainActivity.cartProducts.size(); i++) {
-                totalAmount += MainActivity.cartProducts.get(i).getDiscountedPrice();
+                MainActivity.totalAmount += MainActivity.cartProducts.get(i).getDiscountedPrice();
             }
-            total.setText(String.valueOf(totalAmount));
+            total.setText(String.valueOf(MainActivity.totalAmount));
         }
         super.onResume();
     }

@@ -23,7 +23,7 @@ public class account__fragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.account_fragment,container,false);
-
+        MainActivity.actionBar.show();
         TextView button = root.findViewById(R.id.register);
         button.setOnClickListener(new View.OnClickListener()
         {

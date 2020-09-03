@@ -84,7 +84,40 @@
             android:textSize="15sp"
             android:textColor="@color/grey_font"
             android:textStyle="bold"/>
-
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="12dp"
+            android:text="Delivery Cost: Tk."
+            android:textColor="@android:color/black"></TextView>
+<TextView
+    android:id="@+id/deliverycost"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:textSize="12dp"
+    android:textColor="@android:color/black"></TextView>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="12dp"
+                android:text="Setup Cost: Tk."
+                android:textColor="@android:color/black"></TextView>
+            <TextView
+                android:id="@+id/setupcost"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="12dp"
+                android:textColor="@android:color/black"></TextView>
+        </LinearLayout>
             <Button
                 android:id="@+id/addtocart"
                 android:layout_gravity="end"

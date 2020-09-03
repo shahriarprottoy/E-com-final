@@ -12,8 +12,10 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.widget.SearchView;
 import androidx.fragment.app.Fragment;
 
+import com.example.zayans_eshop.MainActivity;
 import com.example.zayans_eshop.ProductList;
 import com.example.zayans_eshop.R;
+import com.google.android.material.appbar.CollapsingToolbarLayout;
 
 public class home__fragment extends Fragment {
 
@@ -23,7 +25,11 @@ public class home__fragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_home, container, false);
-
+       MainActivity.actionBar.hide();
+        CollapsingToolbarLayout collapsingToolbarLayout = (CollapsingToolbarLayout) root.findViewById(R.id.collapsing_toolbar);
+        collapsingToolbarLayout.setTitle("Zayans eShop");
+        collapsingToolbarLayout.setCollapsedTitleTextColor(getResources().getColor(R.color.colorPrimaryDark));
+        collapsingToolbarLayout.setExpandedTitleColor(getResources().getColor(R.color.colorPrimaryDark));
         Button button = root.findViewById(R.id.electronics);
         button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {

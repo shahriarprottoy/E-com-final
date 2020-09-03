@@ -49,7 +49,7 @@ public class AdapterProduct extends ArrayAdapter<Product> {
             Picasso.with(context).load(Uri.parse(currentProduct.getImage1Url())).into(image1);
 
         // onClick listener for each product item in list
-        LinearLayout product = listItemview.findViewById(R.id.currentProduct);
+        final LinearLayout product = listItemview.findViewById(R.id.currentProduct);
         product.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -62,6 +62,8 @@ public class AdapterProduct extends ArrayAdapter<Product> {
                 intent.putExtra("im1", currentProduct.getImage1Url());
                 intent.putExtra("im2", currentProduct.getImage2Url());
                 intent.putExtra("im3", currentProduct.getImage3Url());
+                intent.putExtra("deliverycost",currentProduct.getDeliveryCost());
+                intent.putExtra("setupcost",currentProduct.getSetupCost());
                 intent.putExtra("fromCart", false);
                 Pair[] pairs=new Pair[4];
                 pairs[0]=new Pair<View, String>(image1,"imageTransition");

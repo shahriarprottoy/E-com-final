@@ -34,7 +34,7 @@ public class signed__in__account__fragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.signed_in_account_fragment, container, false);
 
-        MainActivity.actionBar.setTitle(Html.fromHtml("<FONT color='#999999'>My Account</FONT>"));
+       MainActivity.actionBar.setTitle(Html.fromHtml("<FONT color='#999999'>My Account</FONT>"));
 
         userName = root.findViewById(R.id.un);
         userPhone = root.findViewById(R.id.phoneNumber);
@@ -73,8 +73,8 @@ public class signed__in__account__fragment extends Fragment {
     @Override
     public void onStop() {
         super.onStop();
-        MainActivity.actionBar.setIcon(R.mipmap.ic_launcher);
-        MainActivity.actionBar.setTitle(Html.fromHtml("<font color='#2399DD'>ayan's eShop</font>"));
+       MainActivity.actionBar.setIcon(R.mipmap.ic_launcher);
+       MainActivity.actionBar.setTitle(Html.fromHtml("<font color='#2399DD'>ayan's eShop</font>"));
     }
 
     @Override

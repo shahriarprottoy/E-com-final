@@ -43,6 +43,8 @@ public class ProductDetails extends AppCompatActivity {
         product.setImage1Url(intent.getStringExtra("im1"));
         product.setImage2Url(intent.getStringExtra("im2"));
         product.setImage3Url(intent.getStringExtra("im3"));
+        product.setDeliveryCost(intent.getIntExtra("deliverycost",0));
+        product.setSetupCost(intent.getIntExtra("setupcost",0));
         product.setQuantity(1);
         fromCart = intent.getBooleanExtra("fromCart", false);
 
@@ -90,6 +92,10 @@ public class ProductDetails extends AppCompatActivity {
         offerPrice.setText("Discounted Price: " + product.getDiscountedPrice());
         TextView details = findViewById(R.id.details);
         details.setText("Discounted Price: " + product.getDescription());
+        TextView deliverycost=findViewById(R.id.deliverycost);
+        deliverycost.setText(String.valueOf(product.getDeliveryCost()));
+        TextView setupcost=findViewById(R.id.setupcost);
+        setupcost.setText(String.valueOf(product.getSetupCost()));
     }
 
     @Override

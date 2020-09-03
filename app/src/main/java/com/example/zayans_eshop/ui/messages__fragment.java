@@ -12,13 +12,14 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.example.zayans_eshop.MainActivity;
 import com.example.zayans_eshop.R;
 
 public class messages__fragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-
+        MainActivity.actionBar.show();
         View root= inflater.inflate(R.layout.messages_fragment,container,false);
         Button phoneContact = root.findViewById(R.id.phoneContact);
         Button emailContact = root.findViewById(R.id.emailContact);

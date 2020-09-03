@@ -1,9 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true">
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#F5F5F5">
+
+    android:layout_marginTop="80dp"
+   >
 
     <TextView
         android:id="@+id/text"
@@ -12,7 +18,7 @@
         android:layout_marginLeft="20dp"
         android:layout_marginTop="22dp"
         android:text="We'd love to hear from you"
-        android:textColor="#5C5F5F"
+        android:textColor="@android:color/darker_gray"
         android:textSize="25dp"
         android:textStyle="bold" />
 
@@ -24,16 +30,15 @@
         android:layout_marginTop="10dp"
         android:layout_marginRight="20dp"
         android:text="Whether you have question about feature,trial,pricing or anything else we are here to answer all your questions"
-        android:textColor="#969E9E"
+        android:textColor="@android:color/darker_gray"
         android:textSize="15dp"
         android:textStyle="bold" />
-
     <TextView
         android:id="@+id/text3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="27dp"
+        android:layout_marginTop="60dp"
         android:text="Contact us by"
         android:textColor="#5E35B1"
         android:textSize="35dp"
@@ -48,13 +53,13 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="10dp"
-        android:background="#F5F5F5"
         android:drawableTop="@drawable/gmail"
         android:text="E-mail"
         android:textSize="15dp"
         android:paddingBottom="10dp"
+        android:background="@android:color/white"
         android:layout_marginRight="15dp"
-        android:layout_marginLeft="85dp"
+        android:layout_marginLeft="80dp"
         android:textColor="@android:color/black" />
 
     <Button
@@ -63,11 +68,12 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="10dp"
-        android:background="#F5F5F5"
         android:drawableTop="@drawable/color_phone"
         android:textSize="15dp"
         android:paddingBottom="10dp"
+        android:background="@android:color/white"
         android:text="Phone"
         android:textColor="@android:color/black" />
     </LinearLayout>
 </LinearLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

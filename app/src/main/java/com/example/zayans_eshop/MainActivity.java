@@ -35,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
     public static UserAccount userAccount;
     public static FragmentManager fragmentManager;
     public static boolean loginFlag;
+    public static int totalAmount =0;
 
     private BottomNavigationView.OnNavigationItemSelectedListener navListener =
             new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -44,6 +45,11 @@ public class MainActivity extends AppCompatActivity {
                     switch (menuItem.getItemId()) {
                         case R.id.home:
                             selectedFragment = new home__fragment();
+                          //  FrameLayout frameLayout = (FrameLayout) findViewById(R.id.fragment_container);
+//
+  //                          ConstraintLayout.LayoutParams params = (ConstraintLayout.LayoutParams) frameLayout.getLayoutParams();
+    //                        params.setMargins(0, 40, 0, 0);
+      //                      frameLayout.setLayoutParams(params);
                             break;
                         case R.id.message:
                             selectedFragment = new messages__fragment();

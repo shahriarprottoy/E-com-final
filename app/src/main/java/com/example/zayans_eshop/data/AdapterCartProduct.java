@@ -26,7 +26,7 @@ public class AdapterCartProduct extends ArrayAdapter<Product> {
 
     private Context context;
     private View listItemview;
-
+    public int currentProductAmount=1;
     public AdapterCartProduct(Activity context, ArrayList<Product> products) {
         super(context, 0, products);
         this.context = context;
@@ -81,9 +81,11 @@ public class AdapterCartProduct extends ArrayAdapter<Product> {
                     editText.setText(String.valueOf(1));
                     return;
                 }
-                if (Integer.parseInt(editText.getText().toString()) < currentProduct.getStock()) {
-                    editText.setText(String.valueOf(Integer.parseInt(editText.getText().toString()) + 1));
-                    currentProduct.setQuantity(Integer.parseInt(editText.getText().toString()));
+              else  if (Integer.parseInt(editText.getText().toString()) < currentProduct.getStock()) {
+                    currentProduct.setProductAmount(currentProduct.getProductAmount()+1);
+                    editText.setText(String.valueOf(currentProduct.getProductAmount()));
+                 //   currentProduct.setQuantity(Integer.parseInt(editText.getText().toString()));
+                    MainActivity.totalAmount+=currentProduct.getDiscountedPrice();
                 } else {
                     Toast.makeText(context, "Out of stock", Toast.LENGTH_SHORT).show();
                 }
@@ -94,9 +96,13 @@ public class AdapterCartProduct extends ArrayAdapter<Product> {
         decrement.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (!(Integer.parseInt(editText.getText().toString()) <= 1))
-                    editText.setText(String.valueOf(Integer.parseInt(editText.getText().toString()) - 1));
-                currentProduct.setQuantity(Integer.parseInt(editText.getText().toString()));
+                if (!(Integer.parseInt(editText.getText().toString()) <= 1)) {
+                    currentProduct.setProductAmount(currentProduct.getProductAmount()-1);
+                    editText.setText(String.valueOf(currentProduct.getProductAmount()));
+                    MainActivity.totalAmount+=currentProduct.getDiscountedPrice();
+                    }
+              //  currentProduct.setQuantity(Integer.parseInt(editText.getText().toString()));
+
 
             }
         });

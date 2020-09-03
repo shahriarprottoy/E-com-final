@@ -10,6 +10,7 @@ public class Product {
     private String description;
     private int setupCost;
     private int deliveryCost;
+    private int productAmount=1;
 
     // The variables which DO NOT contain image URL will be blank
     // e.g. image3Url == "";
@@ -33,6 +34,7 @@ public class Product {
         this.discountedPrice = discountedPrice;
         this.setupCost = setupCost;
         this.deliveryCost = deliveryCost;
+
     }
 
     // Refer to these functions for getting and setting
@@ -127,6 +129,14 @@ public class Product {
 
     public void setDeliveryCost(int deliveryCost) {
         this.deliveryCost = deliveryCost;
+    }
+
+    public int getProductAmount() {
+        return productAmount;
+    }
+
+    public void setProductAmount(int productAmount) {
+        this.productAmount = productAmount;
     }
 
 }
