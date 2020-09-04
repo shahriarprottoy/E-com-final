@@ -22,7 +22,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             app:layout_scrollFlags="scroll|exitUntilCollapsed"
-            app:contentScrim="@android:color/holo_blue_light"
+            app:contentScrim="@android:color/white"
             app:expandedTitleMarginStart="20dp"
             android:fitsSystemWindows="true">
 
@@ -74,7 +74,7 @@
                  android:paddingLeft="30dp"
                  android:paddingTop="13dp"
                  android:textStyle="bold"
-                 android:textColor="@android:color/holo_blue_light" />
+                 android:textColor="@color/colorPrimaryDark" />
               <LinearLayout
                   android:layout_width="match_parent"
                   android:layout_height="match_parent"

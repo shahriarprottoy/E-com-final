@@ -68,6 +68,7 @@ public class LoginActivity extends AppCompatActivity {
                             }
                         } else {
                             submit.setEnabled(false);
+                            submit.setAlpha(.5f);
                             loginEngine = new BackgroundLoginEngine(LoginActivity.this, submit, warningToast, tv);
                             loginEngine.execute(userName, userPass);
                         }
@@ -81,17 +82,7 @@ public class LoginActivity extends AppCompatActivity {
             public void onBackPressed() {
                 if (loginEngine != null)
                     loginEngine.cancel(true);
-                if (cartFlag) {
-                    startActivity(new Intent(this, MainActivity.class));
-                    finish();
-                } else if (MainActivity.loginFlag) {
-                    Intent intent = new Intent(this, MainActivity.class);
-                    startActivity(intent);
-                    Log.i("TEST", "here");
-                    finish();
-                } else {
-                    super.onBackPressed();
-                    finish();
-                }
+                super.onBackPressed();
+                finish();
     }
 }

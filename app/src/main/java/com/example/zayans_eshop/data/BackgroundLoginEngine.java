@@ -131,7 +131,6 @@ public class BackgroundLoginEngine extends AsyncTask<String, Void, String> {
                 editor.apply();
                 MainActivity.loginFlag = true;
                 context.onBackPressed();
-                context.finish();
             }
         }
     }

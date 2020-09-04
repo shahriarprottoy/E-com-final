@@ -62,7 +62,6 @@ public class MainActivity extends AppCompatActivity {
                                 selectedFragment = new account__fragment();
                             } else {
                                 loginFlag = true;
-
                                 selectedFragment = new signed__in__account__fragment();
                             }
                             break;

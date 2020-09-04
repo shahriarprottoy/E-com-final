@@ -23,9 +23,8 @@ import com.example.zayans_eshop.data.AdapterCartProduct;
 public class cart__fragment extends Fragment {
 
     public static TextView empty;
+    public static TextView total;
     public Button button;
-
-    private TextView total;
 
 
     @Nullable

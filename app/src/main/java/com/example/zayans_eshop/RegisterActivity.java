@@ -20,7 +20,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.zayans_eshop.data.BackgroundRegistrationEngine;
 
 public class RegisterActivity extends AppCompatActivity {
-   private View background;
+    private View background;
     private String userName;
     private String userPass;
     private String userPhone;
@@ -107,6 +107,7 @@ public class RegisterActivity extends AppCompatActivity {
                     }
                 } else {
                     submit.setEnabled(false);
+                    submit.setAlpha(.5f);
                     regitrationEngine = new BackgroundRegistrationEngine(RegisterActivity.this, submit);
                     regitrationEngine.execute(userName, userPass, userPhone, userEmail, userLocation);
                 }
@@ -122,13 +123,8 @@ public class RegisterActivity extends AppCompatActivity {
     public void onBackPressed() {
         if (regitrationEngine != null)
             regitrationEngine.cancel(true);
-        if (cartFlag) {
-            startActivity(new Intent(this, MainActivity.class));
-            finish();
-        } else {
-            super.onBackPressed();
-            finish();
-        }
+        super.onBackPressed();
+        finish();
     }
     private void circularRevealActivity() {
         int cx = background.getRight() - getDips(44);
@@ -143,7 +139,7 @@ public class RegisterActivity extends AppCompatActivity {
                 0,
                 finalRadius);
 
-        circularReveal.setDuration(800);
+        circularReveal.setDuration(500);
         background.setVisibility(View.VISIBLE);
         circularReveal.start();
 
