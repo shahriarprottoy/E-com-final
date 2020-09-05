@@ -74,12 +74,14 @@ public class ProductDetails extends AppCompatActivity {
                     if (!existsFlag) {
                         Toast.makeText(ProductDetails.this, "Product added to cart", Toast.LENGTH_SHORT).show();
                         MainActivity.cartProducts.add(product);
+                        MainActivity.totalAmount+=product.getDiscountedPrice();
                     } else {
                         Toast.makeText(ProductDetails.this, "Product already added to cart", Toast.LENGTH_SHORT).show();
                     }
                 } else {
                     Toast.makeText(ProductDetails.this, "Product added to cart", Toast.LENGTH_SHORT).show();
                     MainActivity.cartProducts.add(product);
+                    MainActivity.totalAmount+=product.getDiscountedPrice();
                 }
             }
         });

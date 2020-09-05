@@ -65,6 +65,8 @@ public class AdapterCartProduct extends ArrayAdapter<Product> {
         final EditText editText = product.findViewById(R.id.numberOfProducts);
         Button increment = product.findViewById(R.id.incrementButton);
         Button decrement = product.findViewById(R.id.decrementButton);
+        Button deliverycost=product.findViewById(R.id.deliverycharge);
+        Button setupcost=product.findViewById(R.id.setupcharge);
         final Button remove = product.findViewById(R.id.remove);
 
         editText.setText(String.valueOf(currentProduct.getQuantity()));
@@ -74,6 +76,7 @@ public class AdapterCartProduct extends ArrayAdapter<Product> {
             public void onClick(View view) {
                 MainActivity.cartProducts.remove(currentProduct);
                 notifyDataSetChanged();
+                MainActivity.totalAmount-=currentProduct.getDiscountedPrice();
             }
         });
 
@@ -103,7 +106,20 @@ public class AdapterCartProduct extends ArrayAdapter<Product> {
                     }
             }
         });
-
+        deliverycost.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                MainActivity.totalAmount += currentProduct.getDeliveryCost();
+                cart__fragment.total.setText(String.valueOf(Integer.parseInt(cart__fragment.total.getText().toString()) + currentProduct.getDeliveryCost()));
+            }
+        });
+        setupcost.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                MainActivity.totalAmount += currentProduct.getSetupCost();
+                cart__fragment.total.setText(String.valueOf(Integer.parseInt(cart__fragment.total.getText().toString()) + currentProduct.getSetupCost()));
+            }
+        });
         TextView name = listItemview.findViewById(R.id.name);
         name.setText(currentProduct.getName());
         TextView price = listItemview.findViewById(R.id.price);

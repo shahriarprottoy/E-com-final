@@ -82,6 +82,11 @@ public class MainActivity extends AppCompatActivity {
 
         fragmentManager = getSupportFragmentManager();
 
+        MainActivity.totalAmount = 0;
+        for (int i = 0; i < MainActivity.cartProducts.size(); i++) {
+            MainActivity.totalAmount += MainActivity.cartProducts.get(i).getDiscountedPrice();
+        }
+
         actionBar = getSupportActionBar();
         if (actionBar != null) {
             actionBar.setDisplayShowHomeEnabled(true);
