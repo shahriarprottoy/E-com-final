@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 import com.example.zayans_eshop.LoginActivity;
@@ -23,7 +24,6 @@ public class account__fragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.account_fragment,container,false);
-        MainActivity.actionBar.show();
         TextView button = root.findViewById(R.id.register);
         button.setOnClickListener(new View.OnClickListener()
         {
@@ -50,9 +50,10 @@ public class account__fragment extends Fragment {
     @Override
     public void onAttach(@NonNull Context context) {
         super.onAttach(context);
+        ((AppCompatActivity)getActivity()).getSupportActionBar().show();
         if (MainActivity.loginFlag && MainActivity.userAccount.getUserName() != null) {
             MainActivity.bottomNavigationView.getMenu().getItem(3).setChecked(true);
-            getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new signed__in__account__fragment()).commit();
+            getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, MainActivity.signed__in__account__fragment).commit();
         }
     }
 
@@ -61,7 +62,7 @@ public class account__fragment extends Fragment {
         super.onResume();
         if (MainActivity.loginFlag && MainActivity.userAccount.getUserName() != null) {
             MainActivity.bottomNavigationView.getMenu().getItem(3).setChecked(true);
-            getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new signed__in__account__fragment()).commit();
+            getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, MainActivity.signed__in__account__fragment).commit();
         }
     }
 }

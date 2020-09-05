@@ -1,5 +1,6 @@
 package com.example.zayans_eshop.ui;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Html;
@@ -13,6 +14,7 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 import com.example.zayans_eshop.MainActivity;
@@ -61,6 +63,13 @@ public class signed__in__account__fragment extends Fragment {
     }
 
     @Override
+    public void onAttach(@NonNull Context context) {
+        super.onAttach(context);
+        ((AppCompatActivity)getActivity()).getSupportActionBar().show();
+
+    }
+
+    @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         if (item.getItemId() == R.id.settings) {
             Intent intent = new Intent(getActivity(), SettingsActivity.class);
@@ -81,7 +90,7 @@ public class signed__in__account__fragment extends Fragment {
     public void onResume() {
         super.onResume();
         if (!MainActivity.loginFlag) {
-            Objects.requireNonNull(getActivity()).getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new account__fragment()).commit();
+            getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new account__fragment()).commit();
         } else {
             UserAccount userAccount = MainActivity.userAccount;
 

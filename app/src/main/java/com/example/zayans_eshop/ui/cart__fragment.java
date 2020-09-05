@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 import com.example.zayans_eshop.Checkout;
@@ -32,7 +33,6 @@ public class cart__fragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
         View root = inflater.inflate(R.layout.cart_fragment, container, false);
-        MainActivity.actionBar.show();
         total = root.findViewById(R.id.total);
         if (MainActivity.userAccount.getUserName() != null) {
             Button btn = root.findViewById(R.id.orderbutton);
@@ -63,6 +63,7 @@ public class cart__fragment extends Fragment {
     @Override
     public void onAttach(@NonNull Context context) {
         super.onAttach(context);
+        ((AppCompatActivity)getActivity()).getSupportActionBar().show();
         if (MainActivity.userAccount.getUserName() == null) {
                   Intent intent = new Intent(getActivity(), Unsigned_screen.class);
                   startActivity(intent);

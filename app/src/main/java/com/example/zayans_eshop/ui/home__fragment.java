@@ -1,7 +1,9 @@
 package com.example.zayans_eshop.ui;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,27 +11,48 @@ import android.widget.Button;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SearchView;
+import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.fragment.app.Fragment;
 
 import com.example.zayans_eshop.MainActivity;
 import com.example.zayans_eshop.ProductList;
 import com.example.zayans_eshop.R;
+import com.google.android.material.appbar.AppBarLayout;
+import com.google.android.material.appbar.AppBarLayout.LayoutParams;
 import com.google.android.material.appbar.CollapsingToolbarLayout;
 
 public class home__fragment extends Fragment {
 
     private SearchView searchView;
+    public static Boolean oneFlag = true;
+    private AppBarLayout appBarLayout;
+    private CoordinatorLayout.LayoutParams params,params2;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_home, container, false);
-       MainActivity.actionBar.hide();
         CollapsingToolbarLayout collapsingToolbarLayout = root.findViewById(R.id.collapsing_toolbar);
         collapsingToolbarLayout.setTitle("Zayan's eShop");
         collapsingToolbarLayout.setCollapsedTitleTextColor(getResources().getColor(R.color.colorPrimaryDark));
         collapsingToolbarLayout.setExpandedTitleColor(getResources().getColor(R.color.colorPrimaryDark));
+
+        appBarLayout = root.findViewById(R.id.app_bar_layout);
+        params = new CoordinatorLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, (int) (340*getContext().getResources().getDisplayMetrics().density));
+        params.setMargins(0, (int) (-58 * getContext().getResources().getDisplayMetrics().density),0,0);
+        appBarLayout.setLayoutParams(params);
+
+        if(!oneFlag){
+            Log.i("TEST","here");
+            params2 = new CoordinatorLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,(int) (340*getContext().getResources().getDisplayMetrics().density));
+            params2.setMargins(0,(int) (29 * getContext().getResources().getDisplayMetrics().density),0,0);
+            appBarLayout.setLayoutParams(params2);
+        } else{
+            oneFlag = false;
+        }
+
         Button button = root.findViewById(R.id.electronics);
         button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -140,5 +163,11 @@ public class home__fragment extends Fragment {
         });
 
         return root;
+    }
+
+    @Override
+    public void onAttach(@NonNull Context context) {
+        ((AppCompatActivity)getActivity()).getSupportActionBar().hide();
+        super.onAttach(context);
     }
 }

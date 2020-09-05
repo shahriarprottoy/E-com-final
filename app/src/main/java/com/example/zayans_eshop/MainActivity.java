@@ -5,10 +5,12 @@ import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.text.Html;
 import android.view.MenuItem;
+import android.view.Window;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.res.ResourcesCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
@@ -37,6 +39,12 @@ public class MainActivity extends AppCompatActivity {
     public static boolean loginFlag;
     public static int totalAmount =0;
 
+    public static home__fragment home__fragment;
+    public static messages__fragment messages__fragment;
+    public static cart__fragment cart__fragment;
+    public static account__fragment account__fragment;
+    public static signed__in__account__fragment signed__in__account__fragment;
+
     private BottomNavigationView.OnNavigationItemSelectedListener navListener =
             new BottomNavigationView.OnNavigationItemSelectedListener() {
                 @Override
@@ -44,25 +52,30 @@ public class MainActivity extends AppCompatActivity {
                     Fragment selectedFragment = null;
                     switch (menuItem.getItemId()) {
                         case R.id.home:
-                            selectedFragment = new home__fragment();
-                          //  FrameLayout frameLayout = (FrameLayout) findViewById(R.id.fragment_container);
-//
-  //                          ConstraintLayout.LayoutParams params = (ConstraintLayout.LayoutParams) frameLayout.getLayoutParams();
-    //                        params.setMargins(0, 40, 0, 0);
-      //                      frameLayout.setLayoutParams(params);
+                            if(home__fragment == null)
+                                home__fragment = new home__fragment();
+                            selectedFragment = home__fragment;
                             break;
                         case R.id.message:
-                            selectedFragment = new messages__fragment();
+                            if(messages__fragment == null)
+                                messages__fragment = new messages__fragment();
+                            selectedFragment = messages__fragment;
                             break;
                         case R.id.cart:
-                            selectedFragment = new cart__fragment();
+                            if(cart__fragment == null)
+                                cart__fragment = new cart__fragment();
+                            selectedFragment = cart__fragment;
                             break;
                         case R.id.account:
                             if (userAccount.getUserName() == null) {
-                                selectedFragment = new account__fragment();
+                                if(account__fragment == null)
+                                    account__fragment = new account__fragment();
+                                selectedFragment = account__fragment;
                             } else {
                                 loginFlag = true;
-                                selectedFragment = new signed__in__account__fragment();
+                                if(signed__in__account__fragment == null)
+                                signed__in__account__fragment = new signed__in__account__fragment();
+                                selectedFragment = signed__in__account__fragment;
                             }
                             break;
                     }
@@ -78,6 +91,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         overridePendingTransition(R.anim.fadein, R.anim.fadeout);
         setContentView(R.layout.activity_main);
+
         loginFlag = false;
 
         fragmentManager = getSupportFragmentManager();
@@ -112,5 +126,11 @@ public class MainActivity extends AppCompatActivity {
             bottomNavigationView.getMenu().getItem(3).setChecked(true);
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new signed__in__account__fragment()).commit();
         }
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        home__fragment.oneFlag = true;
     }
 }
