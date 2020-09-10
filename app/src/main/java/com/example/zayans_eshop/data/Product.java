@@ -10,6 +10,11 @@ public class Product {
     private String description;
     private int setupCost;
     private int deliveryCost;
+    private int totalCost;
+
+    private boolean setupEnabled;
+    private boolean deliveryTaken = true;
+    private boolean setupTaken;
 
     // The variables which DO NOT contain image URL will be blank
     // e.g. image3Url == "";
@@ -33,6 +38,9 @@ public class Product {
         this.discountedPrice = discountedPrice;
         this.setupCost = setupCost;
         this.deliveryCost = deliveryCost;
+
+        this.setupEnabled = this.setupCost != 0;
+        this.setupTaken = this.setupEnabled;
     }
 
     // Refer to these functions for getting and setting
@@ -45,6 +53,7 @@ public class Product {
         this.discountedPrice = discountedPrice;
     }
 
+
     public String getDescription() {
         return description;
     }
@@ -52,6 +61,7 @@ public class Product {
     public void setDescription(String description) {
         this.description = description;
     }
+
 
     public String getName() {
         return this.name;
@@ -61,6 +71,7 @@ public class Product {
         this.name = name;
     }
 
+
     public int getPrice() {
         return this.price;
     }
@@ -68,6 +79,7 @@ public class Product {
     public void setPrice(int price) {
         this.price = price;
     }
+
 
     public void setStock(int stock) {
         this.stock = stock;
@@ -77,6 +89,7 @@ public class Product {
         return this.stock;
     }
 
+
     public int getQuantity() {
         return quantity;
     }
@@ -84,6 +97,7 @@ public class Product {
     public void setQuantity(int quantity) {
         this.quantity = quantity;
     }
+
 
     String getImage1Url() {
         return this.imageUrls[0];
@@ -93,6 +107,7 @@ public class Product {
         this.imageUrls[0] = image1Url;
     }
 
+
     String getImage2Url() {
         return this.imageUrls[1];
     }
@@ -100,6 +115,7 @@ public class Product {
     public void setImage2Url(String image2Url) {
         this.imageUrls[1] = image2Url;
     }
+
 
     String getImage3Url() {
         return this.imageUrls[2];
@@ -109,9 +125,11 @@ public class Product {
         this.imageUrls[2] = image3Url;
     }
 
+
     public String[] getImageUrls() {
         return imageUrls;
     }
+
 
     public int getSetupCost() {
         return setupCost;
@@ -121,6 +139,7 @@ public class Product {
         this.setupCost = setupCost;
     }
 
+
     public int getDeliveryCost() {
         return deliveryCost;
     }
@@ -129,4 +148,38 @@ public class Product {
         this.deliveryCost = deliveryCost;
     }
 
+
+
+    public boolean isSetupEnabled() {
+        return setupEnabled;
+    }
+
+    public boolean isDeliveryTaken() {
+        return deliveryTaken;
+    }
+
+    public void setDeliveryTaken(boolean deliveryTaken) {
+        this.deliveryTaken = deliveryTaken;
+    }
+
+    public boolean isSetupTaken() {
+        return setupTaken;
+    }
+
+    public void setSetupTaken(boolean setupTaken) {
+        this.setupTaken = setupTaken;
+    }
+
+
+
+    public int getTotalCost() {
+        totalCost = discountedPrice*quantity;
+        totalCost += (setupTaken ? quantity*setupCost : 0);
+        totalCost += (deliveryTaken ? quantity*deliveryCost : 0);
+        return totalCost;
+    }
+
+    public void setTotalCost(int totalCost) {
+        this.totalCost = totalCost;
+    }
 }
