@@ -76,7 +76,10 @@ public class cart__fragment extends Fragment {
             MainActivity.bottomNavigationView.getMenu().getItem(0).setChecked(true);
             MainActivity.fragmentManager.beginTransaction().replace(R.id.fragment_container, new home__fragment()).commit();
         } else {
-
+            MainActivity.totalAmount = 0;
+            for (int i = 0; i < MainActivity.cartProducts.size(); i++) {
+                MainActivity.totalAmount += MainActivity.cartProducts.get(i).getTotalCost();
+            }
             total.setText(String.valueOf(MainActivity.totalAmount));
         }
         super.onResume();

@@ -5,12 +5,10 @@ import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.text.Html;
 import android.view.MenuItem;
-import android.view.Window;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.res.ResourcesCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
@@ -37,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
     public static UserAccount userAccount;
     public static FragmentManager fragmentManager;
     public static boolean loginFlag;
-    public static int totalAmount =0;
+    public static int totalAmount;
 
     public static home__fragment home__fragment;
     public static messages__fragment messages__fragment;
@@ -96,10 +94,7 @@ public class MainActivity extends AppCompatActivity {
 
         fragmentManager = getSupportFragmentManager();
 
-        MainActivity.totalAmount = 0;
-        for (int i = 0; i < MainActivity.cartProducts.size(); i++) {
-            MainActivity.totalAmount += MainActivity.cartProducts.get(i).getDiscountedPrice();
-        }
+
 
         actionBar = getSupportActionBar();
         if (actionBar != null) {

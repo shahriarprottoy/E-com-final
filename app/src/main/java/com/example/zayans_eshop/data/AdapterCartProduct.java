@@ -76,7 +76,8 @@ public class AdapterCartProduct extends ArrayAdapter<Product> {
             public void onClick(View view) {
                 MainActivity.cartProducts.remove(currentProduct);
                 notifyDataSetChanged();
-                MainActivity.totalAmount-=currentProduct.getDiscountedPrice();
+                MainActivity.totalAmount-=currentProduct.getTotalCost();
+                cart__fragment.total.setText(String.valueOf(Integer.parseInt(cart__fragment.total.getText().toString()) - currentProduct.getTotalCost()));
             }
         });
 
@@ -86,7 +87,7 @@ public class AdapterCartProduct extends ArrayAdapter<Product> {
                 if (Integer.parseInt(editText.getText().toString()) < currentProduct.getStock()) {
                     currentProduct.setQuantity(currentProduct.getQuantity()+1);
                     editText.setText(String.valueOf(currentProduct.getQuantity()));
-                    MainActivity.totalAmount += currentProduct.getDiscountedPrice();
+                    currentProduct.setTotalCost(currentProduct.getTotalCost()+currentProduct.getDiscountedPrice());
                     cart__fragment.total.setText(String.valueOf(Integer.parseInt(cart__fragment.total.getText().toString()) + currentProduct.getDiscountedPrice()));
                 } else {
                     Toast.makeText(context, "Out of stock", Toast.LENGTH_SHORT).show();
@@ -101,7 +102,7 @@ public class AdapterCartProduct extends ArrayAdapter<Product> {
                 if (!(Integer.parseInt(editText.getText().toString()) <= 1)) {
                     currentProduct.setQuantity(currentProduct.getQuantity()-1);
                     editText.setText(String.valueOf(currentProduct.getQuantity()));
-                    MainActivity.totalAmount -= currentProduct.getDiscountedPrice();
+                    currentProduct.setTotalCost(currentProduct.getTotalCost()-currentProduct.getDiscountedPrice());
                     cart__fragment.total.setText(String.valueOf(Integer.parseInt(cart__fragment.total.getText().toString()) - currentProduct.getDiscountedPrice()));
                     }
             }
@@ -109,15 +110,22 @@ public class AdapterCartProduct extends ArrayAdapter<Product> {
         deliverycost.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                MainActivity.totalAmount += currentProduct.getDeliveryCost();
-                cart__fragment.total.setText(String.valueOf(Integer.parseInt(cart__fragment.total.getText().toString()) + currentProduct.getDeliveryCost()));
+                currentProduct.setDeliveryTaken(true);
+                Toast.makeText(getContext(), "Delivery cost added",Toast.LENGTH_SHORT).show();
+                currentProduct.setTotalCost(currentProduct.getTotalCost()+currentProduct.getDeliveryCost()*currentProduct.getQuantity());
+                cart__fragment.total.setText(String.valueOf(Integer.parseInt(cart__fragment.total.getText().toString()) + currentProduct.getDeliveryCost()*currentProduct.getQuantity()));
             }
         });
         setupcost.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                MainActivity.totalAmount += currentProduct.getSetupCost();
-                cart__fragment.total.setText(String.valueOf(Integer.parseInt(cart__fragment.total.getText().toString()) + currentProduct.getSetupCost()));
+                if(currentProduct.isDeliveryTaken()==true){
+                currentProduct.setSetupTaken(true);
+                    Toast.makeText(getContext(), "Setup cost added",Toast.LENGTH_SHORT).show();
+                    currentProduct.setTotalCost(currentProduct.getTotalCost()+currentProduct.getSetupCost()*currentProduct.getQuantity());
+                    cart__fragment.total.setText(String.valueOf(Integer.parseInt(cart__fragment.total.getText().toString()) + currentProduct.getSetupCost()*currentProduct.getQuantity()));}
+                else {  Toast.makeText(getContext(), "Delivery service is needed to add to add the setup service",Toast.LENGTH_SHORT).show();}
+
             }
         });
         TextView name = listItemview.findViewById(R.id.name);

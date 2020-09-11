@@ -13,7 +13,7 @@ public class Product {
     private int totalCost;
 
     private boolean setupEnabled;
-    private boolean deliveryTaken = true;
+    private boolean deliveryTaken = false;
     private boolean setupTaken;
 
     // The variables which DO NOT contain image URL will be blank
@@ -173,10 +173,9 @@ public class Product {
 
 
     public int getTotalCost() {
-        totalCost = discountedPrice*quantity;
-        totalCost += (setupTaken ? quantity*setupCost : 0);
-        totalCost += (deliveryTaken ? quantity*deliveryCost : 0);
-        return totalCost;
+
+        if(getQuantity()==1) return totalCost=getDiscountedPrice();
+        else  return totalCost;
     }
 
     public void setTotalCost(int totalCost) {
