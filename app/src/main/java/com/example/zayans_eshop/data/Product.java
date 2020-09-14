@@ -1,5 +1,7 @@
 package com.example.zayans_eshop.data;
 
+import android.util.Log;
+
 public class Product {
 
     private String name;
@@ -12,9 +14,8 @@ public class Product {
     private int deliveryCost;
     private int totalCost;
 
-    private boolean setupEnabled;
-    private boolean deliveryTaken = false;
-    private boolean setupTaken;
+    private boolean deliveryTaken = true;
+    private boolean setupTaken = true;
 
     // The variables which DO NOT contain image URL will be blank
     // e.g. image3Url == "";
@@ -38,9 +39,6 @@ public class Product {
         this.discountedPrice = discountedPrice;
         this.setupCost = setupCost;
         this.deliveryCost = deliveryCost;
-
-        this.setupEnabled = this.setupCost != 0;
-        this.setupTaken = this.setupEnabled;
     }
 
     // Refer to these functions for getting and setting
@@ -149,11 +147,6 @@ public class Product {
     }
 
 
-
-    public boolean isSetupEnabled() {
-        return setupEnabled;
-    }
-
     public boolean isDeliveryTaken() {
         return deliveryTaken;
     }
@@ -171,14 +164,10 @@ public class Product {
     }
 
 
-
     public int getTotalCost() {
-
-        if(getQuantity()==1) return totalCost=getDiscountedPrice();
-        else  return totalCost;
-    }
-
-    public void setTotalCost(int totalCost) {
-        this.totalCost = totalCost;
+        totalCost = discountedPrice*quantity;
+        totalCost += deliveryTaken ? deliveryCost*quantity : 0 ;
+        totalCost += setupTaken ? setupCost*quantity : 0 ;
+        return  totalCost;
     }
 }

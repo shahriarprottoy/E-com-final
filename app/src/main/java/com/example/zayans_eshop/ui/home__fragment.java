@@ -8,12 +8,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.FrameLayout;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SearchView;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
+import androidx.core.widget.NestedScrollView;
 import androidx.fragment.app.Fragment;
 
 import com.example.zayans_eshop.MainActivity;
@@ -28,7 +30,8 @@ public class home__fragment extends Fragment {
     private SearchView searchView;
     public static Boolean oneFlag = true;
     private AppBarLayout appBarLayout;
-    private CoordinatorLayout.LayoutParams params,params2;
+    private NestedScrollView nestedScrollView;
+    private CoordinatorLayout.LayoutParams params,params2,params3,params4;
 
     @Nullable
     @Override
@@ -44,11 +47,21 @@ public class home__fragment extends Fragment {
         params.setMargins(0, (int) (-58 * getContext().getResources().getDisplayMetrics().density),0,0);
         appBarLayout.setLayoutParams(params);
 
+        nestedScrollView = root.findViewById(R.id.home_scroll_view);
+        params3 = new CoordinatorLayout.LayoutParams(NestedScrollView.LayoutParams.MATCH_PARENT,NestedScrollView.LayoutParams.MATCH_PARENT);
+        params3.setBehavior(new AppBarLayout.ScrollingViewBehavior());
+        params3.setMargins(0,0,0,(int) (29 * getContext().getResources().getDisplayMetrics().density));
+        nestedScrollView.setLayoutParams(params3);
+
         if(!oneFlag){
-            Log.i("TEST","here");
-            params2 = new CoordinatorLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,(int) (340*getContext().getResources().getDisplayMetrics().density));
+            params2 = new CoordinatorLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,(int) (253*getContext().getResources().getDisplayMetrics().density));
             params2.setMargins(0,(int) (29 * getContext().getResources().getDisplayMetrics().density),0,0);
             appBarLayout.setLayoutParams(params2);
+
+            params4 = new CoordinatorLayout.LayoutParams(NestedScrollView.LayoutParams.MATCH_PARENT,NestedScrollView.LayoutParams.MATCH_PARENT);
+            params4.setBehavior(new AppBarLayout.ScrollingViewBehavior());
+            params4.setMargins(0,0,0,(int) (112 * getContext().getResources().getDisplayMetrics().density));
+            nestedScrollView.setLayoutParams(params4);
         } else{
             oneFlag = false;
         }

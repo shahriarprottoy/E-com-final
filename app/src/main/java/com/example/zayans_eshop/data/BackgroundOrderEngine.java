@@ -2,6 +2,7 @@ package com.example.zayans_eshop.data;
 
 import android.app.Activity;
 import android.os.AsyncTask;
+import android.util.Log;
 import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -55,7 +56,8 @@ public class BackgroundOrderEngine extends AsyncTask<String, Void, String> {
             BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(outputStream, StandardCharsets.UTF_8));
 
             String data = URLEncoder.encode("products", "UTF-8") + "=" + URLEncoder.encode(strings[0], "UTF-8") + "&" +
-                    URLEncoder.encode("userid", "UTF-8") + "=" + URLEncoder.encode(strings[1], "UTF-8");
+                    URLEncoder.encode("userid", "UTF-8") + "=" + URLEncoder.encode(strings[1], "UTF-8") + "&" +
+                    URLEncoder.encode("total", "UTF-8") + "=" + URLEncoder.encode(strings[2], "UTF-8");
             bufferedWriter.write(data);
             bufferedWriter.flush();
             bufferedWriter.close();

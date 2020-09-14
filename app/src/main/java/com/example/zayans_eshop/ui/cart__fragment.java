@@ -20,11 +20,13 @@ import com.example.zayans_eshop.MainActivity;
 import com.example.zayans_eshop.R;
 import com.example.zayans_eshop.Unsigned_screen;
 import com.example.zayans_eshop.data.AdapterCartProduct;
+import com.example.zayans_eshop.data.Product;
 
 public class cart__fragment extends Fragment {
 
     public static TextView empty;
-    public static TextView total;
+    public static TextView total_text_view;
+    public static int total_amount;
     public Button button;
 
 
@@ -33,7 +35,7 @@ public class cart__fragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
         View root = inflater.inflate(R.layout.cart_fragment, container, false);
-        total = root.findViewById(R.id.total);
+        total_text_view = root.findViewById(R.id.total);
         if (MainActivity.userAccount.getUserName() != null) {
             Button btn = root.findViewById(R.id.orderbutton);
             btn.setVisibility(View.INVISIBLE);
@@ -80,8 +82,20 @@ public class cart__fragment extends Fragment {
             for (int i = 0; i < MainActivity.cartProducts.size(); i++) {
                 MainActivity.totalAmount += MainActivity.cartProducts.get(i).getTotalCost();
             }
-            total.setText(String.valueOf(MainActivity.totalAmount));
+            total_text_view.setText(String.valueOf(MainActivity.totalAmount));
         }
         super.onResume();
+    }
+
+    // Easily refresh the Total textView after changes in the cartProduct objects
+    //
+    // Use: Make necessary changes to the required Product object in carProducts
+    //      and simply call this function to auto update the Total textView
+    public static void RefreshTotal(){
+        total_amount = 0;
+        for (Product product: MainActivity.cartProducts) {
+            total_amount += product.getTotalCost();
+        }
+        total_text_view.setText(String.valueOf(total_amount));
     }
 }

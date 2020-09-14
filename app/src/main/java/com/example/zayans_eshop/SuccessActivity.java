@@ -1,6 +1,7 @@
 package com.example.zayans_eshop;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
@@ -8,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.zayans_eshop.data.BackgroundOrderEngine;
 import com.example.zayans_eshop.data.Order;
+import com.example.zayans_eshop.ui.cart__fragment;
 
 public class SuccessActivity extends AppCompatActivity {
 
@@ -37,7 +39,9 @@ public class SuccessActivity extends AppCompatActivity {
         }
 
         BackgroundOrderEngine backgroundOrderEngine = new BackgroundOrderEngine(this, orderProgress, placeholder);
-        backgroundOrderEngine.execute(order.getOrder(), MainActivity.userAccount.getUniqId());
+        cart__fragment.RefreshTotal();
+        backgroundOrderEngine.execute(order.getOrder(), MainActivity.userAccount.getUniqId(), String.valueOf(cart__fragment.total_amount));
+        Log.i("TEST",String.valueOf(cart__fragment.total_amount));
         // Order code finishes here
     }
 }

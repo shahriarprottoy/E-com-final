@@ -61,27 +61,36 @@ public class ProductDetails extends AppCompatActivity {
             public void onClick(View view) {
                 if (MainActivity.userAccount.getUserName() == null) {
                     Intent intent = new Intent(ProductDetails.this, Unsigned_screen.class);
-                            startActivity(intent);
+                    startActivity(intent);
+                } else {
+                    boolean existsFlag = false;
+                    boolean outOfStock = false;
+                    if (MainActivity.cartProducts.size() > 0) {
+                        for (int i = 0; i < MainActivity.cartProducts.size(); i++) {
+                            if (MainActivity.cartProducts.get(i).getName().equals(product.getName())) {
+                                existsFlag = true;
+                                break;
+                            }
+                            if(product.getStock() == 0){
+                                outOfStock = true;
+                                break;
+                            }
                         }
-                boolean existsFlag = false;
-                if (MainActivity.cartProducts.size() > 0) {
-                    for (int i = 0; i < MainActivity.cartProducts.size(); i++) {
-                        if (MainActivity.cartProducts.get(i).getName().equals(product.getName())) {
-                            existsFlag = true;
-                            break;
+                        if (!existsFlag && !outOfStock) {
+                            Toast.makeText(ProductDetails.this, "Product added to cart", Toast.LENGTH_SHORT).show();
+                            MainActivity.cartProducts.add(product);
+                            MainActivity.totalAmount += product.getDiscountedPrice();
+                        } else if(outOfStock){
+                            Toast.makeText(ProductDetails.this, "Sorry, product out of stock", Toast.LENGTH_SHORT).show();
+
+                        } else {
+                            Toast.makeText(ProductDetails.this, "Product already added to cart", Toast.LENGTH_SHORT).show();
                         }
-                    }
-                    if (!existsFlag) {
+                    } else {
                         Toast.makeText(ProductDetails.this, "Product added to cart", Toast.LENGTH_SHORT).show();
                         MainActivity.cartProducts.add(product);
-                        MainActivity.totalAmount+=product.getDiscountedPrice();
-                    } else {
-                        Toast.makeText(ProductDetails.this, "Product already added to cart", Toast.LENGTH_SHORT).show();
+                        MainActivity.totalAmount += product.getDiscountedPrice();
                     }
-                } else {
-                    Toast.makeText(ProductDetails.this, "Product added to cart", Toast.LENGTH_SHORT).show();
-                    MainActivity.cartProducts.add(product);
-                    MainActivity.totalAmount+=product.getDiscountedPrice();
                 }
             }
         });
