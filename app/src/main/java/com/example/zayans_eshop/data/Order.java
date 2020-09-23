@@ -1,5 +1,7 @@
 package com.example.zayans_eshop.data;
 
+import android.util.Log;
+
 import org.json.JSONArray;
 
 public class Order {
@@ -11,7 +13,10 @@ public class Order {
         productArray = new JSONArray();
     }
 
-    public void addProduct(String name, int price, int stock, int quantity, int totalCost, boolean deliveryTaken, boolean setupTaken) {
+    public void addProduct(String name, int price,
+                           int stock, int quantity,
+                           int totalCost, boolean deliveryTaken,
+                           boolean setupTaken, int id) {
         product.put(name);
         product.put(String.valueOf(price));
         product.put(String.valueOf(quantity));
@@ -19,6 +24,7 @@ public class Order {
         product.put(String.valueOf(totalCost));
         product.put(deliveryTaken?"Yes":"No");
         product.put(setupTaken? "Yes":"No");
+        product.put(String.valueOf(id));
         productArray.put(product);
         product = new JSONArray();
     }

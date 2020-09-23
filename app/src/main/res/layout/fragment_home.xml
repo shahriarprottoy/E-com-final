@@ -103,7 +103,7 @@
                       android:drawableTop="@drawable/foods"
                       android:drawablePadding="-15dp"
                       android:paddingTop="10dp"
-                      android:text="Foods"
+                      android:text="Food"
                       android:textColor="@android:color/black"
                       android:textSize="9sp"
                       android:textStyle="bold"

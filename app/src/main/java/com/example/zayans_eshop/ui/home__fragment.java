@@ -40,7 +40,7 @@ public class home__fragment extends Fragment {
         CollapsingToolbarLayout collapsingToolbarLayout = root.findViewById(R.id.collapsing_toolbar);
         collapsingToolbarLayout.setTitle("Zayan's eShop");
         collapsingToolbarLayout.setCollapsedTitleTextColor(getResources().getColor(R.color.colorPrimaryDark));
-        collapsingToolbarLayout.setExpandedTitleColor(getResources().getColor(R.color.colorPrimaryDark));
+        collapsingToolbarLayout.setExpandedTitleColor(getResources().getColor(R.color.white));
 
         appBarLayout = root.findViewById(R.id.app_bar_layout);
         params = new CoordinatorLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, (int) (340*getContext().getResources().getDisplayMetrics().density));

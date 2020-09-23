@@ -33,6 +33,7 @@ public class AdapterProduct extends ArrayAdapter<Product> {
         View listItemview=convertView;
         final Product currentProduct = getItem(position);
 
+
         if(listItemview==null){
             listItemview= LayoutInflater.from(getContext()).inflate(R.layout.product_list_item,parent,false);
         }
@@ -64,6 +65,7 @@ public class AdapterProduct extends ArrayAdapter<Product> {
                 intent.putExtra("im3", currentProduct.getImage3Url());
                 intent.putExtra("deliverycost",currentProduct.getDeliveryCost());
                 intent.putExtra("setupcost",currentProduct.getSetupCost());
+                intent.putExtra("id", currentProduct.getId());
                 intent.putExtra("fromCart", false);
                 Pair[] pairs=new Pair[4];
                 pairs[0]=new Pair<View, String>(image1,"imageTransition");

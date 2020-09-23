@@ -45,6 +45,9 @@ public class ProductDetails extends AppCompatActivity {
         product.setImage3Url(intent.getStringExtra("im3"));
         product.setDeliveryCost(intent.getIntExtra("deliverycost",0));
         product.setSetupCost(intent.getIntExtra("setupcost",0));
+        product.setDeliveryTaken(intent.getBooleanExtra("deliverytaken",true));
+        product.setSetupTaken(intent.getBooleanExtra("setuptaken",false));
+        product.setId(intent.getIntExtra("id",0));
         product.setQuantity(1);
         fromCart = intent.getBooleanExtra("fromCart", false);
 

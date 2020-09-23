@@ -129,11 +129,19 @@ public class BackgroundProductRetrieverEngine extends AsyncTask<String, Void, St
                             obj.getString(6),
                             obj.getInt(7),
                             obj.getInt(8),
-                            obj.getInt(9)
+                            obj.getInt(9),
+                            obj.getInt(10)
                     ));
                 }
             } catch (JSONException e) {
                 e.printStackTrace();
+            }
+
+            for (int l = 0; l < MainActivity.products.size() ; l++){
+                if (MainActivity.products.get(l).getStock() < 1){
+                    MainActivity.products.remove(l);
+                    l--;
+                }
             }
 
             // Create a new adapter that takes an empty list of Product as input

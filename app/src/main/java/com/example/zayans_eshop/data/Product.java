@@ -13,6 +13,7 @@ public class Product {
     private int setupCost;
     private int deliveryCost;
     private int totalCost;
+    private int id;
 
     private boolean deliveryTaken = true;
     private boolean setupTaken = true;
@@ -28,7 +29,7 @@ public class Product {
 
     Product(String name, int price, int stock,
             String description, String image1Url, String image2Url, String image3Url,
-            int discountedPrice, int setupCost, int deliveryCost) {
+            int discountedPrice, int setupCost, int deliveryCost, int id) {
         this.name = name;
         this.price = price;
         this.stock = stock;
@@ -38,7 +39,10 @@ public class Product {
         this.imageUrls[2] = image3Url;
         this.discountedPrice = discountedPrice;
         this.setupCost = setupCost;
+        if(this.setupCost == 0)
+            setSetupTaken(false);
         this.deliveryCost = deliveryCost;
+        this.id = id;
     }
 
     // Refer to these functions for getting and setting
@@ -146,6 +150,14 @@ public class Product {
         this.deliveryCost = deliveryCost;
     }
 
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public boolean isDeliveryTaken() {
         return deliveryTaken;

@@ -62,6 +62,9 @@ public class AdapterCartProduct extends ArrayAdapter<Product> {
                 intent.putExtra("im3", currentProduct.getImage3Url());
                 intent.putExtra("deliverycost", currentProduct.getDeliveryCost());
                 intent.putExtra("setupcost", currentProduct.getSetupCost());
+                intent.putExtra("deliverytaken",currentProduct.isDeliveryTaken());
+                intent.putExtra("setuptaken",currentProduct.isSetupTaken());
+                intent.putExtra("id", currentProduct.getId());
                 intent.putExtra("fromCart", true);
 
                 context.startActivity(intent);
@@ -161,7 +164,8 @@ public class AdapterCartProduct extends ArrayAdapter<Product> {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
                 if(b){
-                    currentProduct.setSetupTaken(true);
+                    if(currentProduct.getSetupCost() != 0)
+                        currentProduct.setSetupTaken(true);
                 } else {
                     currentProduct.setSetupTaken(false);
                 }

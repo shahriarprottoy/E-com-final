@@ -7,6 +7,9 @@ import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import com.example.zayans_eshop.Checkout;
+import com.example.zayans_eshop.MainActivity;
+
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.IOException;
@@ -18,6 +21,8 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
+
+import static com.example.zayans_eshop.MainActivity.cart__fragment;
 
 public class BackgroundOrderEngine extends AsyncTask<String, Void, String> {
 
@@ -88,6 +93,9 @@ public class BackgroundOrderEngine extends AsyncTask<String, Void, String> {
             orderProgress.setVisibility(View.INVISIBLE);
             placeholder.setVisibility(View.VISIBLE);
             placeholder.setText("Order Placed!");
+            Checkout.checkoutActivity.finish();
+            MainActivity.cartProducts.clear();
+            cart__fragment.mAdapter.notifyDataSetChanged();
         } else if (s.equalsIgnoreCase("server crash")) {
             orderProgress.setVisibility(View.INVISIBLE);
             placeholder.setVisibility(View.VISIBLE);

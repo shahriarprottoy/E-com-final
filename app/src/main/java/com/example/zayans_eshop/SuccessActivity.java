@@ -13,6 +13,8 @@ import com.example.zayans_eshop.ui.cart__fragment;
 
 public class SuccessActivity extends AppCompatActivity {
 
+    private BackgroundOrderEngine backgroundOrderEngine;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,13 +37,19 @@ public class SuccessActivity extends AppCompatActivity {
                     MainActivity.cartProducts.get(i).getQuantity(),
                     MainActivity.cartProducts.get(i).getTotalCost(),
                     MainActivity.cartProducts.get(i).isDeliveryTaken(),
-                    MainActivity.cartProducts.get(i).isSetupTaken());
+                    MainActivity.cartProducts.get(i).isSetupTaken(),
+                    MainActivity.cartProducts.get(i).getId());
         }
 
-        BackgroundOrderEngine backgroundOrderEngine = new BackgroundOrderEngine(this, orderProgress, placeholder);
+        backgroundOrderEngine = new BackgroundOrderEngine(this, orderProgress, placeholder);
         cart__fragment.RefreshTotal();
         backgroundOrderEngine.execute(order.getOrder(), MainActivity.userAccount.getUniqId(), String.valueOf(cart__fragment.total_amount));
-        Log.i("TEST",String.valueOf(cart__fragment.total_amount));
         // Order code finishes here
+    }
+
+    @Override
+    public void onBackPressed() {
+        backgroundOrderEngine.cancel(true);
+        super.onBackPressed();
     }
 }

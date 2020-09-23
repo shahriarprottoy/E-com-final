@@ -3,6 +3,7 @@ package com.example.zayans_eshop.ui;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -28,6 +29,7 @@ public class cart__fragment extends Fragment {
     public static TextView total_text_view;
     public static int total_amount;
     public Button button;
+    public static AdapterCartProduct mAdapter;
 
 
     @Nullable
@@ -45,7 +47,7 @@ public class cart__fragment extends Fragment {
                 btn.setVisibility(View.VISIBLE);
                 empty.setVisibility(View.INVISIBLE);
                 ListView cartListView = root.findViewById(R.id.cart_product_list);
-                AdapterCartProduct mAdapter = new AdapterCartProduct(getActivity(), MainActivity.cartProducts);
+                mAdapter = new AdapterCartProduct(getActivity(), MainActivity.cartProducts);
                 cartListView.setAdapter(mAdapter);
 
                 button = root.findViewById(R.id.orderbutton);

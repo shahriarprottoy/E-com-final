@@ -27,7 +27,6 @@
         android:id="@+id/cart_product_list"
         android:layout_height="match_parent"
         android:layout_width="match_parent"
-        android:divider="@null"
         android:layout_marginLeft="5dp"
         android:layout_marginTop="5dp"
         android:layout_marginRight="5dp"
