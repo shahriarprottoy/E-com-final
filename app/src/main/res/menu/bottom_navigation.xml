@@ -7,7 +7,7 @@
     <item
         android:id="@+id/message"
         android:icon="@drawable/ic_chat_circular_bubble_with_message_text_lines"
-        android:title="Messages"/>
+        android:title="Contact"/>
     <item
         android:id="@+id/cart"
         android:icon="@drawable/ic_shopping_cart"

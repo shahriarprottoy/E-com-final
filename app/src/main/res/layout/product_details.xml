@@ -25,7 +25,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="2dp"
+        android:layout_height=".7dp"
         android:background="@color/grey_font" />
 
     <LinearLayout
@@ -51,6 +51,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="2dp"
             android:transitionName="sharePrice"
+            android:layout_marginLeft="14dp"
             android:textColor="@android:color/darker_gray"
             android:textSize="15sp" />
 
@@ -60,45 +61,60 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="2dp"
+            android:layout_marginLeft="14dp"
             android:transitionName="shareOffer"
-            android:textStyle="bold"
-            android:textSize="15sp" />
+            android:textSize="18sp" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
+            android:layout_marginLeft="12dp"
             android:layout_marginBottom="1dp"
             android:text="Description: "
-            android:textColor="@android:color/black"
-            android:textSize="15sp"
-            android:textStyle="bold" />
-
+            android:textColor="@android:color/darker_gray"
+            android:textSize="16sp"
+            android:textStyle="bold|italic"
+            />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height=".9dp"
+            android:background="#ECEFF1" />
         <TextView
             android:id="@+id/details"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
             android:layout_marginTop="5dp"
+            android:textStyle="italic"
             android:background="@drawable/description_background"
-            android:textSize="15sp"
+            android:textSize="13.5sp"
             android:textColor="@color/grey_font"
-            android:textStyle="bold"/>
+            />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height=".9dp"
+            android:background="#ECEFF1" />
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:layout_marginTop="11dp">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="12dp"
             android:text="Delivery Cost: Tk."
+            android:textStyle="italic"
+            android:layout_marginLeft="12dp"
             android:textColor="@android:color/black"></TextView>
 <TextView
     android:id="@+id/deliverycost"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:textSize="12dp"
+    android:textStyle="italic"
+    android:layout_marginLeft="12dp"
     android:textColor="@android:color/black"></TextView>
         </LinearLayout>
         <LinearLayout
@@ -110,18 +126,23 @@
                 android:layout_height="wrap_content"
                 android:textSize="12dp"
                 android:text="Setup Cost: Tk."
+                android:textStyle="italic"
+                android:layout_marginLeft="12dp"
                 android:textColor="@android:color/black"></TextView>
             <TextView
                 android:id="@+id/setupcost"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="12dp"
+                android:textStyle="italic"
+                android:layout_marginLeft="12dp"
                 android:textColor="@android:color/black"></TextView>
         </LinearLayout>
             <Button
                 android:id="@+id/addtocart"
                 android:layout_gravity="end"
                 android:layout_margin="10dp"
+                android:layout_marginTop="12dp"
                 android:paddingHorizontal="10dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

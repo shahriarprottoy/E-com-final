@@ -2,13 +2,11 @@ package com.example.zayans_eshop;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.Html;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 
@@ -95,11 +93,11 @@ public class ProductDetails extends AppCompatActivity {
         TextView name = findViewById(R.id.name);
         name.setText(product.getName());
         TextView price = findViewById(R.id.price);
-        price.setText("Regular Price: " + product.getPrice());
+        price.setText("Regular Price: Tk." + product.getPrice());
         TextView offerPrice = findViewById(R.id.offerPrice);
-        offerPrice.setText("Discounted Price: " + product.getDiscountedPrice());
+        offerPrice.setText("Discounted Price: Tk." + product.getDiscountedPrice());
         TextView details = findViewById(R.id.details);
-        details.setText("Discounted Price: " + product.getDescription());
+        details.setText("Discounted Price: Tk." + product.getDescription());
         TextView deliverycost=findViewById(R.id.deliverycost);
         deliverycost.setText(String.valueOf(product.getDeliveryCost()));
         TextView setupcost=findViewById(R.id.setupcost);

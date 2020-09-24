@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -8,88 +8,24 @@
     android:layout_marginTop="0dp"
     android:gravity="center"
     android:orientation="vertical">
-
-    <Button
-        android:id="@+id/submit"
-        android:layout_width="190dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="24dp"
-        android:background="@drawable/custom_button2"
-        android:elevation="20dp"
-        android:text="Register"
-
-        android:textColor="#EBEBEB"
-        android:textSize="17dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/userpass" />
-
-    <EditText
-        android:id="@+id/location"
-        android:layout_width="300dp"
-        android:layout_height="40dp"
-        android:layout_gravity="center"
-        android:backgroundTint="#CBCBCB"
-        android:cursorVisible="true"
-        android:drawableLeft="@drawable/ic_baseline_location_on_24"
-        android:hint="  Location (Optional)"
-        android:inputType="text"
-        android:paddingRight="8dp"
-        android:textColor="#CBCBCB"
-        android:textColorHint="#CBCBCB"
-        android:textSize="15sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/email" />
-
-    <EditText
-        android:id="@+id/userpass"
-        android:layout_width="300dp"
-        android:layout_height="40dp"
-        android:layout_gravity="center"
-        android:backgroundTint="#CBCBCB"
-        android:cursorVisible="true"
-        android:drawableLeft="@drawable/password"
-        android:hint="  Password (Compulsory)"
-        android:inputType="textPassword"
-        android:paddingRight="8dp"
-        android:textColor="#CBCBCB"
-        android:textColorHint="#CBCBCB"
-        android:textSize="15sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/location" />
-
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:layout_gravity="center"
         android:src="@drawable/zayanlogo"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <EditText
-        android:id="@+id/phone"
-        android:layout_width="300dp"
-        android:layout_height="44dp"
+        />
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:backgroundTint="#CBCBCB"
-        android:cursorVisible="true"
-        android:drawableLeft="@drawable/ic_baseline_local_phone_24"
-        android:hint="  Phone (Compulsory)"
-        android:inputType="phone"
-        android:paddingRight="8dp"
-        android:textColor="#CBCBCB"
-        android:textColorHint="#CBCBCB"
-        android:textSize="15sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/username" />
+        android:layout_marginTop="8dp"
+        android:text="Register Here"
+        android:textColor="@color/text_color"
+        android:textSize="27dp"
+        android:textStyle="bold"
+        />
 
     <EditText
         android:id="@+id/username"
@@ -106,25 +42,57 @@
         android:textColor="#CBCBCB"
         android:textColorHint="#CBCBCB"
         android:textSize="15sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.504"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        />
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+
+    <EditText
+        android:id="@+id/userpass"
+        android:layout_width="300dp"
+        android:layout_height="40dp"
         android:layout_gravity="center"
-        android:layout_marginTop="8dp"
-        android:text="Register Here"
-        android:textColor="@color/text_color"
-        android:textSize="27dp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+        android:backgroundTint="#CBCBCB"
+        android:cursorVisible="true"
+        android:drawableLeft="@drawable/password"
+        android:hint="  Password (Compulsory)"
+        android:inputType="textPassword"
+        android:paddingRight="8dp"
+        android:textColor="#CBCBCB"
+        android:textColorHint="#CBCBCB"
+        android:textSize="15sp"
+        />
 
+    <EditText
+        android:id="@+id/location"
+        android:layout_width="300dp"
+        android:layout_height="40dp"
+        android:layout_gravity="center"
+        android:backgroundTint="#CBCBCB"
+        android:cursorVisible="true"
+        android:drawableLeft="@drawable/ic_baseline_location_on_24"
+        android:hint="  Location (Compulsory)"
+        android:inputType="text"
+        android:paddingRight="8dp"
+        android:textColor="#CBCBCB"
+        android:textColorHint="#CBCBCB"
+        android:textSize="15sp"
+        />
+
+
+    <EditText
+        android:id="@+id/phone"
+        android:layout_width="300dp"
+        android:layout_height="44dp"
+        android:layout_gravity="center"
+        android:backgroundTint="#CBCBCB"
+        android:cursorVisible="true"
+        android:drawableLeft="@drawable/ic_baseline_local_phone_24"
+        android:hint="  Phone (Compulsory)"
+        android:inputType="phone"
+        android:paddingRight="8dp"
+        android:textColor="#CBCBCB"
+        android:textColorHint="#CBCBCB"
+        android:textSize="15sp"
+        />
     <EditText
         android:id="@+id/email"
         android:layout_width="300dp"
@@ -139,8 +107,23 @@
         android:textColor="#CBCBCB"
         android:textColorHint="#CBCBCB"
         android:textSize="15sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/phone" />
+        />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+    <Button
+        android:id="@+id/submit"
+        android:layout_width="190dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/custom_button2"
+        android:elevation="20dp"
+        android:text="Register"
+
+        android:textColor="#EBEBEB"
+        android:textSize="17dp"
+        />
+</LinearLayout>
