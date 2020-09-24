@@ -52,13 +52,7 @@ public class messages__fragment extends Fragment {
                 startActivity(Intent.createChooser(intent, "Choose an email app"));
             }
         });
-
         return root;
     }
 
-    @Override
-    public void onAttach(@NonNull Context context) {
-        super.onAttach(context);
-        ((AppCompatActivity)getActivity()).getSupportActionBar().show();
-    }
 }

@@ -2,13 +2,12 @@ package com.example.zayans_eshop.ui;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.ColorStateList;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.FrameLayout;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -18,17 +17,17 @@ import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.core.widget.NestedScrollView;
 import androidx.fragment.app.Fragment;
 
-import com.example.zayans_eshop.MainActivity;
 import com.example.zayans_eshop.ProductList;
 import com.example.zayans_eshop.R;
 import com.google.android.material.appbar.AppBarLayout;
-import com.google.android.material.appbar.AppBarLayout.LayoutParams;
+import com.google.android.material.appbar.CollapsingToolbarLayout;
+
+import androidx.appcompat.widget.Toolbar;
 import com.google.android.material.appbar.CollapsingToolbarLayout;
 
 public class home__fragment extends Fragment {
 
     private SearchView searchView;
-    public static Boolean oneFlag = true;
     private AppBarLayout appBarLayout;
     private NestedScrollView nestedScrollView;
     private CoordinatorLayout.LayoutParams params,params2,params3,params4;
@@ -37,34 +36,14 @@ public class home__fragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_home, container, false);
-        CollapsingToolbarLayout collapsingToolbarLayout = root.findViewById(R.id.collapsing_toolbar);
-        collapsingToolbarLayout.setTitle("Zayan's eShop");
-        collapsingToolbarLayout.setCollapsedTitleTextColor(getResources().getColor(R.color.colorPrimaryDark));
-        collapsingToolbarLayout.setExpandedTitleColor(getResources().getColor(R.color.white));
 
-        appBarLayout = root.findViewById(R.id.app_bar_layout);
-        params = new CoordinatorLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, (int) (340*getContext().getResources().getDisplayMetrics().density));
-        params.setMargins(0, (int) (-58 * getContext().getResources().getDisplayMetrics().density),0,0);
-        appBarLayout.setLayoutParams(params);
-
-        nestedScrollView = root.findViewById(R.id.home_scroll_view);
-        params3 = new CoordinatorLayout.LayoutParams(NestedScrollView.LayoutParams.MATCH_PARENT,NestedScrollView.LayoutParams.MATCH_PARENT);
-        params3.setBehavior(new AppBarLayout.ScrollingViewBehavior());
-        params3.setMargins(0,0,0,(int) (29 * getContext().getResources().getDisplayMetrics().density));
-        nestedScrollView.setLayoutParams(params3);
-
-        if(!oneFlag){
-            params2 = new CoordinatorLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,(int) (253*getContext().getResources().getDisplayMetrics().density));
-            params2.setMargins(0,(int) (29 * getContext().getResources().getDisplayMetrics().density),0,0);
-            appBarLayout.setLayoutParams(params2);
-
-            params4 = new CoordinatorLayout.LayoutParams(NestedScrollView.LayoutParams.MATCH_PARENT,NestedScrollView.LayoutParams.MATCH_PARENT);
-            params4.setBehavior(new AppBarLayout.ScrollingViewBehavior());
-            params4.setMargins(0,0,0,(int) (112 * getContext().getResources().getDisplayMetrics().density));
-            nestedScrollView.setLayoutParams(params4);
-        } else{
-            oneFlag = false;
-        }
+        Toolbar toolbar = (Toolbar) root.findViewById(R.id.toolbar);
+        ((AppCompatActivity)getActivity()).setSupportActionBar(toolbar);
+        CollapsingToolbarLayout coll_toolbar = (CollapsingToolbarLayout) root.findViewById(R.id.collapsing_toolbar);
+        coll_toolbar.setTitle("Zayan's eShop");
+        coll_toolbar.setCollapsedTitleTextColor(getResources().getColor(R.color.button_colour));
+        coll_toolbar.setExpandedTitleTextColor(ColorStateList.valueOf(getResources().getColor(R.color.white)));
+        coll_toolbar.setContentScrimColor(getResources().getColor(R.color.colorPrimary));
 
         Button button = root.findViewById(R.id.electronics);
         button.setOnClickListener(new View.OnClickListener() {
@@ -180,7 +159,6 @@ public class home__fragment extends Fragment {
 
     @Override
     public void onAttach(@NonNull Context context) {
-        ((AppCompatActivity)getActivity()).getSupportActionBar().hide();
         super.onAttach(context);
     }
 }

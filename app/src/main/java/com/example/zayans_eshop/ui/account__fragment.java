@@ -50,7 +50,6 @@ public class account__fragment extends Fragment {
     @Override
     public void onAttach(@NonNull Context context) {
         super.onAttach(context);
-        ((AppCompatActivity)getActivity()).getSupportActionBar().show();
         if (MainActivity.loginFlag && MainActivity.userAccount.getUserName() != null) {
             MainActivity.bottomNavigationView.getMenu().getItem(3).setChecked(true);
             getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, MainActivity.signed__in__account__fragment).commit();

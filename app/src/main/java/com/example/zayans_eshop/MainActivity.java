@@ -3,11 +3,9 @@ package com.example.zayans_eshop;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-import android.text.Html;
 import android.view.MenuItem;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
@@ -28,7 +26,6 @@ public class MainActivity extends AppCompatActivity {
     // The universal ArrayList<Product> used for storing products as per categories
     public static ArrayList<Product> products = new ArrayList<>();
     public static ArrayList<Product> cartProducts = new ArrayList<>();
-    public static ActionBar actionBar;
 
     public static BottomNavigationView bottomNavigationView;
 
@@ -94,16 +91,6 @@ public class MainActivity extends AppCompatActivity {
 
         fragmentManager = getSupportFragmentManager();
 
-
-
-        actionBar = getSupportActionBar();
-        if (actionBar != null) {
-            actionBar.setDisplayShowHomeEnabled(true);
-            actionBar.setIcon(R.mipmap.ic_launcher);
-            actionBar.setLogo(R.mipmap.ic_launcher);
-            actionBar.setTitle(Html.fromHtml("<font color='#2399DD'>ayan's eShop</font>"));
-        }
-
         bottomNavigationView = findViewById(R.id.bottom_navigation);
         bottomNavigationView.setOnNavigationItemSelectedListener(navListener);
         getSupportFragmentManager().beginTransaction().add(R.id.fragment_container, new home__fragment()).commit();
@@ -126,6 +113,5 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onPause() {
         super.onPause();
-        home__fragment.oneFlag = true;
     }
 }

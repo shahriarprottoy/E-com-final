@@ -7,8 +7,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-
-    android:layout_marginTop="80dp"
    >
 
     <TextView
@@ -40,35 +38,37 @@
         android:layout_gravity="center"
         android:layout_marginTop="60dp"
         android:text="Contact us by"
-        android:textColor="#5E35B1"
+        android:textColor="#1AA4FF"
         android:textSize="35dp"
         android:textStyle="bold" />
     <LinearLayout
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
         android:orientation="horizontal">
     <Button
+        style="?android:attr/borderlessButtonStyle"
         android:id="@+id/emailContact"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="10dp"
-        android:drawableTop="@drawable/gmail"
+        android:drawableTop="@drawable/email"
         android:text="E-mail"
         android:textSize="15dp"
         android:paddingBottom="10dp"
         android:background="@android:color/white"
         android:layout_marginRight="15dp"
-        android:layout_marginLeft="80dp"
         android:textColor="@android:color/black" />
 
     <Button
+        style="?android:attr/borderlessButtonStyle"
         android:id="@+id/phoneContact"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="10dp"
-        android:drawableTop="@drawable/color_phone"
+        android:drawableTop="@drawable/phone"
         android:textSize="15dp"
         android:paddingBottom="10dp"
         android:background="@android:color/white"
