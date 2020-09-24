@@ -21,6 +21,7 @@ import com.example.zayans_eshop.MainActivity;
 import com.example.zayans_eshop.R;
 import com.example.zayans_eshop.SettingsActivity;
 import com.example.zayans_eshop.data.UserAccount;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.Objects;
 
@@ -35,6 +36,15 @@ public class signed__in__account__fragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.signed_in_account_fragment, container, false);
+
+        FloatingActionButton fab = root.findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), SettingsActivity.class);
+                startActivity(intent);
+            }
+        });
 
         userName = root.findViewById(R.id.un);
         userPhone = root.findViewById(R.id.phoneNumber);
@@ -54,27 +64,10 @@ public class signed__in__account__fragment extends Fragment {
     }
 
     @Override
-    public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
-        super.onCreateOptionsMenu(menu, inflater);
-
-        inflater.inflate(R.menu.settings_menu, menu);
-    }
-
-    @Override
     public void onAttach(@NonNull Context context) {
         super.onAttach(context);
         ((AppCompatActivity)getActivity()).getSupportActionBar().show();
 
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        if (item.getItemId() == R.id.settings) {
-            Intent intent = new Intent(getActivity(), SettingsActivity.class);
-            startActivity(intent);
-            return true;
-        }
-        return false;
     }
 
     @Override

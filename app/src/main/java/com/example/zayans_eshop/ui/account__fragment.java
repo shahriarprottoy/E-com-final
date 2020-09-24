@@ -19,6 +19,8 @@ import com.example.zayans_eshop.MainActivity;
 import com.example.zayans_eshop.R;
 import com.example.zayans_eshop.RegisterActivity;
 
+import java.util.Objects;
+
 public class account__fragment extends Fragment {
     @Nullable
     @Override
@@ -52,7 +54,8 @@ public class account__fragment extends Fragment {
         super.onAttach(context);
         if (MainActivity.loginFlag && MainActivity.userAccount.getUserName() != null) {
             MainActivity.bottomNavigationView.getMenu().getItem(3).setChecked(true);
-            getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, MainActivity.signed__in__account__fragment).commit();
+            MainActivity.fragmentManager.beginTransaction().replace(R.id.fragment_container, ( MainActivity.signed__in__account__fragment != null ?
+                    MainActivity.signed__in__account__fragment : new signed__in__account__fragment())).commit();
         }
     }
 
@@ -61,7 +64,9 @@ public class account__fragment extends Fragment {
         super.onResume();
         if (MainActivity.loginFlag && MainActivity.userAccount.getUserName() != null) {
             MainActivity.bottomNavigationView.getMenu().getItem(3).setChecked(true);
-            getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, MainActivity.signed__in__account__fragment).commit();
+            MainActivity.fragmentManager.beginTransaction().replace(R.id.fragment_container,
+                    ( MainActivity.signed__in__account__fragment != null ?
+                            MainActivity.signed__in__account__fragment : new signed__in__account__fragment())).commit();
         }
     }
 }

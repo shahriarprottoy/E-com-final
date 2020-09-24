@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true">
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
@@ -11,13 +11,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:background="@drawable/userinfoback"
-        android:layout_marginTop="50dp">
+        android:background="@drawable/userinfoback">
 
         <LinearLayout
             android:id="@+id/linearLayout7"
             android:layout_width="match_parent"
-            android:layout_height="150dp"
+            android:layout_height="200dp"
 
             android:orientation="horizontal"
            >
@@ -153,9 +152,19 @@
                 android:textColor="@android:color/black" />
         </LinearLayout>
 
-
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end|bottom"
+            android:layout_margin="16dp"
+            android:contentDescription="@string/title_activity_settings"
+            android:src="@drawable/settings" />
 
     </LinearLayout>
 
+
+
 </ScrollView>
+
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

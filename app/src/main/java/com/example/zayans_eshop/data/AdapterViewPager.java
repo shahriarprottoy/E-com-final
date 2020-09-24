@@ -8,6 +8,7 @@ import android.widget.ImageView;
 import androidx.annotation.NonNull;
 import androidx.viewpager.widget.PagerAdapter;
 
+import com.example.zayans_eshop.R;
 import com.squareup.picasso.Picasso;
 
 public class AdapterViewPager extends PagerAdapter {
@@ -44,8 +45,12 @@ public class AdapterViewPager extends PagerAdapter {
             Picasso.with(context).load(imageUrls[position]).into(imageView);
             container.addView(imageView);
             return imageView;
+        } else{
+            ImageView imageView = new ImageView(context);
+            imageView.setImageResource(R.drawable.ic_shopping_basket);
+            container.addView(imageView);
+            return imageView;
         }
-        return null;
     }
 
     @Override

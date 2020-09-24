@@ -26,12 +26,6 @@ public class ProductDetails extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.product_details);
 
-
-        ActionBar actionBar = getSupportActionBar();
-        actionBar.setDisplayShowHomeEnabled(true);
-        actionBar.setIcon(R.mipmap.ic_launcher);
-        actionBar.setTitle(Html.fromHtml("<font color='#2399DD'>eShop</font>"));
-
         Intent intent = getIntent();
 
         // Setting product data from passed data

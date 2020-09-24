@@ -20,11 +20,6 @@ public class ProductList extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.product_list);
-
-        ActionBar actionBar = getSupportActionBar();
-        actionBar.setDisplayShowHomeEnabled(true);
-        actionBar.setIcon(R.mipmap.ic_launcher);
-        actionBar.setTitle(Html.fromHtml("<font color='#2399DD'>eShop</font>"));
         
         Intent intent = getIntent();
         String argument = null;

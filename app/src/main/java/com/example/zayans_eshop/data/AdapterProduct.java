@@ -48,6 +48,8 @@ public class AdapterProduct extends ArrayAdapter<Product> {
         final ImageView image1 = listItemview.findViewById(R.id.image1);
         if (currentProduct.getImage1Url() != "")
             Picasso.with(context).load(Uri.parse(currentProduct.getImage1Url())).into(image1);
+        else
+            image1.setImageResource(R.drawable.ic_shopping_basket);
 
         // onClick listener for each product item in list
         final LinearLayout product = listItemview.findViewById(R.id.currentProduct);

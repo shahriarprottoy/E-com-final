@@ -34,9 +34,8 @@
         android:textColorHint="#CBCBCB"
         android:textColor="#CBCBCB"
         android:layout_marginBottom="10dp"
-        android:hint="    User name "
+        android:hint="     User name "
         />
-
 
     <EditText
         android:id="@+id/userpass"
