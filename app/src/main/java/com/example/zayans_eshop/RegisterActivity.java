@@ -1,7 +1,6 @@
 package com.example.zayans_eshop;
 
 import android.animation.Animator;
-import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.util.TypedValue;
@@ -11,18 +10,19 @@ import android.view.ViewAnimationUtils;
 import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.zayans_eshop.data.BackgroundRegistrationEngine;
+import com.google.android.material.textfield.TextInputEditText;
 
 public class RegisterActivity extends AppCompatActivity {
     private View background;
     private String userName;
     private String userPass;
+    private String retypeuserPass;
     private String userPhone;
     private String userEmail;
     private String userLocation;
@@ -58,11 +58,12 @@ public class RegisterActivity extends AppCompatActivity {
             }
 
         }
-        final EditText name = findViewById(R.id.username);
-        final EditText pass = findViewById(R.id.userpass);
-        final EditText phone = findViewById(R.id.phone);
-        final EditText email = findViewById(R.id.email);
-        final EditText location = findViewById(R.id.location);
+        final TextInputEditText name = findViewById(R.id.username);
+        final TextInputEditText pass = findViewById(R.id.userpass);
+        final TextInputEditText retypepass = findViewById(R.id.retypeuserpass);
+        final TextInputEditText phone = findViewById(R.id.phone);
+        final TextInputEditText email = findViewById(R.id.email);
+        final TextInputEditText location = findViewById(R.id.location);
 
         submit = findViewById(R.id.submit);
         LayoutInflater inflater = getLayoutInflater();
@@ -82,7 +83,7 @@ public class RegisterActivity extends AppCompatActivity {
                 userPhone = phone.getText().toString();
                 userEmail = email.getText().toString();
                 userLocation = location.getText().toString();
-
+                 retypeuserPass= retypepass.getText().toString();
                 if (userName.length() < 4) {
                     if (userName.length() == 0) {
                         tv.setText("Name required!");
@@ -105,6 +106,10 @@ public class RegisterActivity extends AppCompatActivity {
                         tv.setText("Mobile number invalid!");
                         warningToast.show();
                     }
+
+                } else if(retypeuserPass!=userPass){
+                    tv.setText("Password should be same");
+                    warningToast.show();
                 } else {
                     submit.setEnabled(false);
                     submit.setAlpha(.5f);

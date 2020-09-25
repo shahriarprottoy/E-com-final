@@ -27,41 +27,81 @@
         android:textStyle="bold"
         />
 
-    <EditText
-        android:id="@+id/username"
-        android:layout_width="300dp"
-        android:layout_height="40dp"
-        android:layout_gravity="center"
-        android:layout_marginTop="52dp"
-        android:backgroundTint="#CBCBCB"
-        android:cursorVisible="true"
-        android:drawableLeft="@drawable/ic_baseline_account_circle_24"
-        android:hint="  User name (Compulsory)"
-        android:inputType="textPersonName"
-        android:paddingRight="8dp"
-        android:textColor="#CBCBCB"
-        android:textColorHint="#CBCBCB"
-        android:textSize="15sp"
-        />
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/asswordLyout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/username"
+            android:layout_width="300dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="52dp"
+            android:backgroundTint="#CBCBCB"
+            android:cursorVisible="true"
+            android:drawableLeft="@drawable/ic_baseline_account_circle_24"
+            android:hint="  User name (Compulsory)"
+            android:inputType="textPersonName"
+            android:paddingRight="8dp"
+            android:textColor="#CBCBCB"
+            android:textColorHint="#CBCBCB"
+            android:textSize="15sp"/>
+    </com.google.android.material.textfield.TextInputLayout>
 
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tPasswordLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:passwordToggleEnabled="true"
+        >
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/userpass"
+            android:layout_width="300dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:layout_marginBottom="10dp"
+            android:drawableLeft="@drawable/password"
+            android:backgroundTint="#CBCBCB"
+            android:cursorVisible="true"
 
-    <EditText
-        android:id="@+id/userpass"
-        android:layout_width="300dp"
-        android:layout_height="40dp"
-        android:layout_gravity="center"
-        android:backgroundTint="#CBCBCB"
-        android:cursorVisible="true"
-        android:drawableLeft="@drawable/password"
-        android:hint="  Password (Compulsory)"
-        android:inputType="textPassword"
-        android:paddingRight="8dp"
-        android:textColor="#CBCBCB"
-        android:textColorHint="#CBCBCB"
-        android:textSize="15sp"
-        />
+            android:hint="    Password "
+            android:inputType="textPassword"
+            android:paddingRight="8dp"
+            android:textColor="#CBCBCB"
+            android:textColorHint="#CBCBCB"
+            android:textSize="15sp"/>
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/PasswordLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:passwordToggleEnabled="true"
+        >
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/retypeuserpass"
+            android:layout_width="300dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:layout_marginBottom="10dp"
+            android:drawableLeft="@drawable/password"
+            android:backgroundTint="#CBCBCB"
+            android:cursorVisible="true"
 
-    <EditText
+            android:hint="   Confirm Password "
+            android:inputType="textPassword"
+            android:paddingRight="8dp"
+            android:textColor="#CBCBCB"
+            android:textColorHint="#CBCBCB"
+            android:textSize="15sp"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/asswordLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+    <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/location"
         android:layout_width="300dp"
         android:layout_height="40dp"
@@ -74,41 +114,51 @@
         android:paddingRight="8dp"
         android:textColor="#CBCBCB"
         android:textColorHint="#CBCBCB"
-        android:textSize="15sp"
-        />
+        android:textSize="15sp"/>
+    </com.google.android.material.textfield.TextInputLayout>
 
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/sswordLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/phone"
+            android:layout_width="300dp"
+            android:layout_height="44dp"
+            android:layout_gravity="center"
+            android:backgroundTint="#CBCBCB"
+            android:cursorVisible="true"
+            android:drawableLeft="@drawable/ic_baseline_local_phone_24"
+            android:hint="  Phone (Compulsory)"
+            android:inputType="phone"
+            android:paddingRight="8dp"
+            android:textColor="#CBCBCB"
+            android:textColorHint="#CBCBCB"
+            android:textSize="15sp"/>
+    </com.google.android.material.textfield.TextInputLayout>
 
-    <EditText
-        android:id="@+id/phone"
-        android:layout_width="300dp"
-        android:layout_height="44dp"
-        android:layout_gravity="center"
-        android:backgroundTint="#CBCBCB"
-        android:cursorVisible="true"
-        android:drawableLeft="@drawable/ic_baseline_local_phone_24"
-        android:hint="  Phone (Compulsory)"
-        android:inputType="phone"
-        android:paddingRight="8dp"
-        android:textColor="#CBCBCB"
-        android:textColorHint="#CBCBCB"
-        android:textSize="15sp"
-        />
-    <EditText
-        android:id="@+id/email"
-        android:layout_width="300dp"
-        android:layout_height="40dp"
-        android:layout_gravity="center"
-        android:backgroundTint="#CBCBCB"
-        android:cursorVisible="true"
-        android:drawableLeft="@drawable/ic_baseline_mail_outline_24"
-        android:hint="  Email (Optional)"
-        android:inputType="textEmailAddress"
-        android:paddingRight="8dp"
-        android:textColor="#CBCBCB"
-        android:textColorHint="#CBCBCB"
-        android:textSize="15sp"
-        />
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/swordLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
 
+        >
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/email"
+            android:layout_width="300dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:backgroundTint="#CBCBCB"
+            android:cursorVisible="true"
+            android:drawableLeft="@drawable/ic_baseline_mail_outline_24"
+            android:hint="  Email (Optional)"
+            android:inputType="textEmailAddress"
+            android:paddingRight="8dp"
+            android:textColor="#CBCBCB"
+            android:textColorHint="#CBCBCB"
+            android:textSize="15sp"/>
+    </com.google.android.material.textfield.TextInputLayout>
 
 
 
