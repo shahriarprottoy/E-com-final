@@ -39,10 +39,10 @@ public class AdapterOrderProduct extends ArrayAdapter<Product> {
 
         TextView name = listItemview.findViewById(R.id.name);
         name.setText(currentProduct.getName());
-        TextView price = listItemview.findViewById(R.id.quantity);
-        price.setText("Number of products: " + currentProduct.getQuantity());
+        TextView quantity = listItemview.findViewById(R.id.quantity);
+        quantity.setText("Products: " + currentProduct.getQuantity());
         TextView offerPrice = listItemview.findViewById(R.id.offerPrice);
-        offerPrice.setText("Discounted Price: " + currentProduct.getDiscountedPrice());
+        offerPrice.setText("Total of this: TK. " + currentProduct.getTotalCost());
         ImageView image1 = listItemview.findViewById(R.id.image1);
         if (!currentProduct.getImage1Url().equals(""))
             Picasso.with(context).load(Uri.parse(currentProduct.getImage1Url())).into(image1);

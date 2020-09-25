@@ -1,5 +1,6 @@
 package com.example.zayans_eshop;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,15 +11,13 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.zayans_eshop.data.AdapterCartProduct;
 import com.example.zayans_eshop.data.AdapterOrderProduct;
+import com.example.zayans_eshop.ui.cart__fragment;
 
 public class Checkout extends AppCompatActivity {
 
+    @SuppressLint("StaticFieldLeak")
     public static Activity checkoutActivity;
-    private Button btnCheckout;
-    private TextView phoneNumber;
-    private TextView location;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,10 +29,13 @@ public class Checkout extends AppCompatActivity {
         AdapterOrderProduct mAdapter = new AdapterOrderProduct(Checkout.this, MainActivity.cartProducts);
         cartListView.setAdapter(mAdapter);
 
-        phoneNumber = findViewById(R.id.phone_placeholder);
-        location = findViewById(R.id.location_placeholder);
-        btnCheckout = findViewById(R.id.btnCheckout);
+        TextView total = findViewById(R.id.checkout_screen_total);
+        TextView phoneNumber = findViewById(R.id.phone_placeholder);
+        TextView location = findViewById(R.id.location_placeholder);
+        Button btnCheckout = findViewById(R.id.btnCheckout);
 
+        cart__fragment.RefreshTotal();
+        total.setText("TK. " + String.valueOf(cart__fragment.total_amount));
         phoneNumber.setText(MainActivity.userAccount.getUserPhone());
         location.setText(MainActivity.userAccount.getUserLocation());
 

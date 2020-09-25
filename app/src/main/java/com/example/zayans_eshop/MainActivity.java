@@ -1,5 +1,6 @@
 package com.example.zayans_eshop;
 
+import android.annotation.SuppressLint;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
@@ -32,12 +33,13 @@ public class MainActivity extends AppCompatActivity {
     public static UserAccount userAccount;
     public static FragmentManager fragmentManager;
     public static boolean loginFlag;
-    public static int totalAmount;
 
     public static home__fragment home__fragment;
     public static messages__fragment messages__fragment;
+    @SuppressLint("StaticFieldLeak")
     public static cart__fragment cart__fragment;
     public static account__fragment account__fragment;
+    @SuppressLint("StaticFieldLeak")
     public static signed__in__account__fragment signed__in__account__fragment;
 
     private BottomNavigationView.OnNavigationItemSelectedListener navListener =
@@ -108,10 +110,5 @@ public class MainActivity extends AppCompatActivity {
             bottomNavigationView.getMenu().getItem(3).setChecked(true);
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new signed__in__account__fragment()).commit();
         }
-    }
-
-    @Override
-    protected void onPause() {
-        super.onPause();
     }
 }

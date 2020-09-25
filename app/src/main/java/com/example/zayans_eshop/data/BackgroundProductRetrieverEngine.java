@@ -6,8 +6,9 @@ import android.os.AsyncTask;
 import android.view.View;
 import android.widget.GridView;
 import android.widget.ProgressBar;
-import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.appcompat.widget.AppCompatImageView;
 
 import com.example.zayans_eshop.MainActivity;
 import com.example.zayans_eshop.R;
@@ -38,7 +39,7 @@ public class BackgroundProductRetrieverEngine extends AsyncTask<String, Void, St
     @SuppressLint("StaticFieldLeak")
     private ProgressBar progressBar;
     @SuppressLint("StaticFieldLeak")
-    private TextView textView;
+    private AppCompatImageView imageView;
 
     public BackgroundProductRetrieverEngine(Activity context, AdapterProduct mAdapter) {
         this.mAdapter = mAdapter;
@@ -50,7 +51,7 @@ public class BackgroundProductRetrieverEngine extends AsyncTask<String, Void, St
         // Find a reference to the {@link ListView} in the layout
         productListView = context.findViewById(R.id.product_list);
         progressBar = context.findViewById(R.id.progressBar);
-        textView = context.findViewById(R.id.nothing);
+        imageView = context.findViewById(R.id.nothing);
         super.onPreExecute();
     }
 
@@ -148,8 +149,7 @@ public class BackgroundProductRetrieverEngine extends AsyncTask<String, Void, St
             mAdapter = new AdapterProduct(context, MainActivity.products);
 
             if (MainActivity.products.size() <= 0) {
-                textView.setText(R.string.nothing_found);
-                textView.setVisibility(View.VISIBLE);
+                imageView.setVisibility(View.VISIBLE);
             } else {
                 productListView.setVisibility(View.VISIBLE);
                 productListView.setAdapter(mAdapter);

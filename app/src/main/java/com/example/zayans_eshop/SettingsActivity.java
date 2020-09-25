@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.Html;
+import android.util.Log;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AlertDialog;
@@ -39,18 +40,18 @@ public class SettingsActivity extends AppCompatActivity {
             button.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
                 @Override
                 public boolean onPreferenceClick(Preference preference) {
-                    AlertDialog.Builder builder = new AlertDialog.Builder(Objects.requireNonNull(getActivity()));
+                    AlertDialog.Builder builder = new AlertDialog.Builder(requireActivity());
                     builder.setMessage("Do you want to Log out?");
                     builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
-                            SharedPreferences userAccountPrefs = PreferenceManager.getDefaultSharedPreferences(getActivity());
+                            SharedPreferences userAccountPrefs = PreferenceManager.getDefaultSharedPreferences(requireActivity());
                             SharedPreferences.Editor editor = userAccountPrefs.edit();
 
                             editor.clear().apply();
                             MainActivity.userAccount.logOut();
                             MainActivity.loginFlag = false;
-                            getActivity().onBackPressed();
+                            requireActivity().onBackPressed();
                         }
                     });
                     builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
@@ -71,7 +72,7 @@ public class SettingsActivity extends AppCompatActivity {
             save.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
                 @Override
                 public boolean onPreferenceClick(Preference preference) {
-                    SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(Objects.requireNonNull(getActivity()));
+                    SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(requireActivity());
                     UserAccountUpdaterEngine userAccountUpdaterEngine = new UserAccountUpdaterEngine(getActivity());
                     userAccountUpdaterEngine.execute(
                             sp.getString("userName", ""),
@@ -90,7 +91,7 @@ public class SettingsActivity extends AppCompatActivity {
                 @Override
                 public boolean onPreferenceClick(Preference preference) {
                     Intent  intent=new Intent(getActivity(), ChangePassword.class);
-                    getActivity().startActivity(intent);
+                    requireActivity().startActivity(intent);
                     return false;
                 }
             });

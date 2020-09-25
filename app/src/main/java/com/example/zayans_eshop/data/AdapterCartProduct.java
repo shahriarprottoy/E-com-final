@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
+import android.text.TextPaint;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -176,9 +177,10 @@ public class AdapterCartProduct extends ArrayAdapter<Product> {
         TextView name = listItemview.findViewById(R.id.name);
         name.setText(currentProduct.getName());
         TextView price = listItemview.findViewById(R.id.price);
-        price.setText("Regular Price: " + currentProduct.getPrice());
+        price.setPaintFlags(price.getPaintFlags() | TextPaint.STRIKE_THRU_TEXT_FLAG);
+        price.setText("TK. " + currentProduct.getPrice());
         TextView offerPrice = listItemview.findViewById(R.id.offerPrice);
-        offerPrice.setText("Discounted Price: " + currentProduct.getDiscountedPrice());
+        offerPrice.setText("TK. " + currentProduct.getDiscountedPrice());
         ImageView image1 = listItemview.findViewById(R.id.image1);
         if (!currentProduct.getImage1Url().equals(""))
             Picasso.with(context).load(Uri.parse(currentProduct.getImage1Url())).into(image1);

@@ -13,6 +13,7 @@
     <color name="colorControlHighlight">#C9C9CC</color>
     <color name="white">#FFFFFF</color>
     <color name="warning">#FF6666</color>
+    <color name="green">#44BB44</color>
     <color name="text_color">#489BFF</color>
     <color name="button_colour">#3892FF</color>
     <color name="light_font">#9E9A9A</color>

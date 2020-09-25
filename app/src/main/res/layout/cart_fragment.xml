@@ -3,7 +3,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true" >
+    <include layout="@layout/header"/>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_marginTop="58dp"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -44,15 +46,15 @@
         android:layout_alignParentEnd="true"
         android:layout_marginBottom="15dp"
         android:paddingStart="20dp"
-        android:text="Total"
+        android:text="@string/total"
         android:textSize="20sp" />
 
-    <TextView
+    <ImageView
         android:id="@+id/empty_cart"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="160dp"
+        android:layout_height="160dp"
         android:layout_centerInParent="true"
-        android:text="Empty Cart"
+        android:src="@drawable/empty_cart"
         android:textSize="35sp" />
    <Button
        android:id="@+id/orderbutton"

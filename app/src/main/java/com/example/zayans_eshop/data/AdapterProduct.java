@@ -1,5 +1,6 @@
 package com.example.zayans_eshop.data;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.ActivityOptions;
 import android.content.Context;
@@ -13,6 +14,8 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import android.graphics.Paint;
 
 import com.example.zayans_eshop.ProductDetails;
 import com.example.zayans_eshop.R;
@@ -28,6 +31,7 @@ public class AdapterProduct extends ArrayAdapter<Product> {
         super(context,0,products);
         this.context = context;
     }
+    @SuppressLint("SetTextI18n")
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         View listItemview=convertView;
@@ -40,13 +44,15 @@ public class AdapterProduct extends ArrayAdapter<Product> {
 
 
         final TextView name = listItemview.findViewById(R.id.name);
+        assert currentProduct != null;
         name.setText(currentProduct.getName());
         final TextView price = listItemview.findViewById(R.id.price);
-        price.setText("Regular Price: " + currentProduct.getPrice());
+        price.setText("TK. " + currentProduct.getPrice());
+        price.setPaintFlags(price.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
         TextView offerPrice = listItemview.findViewById(R.id.offerPrice);
-        offerPrice.setText("Discounted Price: " + currentProduct.getDiscountedPrice());
+        offerPrice.setText("TK. " + currentProduct.getDiscountedPrice());
         final ImageView image1 = listItemview.findViewById(R.id.image1);
-        if (currentProduct.getImage1Url() != "")
+        if (!currentProduct.getImage1Url().equals(""))
             Picasso.with(context).load(Uri.parse(currentProduct.getImage1Url())).into(image1);
         else
             image1.setImageResource(R.drawable.ic_shopping_basket);

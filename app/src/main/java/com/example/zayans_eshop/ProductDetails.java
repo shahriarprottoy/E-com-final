@@ -2,6 +2,7 @@ package com.example.zayans_eshop;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextPaint;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -74,7 +75,6 @@ public class ProductDetails extends AppCompatActivity {
                         if (!existsFlag && !outOfStock) {
                             Toast.makeText(ProductDetails.this, "Product added to cart", Toast.LENGTH_SHORT).show();
                             MainActivity.cartProducts.add(product);
-                            MainActivity.totalAmount += product.getDiscountedPrice();
                         } else if(outOfStock){
                             Toast.makeText(ProductDetails.this, "Sorry, product out of stock", Toast.LENGTH_SHORT).show();
 
@@ -84,7 +84,6 @@ public class ProductDetails extends AppCompatActivity {
                     } else {
                         Toast.makeText(ProductDetails.this, "Product added to cart", Toast.LENGTH_SHORT).show();
                         MainActivity.cartProducts.add(product);
-                        MainActivity.totalAmount += product.getDiscountedPrice();
                     }
                 }
             }
@@ -93,11 +92,12 @@ public class ProductDetails extends AppCompatActivity {
         TextView name = findViewById(R.id.name);
         name.setText(product.getName());
         TextView price = findViewById(R.id.price);
-        price.setText("Regular Price: Tk." + product.getPrice());
+        price.setPaintFlags(price.getPaintFlags() | TextPaint.STRIKE_THRU_TEXT_FLAG);
+        price.setText("Tk." + product.getPrice());
         TextView offerPrice = findViewById(R.id.offerPrice);
-        offerPrice.setText("Discounted Price: Tk." + product.getDiscountedPrice());
+        offerPrice.setText("Tk." + product.getDiscountedPrice());
         TextView details = findViewById(R.id.details);
-        details.setText("Discounted Price: Tk." + product.getDescription());
+        details.setText("" + product.getDescription());
         TextView deliverycost=findViewById(R.id.deliverycost);
         deliverycost.setText(String.valueOf(product.getDeliveryCost()));
         TextView setupcost=findViewById(R.id.setupcost);

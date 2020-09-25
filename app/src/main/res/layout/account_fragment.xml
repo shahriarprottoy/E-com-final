@@ -3,13 +3,14 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@drawable/ic_background_01"
-
     android:orientation="vertical">
+
     <ImageView
         android:layout_width="120dp"
         android:layout_height="120dp"
         android:src="@drawable/zayanlogo"
-        android:layout_gravity="center"></ImageView>
+        android:layout_gravity="center"
+        android:contentDescription="@string/app_name" />
     <TextView
         android:id="@+id/logintext2"
         android:layout_width="wrap_content"
@@ -17,7 +18,7 @@
         android:layout_gravity="center"
         android:layout_marginTop="1dp"
         android:layout_marginBottom="10dp"
-        android:text="Enjoy best shopping"
+        android:text="@string/enjoy_best_shopping"
         android:textColor="@android:color/holo_blue_light"
         android:textSize="25sp"
         android:textStyle="bold" />
@@ -28,7 +29,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginBottom="10dp"
-        android:text="Start now!!!"
+        android:text="@string/start_now"
         android:textColor="@android:color/holo_blue_light"
         android:textSize="35sp"
         android:textStyle="bold" />

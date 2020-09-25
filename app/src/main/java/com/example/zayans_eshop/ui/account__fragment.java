@@ -11,15 +11,12 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 import com.example.zayans_eshop.LoginActivity;
 import com.example.zayans_eshop.MainActivity;
 import com.example.zayans_eshop.R;
 import com.example.zayans_eshop.RegisterActivity;
-
-import java.util.Objects;
 
 public class account__fragment extends Fragment {
     @Nullable
@@ -42,7 +39,7 @@ public class account__fragment extends Fragment {
             public void onClick(View v)
             {
                 startActivity(new Intent(getActivity(), LoginActivity.class));
-                getActivity().overridePendingTransition(R.anim.slide_out_bottom, R.anim.slide_in_bottom);
+                requireActivity().overridePendingTransition(R.anim.slide_out_bottom, R.anim.slide_in_bottom);
             }
 
         });
@@ -54,8 +51,9 @@ public class account__fragment extends Fragment {
         super.onAttach(context);
         if (MainActivity.loginFlag && MainActivity.userAccount.getUserName() != null) {
             MainActivity.bottomNavigationView.getMenu().getItem(3).setChecked(true);
-            MainActivity.fragmentManager.beginTransaction().replace(R.id.fragment_container, ( MainActivity.signed__in__account__fragment != null ?
-                    MainActivity.signed__in__account__fragment : new signed__in__account__fragment())).commit();
+            if(MainActivity.signed__in__account__fragment == null)
+                MainActivity.signed__in__account__fragment = new signed__in__account__fragment();
+            MainActivity.fragmentManager.beginTransaction().replace(R.id.fragment_container, MainActivity.signed__in__account__fragment).commit();
         }
     }
 
@@ -64,9 +62,9 @@ public class account__fragment extends Fragment {
         super.onResume();
         if (MainActivity.loginFlag && MainActivity.userAccount.getUserName() != null) {
             MainActivity.bottomNavigationView.getMenu().getItem(3).setChecked(true);
-            MainActivity.fragmentManager.beginTransaction().replace(R.id.fragment_container,
-                    ( MainActivity.signed__in__account__fragment != null ?
-                            MainActivity.signed__in__account__fragment : new signed__in__account__fragment())).commit();
+            if(MainActivity.signed__in__account__fragment == null)
+                MainActivity.signed__in__account__fragment = new signed__in__account__fragment();
+            MainActivity.fragmentManager.beginTransaction().replace(R.id.fragment_container, MainActivity.signed__in__account__fragment).commit();
         }
     }
 }

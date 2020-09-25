@@ -1,9 +1,9 @@
 package com.example.zayans_eshop.ui;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +14,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.AppCompatImageView;
 import androidx.fragment.app.Fragment;
 
 import com.example.zayans_eshop.Checkout;
@@ -23,12 +24,15 @@ import com.example.zayans_eshop.Unsigned_screen;
 import com.example.zayans_eshop.data.AdapterCartProduct;
 import com.example.zayans_eshop.data.Product;
 
+import java.util.Objects;
+
 public class cart__fragment extends Fragment {
 
-    public static TextView empty;
+    public static AppCompatImageView empty;
+    @SuppressLint("StaticFieldLeak")
     public static TextView total_text_view;
     public static int total_amount;
-    public Button button;
+    @SuppressLint("StaticFieldLeak")
     public static AdapterCartProduct mAdapter;
 
 
@@ -49,9 +53,7 @@ public class cart__fragment extends Fragment {
                 ListView cartListView = root.findViewById(R.id.cart_product_list);
                 mAdapter = new AdapterCartProduct(getActivity(), MainActivity.cartProducts);
                 cartListView.setAdapter(mAdapter);
-
-                button = root.findViewById(R.id.orderbutton);
-                button.setOnClickListener(new View.OnClickListener() {
+                btn.setOnClickListener(new View.OnClickListener() {
                     public void onClick(View v) {
                         Intent intent = new Intent(getActivity(), Checkout.class);
                         startActivity(intent);
@@ -67,7 +69,7 @@ public class cart__fragment extends Fragment {
     @Override
     public void onAttach(@NonNull Context context) {
         super.onAttach(context);
-        ((AppCompatActivity)getActivity()).getSupportActionBar().show();
+        Objects.requireNonNull(((AppCompatActivity) requireActivity()).getSupportActionBar()).show();
         if (MainActivity.userAccount.getUserName() == null) {
                   Intent intent = new Intent(getActivity(), Unsigned_screen.class);
                   startActivity(intent);
@@ -80,11 +82,7 @@ public class cart__fragment extends Fragment {
             MainActivity.bottomNavigationView.getMenu().getItem(0).setChecked(true);
             MainActivity.fragmentManager.beginTransaction().replace(R.id.fragment_container, new home__fragment()).commit();
         } else {
-            MainActivity.totalAmount = 0;
-            for (int i = 0; i < MainActivity.cartProducts.size(); i++) {
-                MainActivity.totalAmount += MainActivity.cartProducts.get(i).getTotalCost();
-            }
-            total_text_view.setText(String.valueOf(MainActivity.totalAmount));
+            RefreshTotal();
         }
         super.onResume();
     }
@@ -93,11 +91,12 @@ public class cart__fragment extends Fragment {
     //
     // Use: Make necessary changes to the required Product object in carProducts
     //      and simply call this function to auto update the Total textView
+    @SuppressLint("SetTextI18n")
     public static void RefreshTotal(){
         total_amount = 0;
         for (Product product: MainActivity.cartProducts) {
             total_amount += product.getTotalCost();
         }
-        total_text_view.setText(String.valueOf(total_amount));
+        total_text_view.setText("TK. " + total_amount);
     }
 }

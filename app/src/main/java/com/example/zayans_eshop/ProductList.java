@@ -34,7 +34,6 @@ public class ProductList extends AppCompatActivity {
         GridView gridView = findViewById(R.id.product_list);
 
         BackgroundProductRetrieverEngine retriever = new BackgroundProductRetrieverEngine(this, mAdapter);
-        
         retriever.execute(argument);
     }
 

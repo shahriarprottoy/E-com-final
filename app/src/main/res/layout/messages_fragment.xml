@@ -3,7 +3,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true">
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <include layout="@layout/header"/>
+<LinearLayout
+    android:layout_marginTop="58dp"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -13,11 +15,11 @@
         android:id="@+id/text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
+        android:layout_marginStart="20dp"
         android:layout_marginTop="22dp"
-        android:text="We'd love to hear from you"
+        android:text="@string/contact_message"
         android:textColor="@android:color/darker_gray"
-        android:textSize="25dp"
+        android:textSize="25sp"
         android:textStyle="bold" />
 
     <TextView
@@ -27,9 +29,9 @@
         android:layout_marginLeft="20dp"
         android:layout_marginTop="10dp"
         android:layout_marginRight="20dp"
-        android:text="Whether you have question about feature,trial,pricing or anything else we are here to answer all your questions"
+        android:text="@string/contact_message2"
         android:textColor="@android:color/darker_gray"
-        android:textSize="15dp"
+        android:textSize="15sp"
         android:textStyle="bold" />
     <TextView
         android:id="@+id/text3"
@@ -37,9 +39,9 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="60dp"
-        android:text="Contact us by"
+        android:text="@string/contact_us_by"
         android:textColor="#1AA4FF"
-        android:textSize="35dp"
+        android:textSize="35sp"
         android:textStyle="bold" />
     <LinearLayout
         android:layout_width="wrap_content"
@@ -54,11 +56,11 @@
         android:layout_gravity="center"
         android:layout_marginTop="10dp"
         android:drawableTop="@drawable/email"
-        android:text="E-mail"
-        android:textSize="15dp"
+        android:text="@string/e_mail"
+        android:textSize="15sp"
         android:paddingBottom="10dp"
         android:background="@android:color/white"
-        android:layout_marginRight="15dp"
+        android:layout_marginEnd="15dp"
         android:textColor="@android:color/black" />
 
     <Button
@@ -69,10 +71,10 @@
         android:layout_gravity="center"
         android:layout_marginTop="10dp"
         android:drawableTop="@drawable/phone"
-        android:textSize="15dp"
+        android:textSize="15sp"
         android:paddingBottom="10dp"
         android:background="@android:color/white"
-        android:text="Phone"
+        android:text="@string/phone"
         android:textColor="@android:color/black" />
     </LinearLayout>
 </LinearLayout>

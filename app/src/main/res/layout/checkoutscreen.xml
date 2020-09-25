@@ -1,24 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:gravity="center"
-    tools:context=".activities.MainActivity">
+    android:orientation="vertical">
+
+    <include layout="@layout/header"/>
 
     <ListView
-        android:layout_marginTop="10dp"
-        android:padding="10dp"
         android:id="@+id/order_product_list"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="58dp"
         android:divider="@color/warning"
         android:orientation="vertical"
+        android:padding="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <RelativeLayout
+        android:id="@+id/layout1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/green"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/order_product_list">
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:padding="20dp"
+            android:text="@string/total"
+            android:textColor="@color/white" />
+
+        <TextView
+            android:id="@+id/checkout_screen_total"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:padding="20dp"
+            android:text="total placeholder"
+            android:textColor="@color/white" />
+
+
+    </RelativeLayout>
 
     <Button
         android:id="@+id/btnCheckout"
@@ -44,7 +74,7 @@
         android:text="@string/confirmation_dialogue"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/order_product_list" />
+        app:layout_constraintTop_toBottomOf="@+id/layout1" />
 
     <RelativeLayout
         android:id="@+id/phoneLayout"
@@ -58,18 +88,18 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="20dp"
-            android:textColor="@color/white"
             android:text="@string/phone"
+            android:textColor="@color/white"
             android:textStyle="bold" />
 
         <TextView
             android:id="@+id/phone_placeholder"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/white"
-            android:padding="20dp"
             android:layout_alignParentEnd="true"
-            android:text="phone placeholder" />
+            android:padding="20dp"
+            android:text="phone placeholder"
+            android:textColor="@color/white" />
 
 
     </RelativeLayout>

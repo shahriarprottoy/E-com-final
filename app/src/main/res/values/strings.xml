@@ -28,4 +28,13 @@
     <string name="confirm_and_place_order">Confirm and Place Order</string>
     <string name="confirmation_dialogue">Please confirm that your phone number and location are correct before placing an order. If wrong, correct them from account section.</string>
     <string name="nothing_found">Nothing Found!</string>
+    <string name="total">Total</string>
+    <string name="contact_message">We\'d love to hear from you</string>
+    <string name="contact_message2">Whether you have question about feature,trial,pricing or anything else we are here to answer all your questions</string>
+    <string name="contact_us_by">Contact us by</string>
+    <string name="zayan_s_eshop">Zayan\'s eShop</string>
+    <string name="enjoy_best_shopping">Enjoy best shopping</string>
+    <string name="start_now">Start now!!!</string>
+    <string name="description">Description:</string>
+    <string name="add_to_cart">Add to cart</string>
 </resources>
