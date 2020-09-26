@@ -83,7 +83,7 @@ public class RegisterActivity extends AppCompatActivity {
                 userPhone = phone.getText().toString();
                 userEmail = email.getText().toString();
                 userLocation = location.getText().toString();
-                 retypeuserPass= retypepass.getText().toString();
+                retypeuserPass= retypepass.getText().toString();
                 if (userName.length() < 4) {
                     if (userName.length() == 0) {
                         tv.setText("Name required!");
@@ -92,10 +92,13 @@ public class RegisterActivity extends AppCompatActivity {
                         tv.setText("Too short name! At least 4 letters.");
                         warningToast.show();
                     }
-                } else if (userPass.length() < 6) {
+                } else if (userPass.length() < 6 ) {
                     tv.setText("Too short password! At least 6 characters.");
                     warningToast.show();
-                } else if (userLocation.length() == 0 || userLocation.length() < 4) {
+                } else if(!userPass.equals(retypeuserPass)){
+                    tv.setText("Password should be same");
+                    warningToast.show();
+                }  else if (userLocation.length() == 0 || userLocation.length() < 4) {
                     tv.setText("Invalid location! Please give correct location.");
                     warningToast.show();
                 } else if (userPhone.length() < 10 || userPhone.length() > 15) {
@@ -107,9 +110,6 @@ public class RegisterActivity extends AppCompatActivity {
                         warningToast.show();
                     }
 
-                } else if(retypeuserPass!=userPass){
-                    tv.setText("Password should be same");
-                    warningToast.show();
                 } else {
                     submit.setEnabled(false);
                     submit.setAlpha(.5f);

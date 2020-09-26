@@ -37,25 +37,25 @@
 
     <TextView
         android:id="@+id/textView9"
-        android:textColor="@color/warning"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="28dp"
         android:text="@string/min_price"
+        android:textColor="@color/warning"
         android:textSize="20sp"
-        android:layout_marginStart="55dp"
-        android:layout_marginTop="20dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView8" />
 
     <TextView
         android:id="@+id/textView10"
-        android:textColor="@color/green"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="68dp"
         android:text="@string/max_price"
+        android:textColor="@color/green"
         android:textSize="20sp"
-        android:layout_marginEnd="55dp"
-        android:layout_marginTop="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView8" />
 
@@ -68,12 +68,14 @@
         app:layout_constraintTop_toBottomOf="@+id/textView9">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/minimum_filter_field"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/minimum_filter_field"
-            android:backgroundTint="@color/warning"
+            android:layout_marginLeft="20dp"
             android:layout_marginTop="5dp"
+            android:backgroundTint="@color/warning"
             android:hint="@string/minimum" />
+
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -85,12 +87,15 @@
         app:layout_constraintTop_toBottomOf="@+id/textView10">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/maximum_filter_field"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:backgroundTint="@color/green"
+            android:layout_marginLeft="25dp"
             android:layout_marginTop="5dp"
-            android:id="@+id/maximum_filter_field"
+            android:backgroundTint="@color/green"
             android:hint="@string/maximum" />
     </com.google.android.material.textfield.TextInputLayout>
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
