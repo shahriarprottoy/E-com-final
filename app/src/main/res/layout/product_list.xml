@@ -18,6 +18,7 @@
 
             <Button
                 android:layout_marginStart="10dp"
+                android:id="@+id/sort_button"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:drawableStart="@drawable/sort"
@@ -33,6 +34,7 @@
                 android:text="@string/sort"/>
 
             <Button
+                android:id="@+id/filter_button"
                 android:layout_alignParentEnd="true"
                 android:layout_marginEnd="10dp"
                 android:layout_width="50dp"

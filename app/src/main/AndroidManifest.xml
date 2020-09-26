@@ -15,6 +15,7 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         tools:targetApi="m">
+        <activity android:name=".FilterMenu"></activity>
         <activity android:name=".SuccessActivity" />
         <activity
             android:name=".SettingsActivity"
@@ -36,16 +37,11 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".RegisterActivity" />
-        <activity
-            android:name=".LoginActivity" />
-        <activity
-            android:name=".Unsigned_screen" />
-        <activity
-            android:name=".data.ChangePassword" />
-        <activity
-            android:name=".Checkout" />
+        <activity android:name=".RegisterActivity" />
+        <activity android:name=".LoginActivity" />
+        <activity android:name=".Unsigned_screen" />
+        <activity android:name=".data.ChangePassword" />
+        <activity android:name=".Checkout" />
     </application>
 
 </manifest>

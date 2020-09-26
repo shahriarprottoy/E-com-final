@@ -31,6 +31,25 @@ public class ProductList extends AppCompatActivity {
                 onBackPressed();
             }
         });
+
+        Button filter = findViewById(R.id.filter_button);
+        Button sort = findViewById(R.id.sort_button);
+
+        filter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ProductList.this,FilterMenu.class);
+                startActivity(intent);
+            }
+        });
+
+        /*sort.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ProductList.this,SortMenu.class);
+                startActivity(intent);
+            }
+        });*/
         
         Intent intent = getIntent();
         String argument = null;

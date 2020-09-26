@@ -39,4 +39,9 @@
     <string name="add_to_cart">Add to cart</string>
     <string name="filter">Filter</string>
     <string name="sort">Sort</string>
+    <string name="by_price">By price</string>
+    <string name="min_price">Min Price</string>
+    <string name="max_price">Max Price</string>
+    <string name="minimum">Minimum</string>
+    <string name="maximum">Maximum</string>
 </resources>

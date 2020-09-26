@@ -12,6 +12,7 @@
     <color name="windowBackground">#C9CACA</color>
     <color name="colorControlHighlight">#C9C9CC</color>
     <color name="white">#FFFFFF</color>
+    <color name="Orange">#FF9800</color>
     <color name="warning">#FF6666</color>
     <color name="green">#44BB44</color>
     <color name="text_color">#489BFF</color>
