@@ -37,4 +37,6 @@
     <string name="start_now">Start now!!!</string>
     <string name="description">Description:</string>
     <string name="add_to_cart">Add to cart</string>
+    <string name="filter">Filter</string>
+    <string name="sort">Sort</string>
 </resources>

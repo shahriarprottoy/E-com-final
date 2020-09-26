@@ -2,8 +2,18 @@
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:background="@drawable/headerbg"
+    android:id="@+id/header"
     android:layout_width="match_parent"
     android:layout_height="58dp">
+
+    <Button
+        android:visibility="invisible"
+        android:id="@+id/header_back_button"
+        android:layout_width="50dp"
+        android:layout_centerVertical="true"
+        android:layout_height="50dp"
+        android:drawableStart="@drawable/back_button"
+        android:background="?android:attr/selectableItemBackground"/>
 
     <ImageView
         android:id="@+id/header_logo"

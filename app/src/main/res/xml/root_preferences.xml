@@ -43,13 +43,4 @@
 
     </PreferenceCategory>
 
-    <PreferenceCategory app:title="Extras">
-
-        <Preference
-            app:icon="@drawable/ic_info_24dp"
-            app:summary="0.4"
-            app:title="Version" />
-
-    </PreferenceCategory>
-
 </PreferenceScreen>

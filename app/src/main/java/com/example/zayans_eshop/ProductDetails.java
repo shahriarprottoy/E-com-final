@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextPaint;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -25,6 +26,15 @@ public class ProductDetails extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.product_details);
 
+        Button back = findViewById(R.id.header_back_button);
+        back.setVisibility(View.VISIBLE);
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
+
         Intent intent = getIntent();
 
         // Setting product data from passed data
@@ -43,6 +53,10 @@ public class ProductDetails extends AppCompatActivity {
         product.setId(intent.getIntExtra("id",0));
         product.setQuantity(1);
         fromCart = intent.getBooleanExtra("fromCart", false);
+
+        ViewGroup setupCostLayout = findViewById(R.id.setup_cost_layout);
+        if(product.getSetupCost() == 0)
+            setupCostLayout.setVisibility(View.INVISIBLE);
 
         ViewPager viewPager = findViewById(R.id.viewPager);
         AdapterViewPager adapter = new AdapterViewPager(this, product.getImageUrls());
