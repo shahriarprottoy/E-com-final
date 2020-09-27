@@ -1,25 +1,18 @@
 package com.example.zayans_eshop;
 
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.text.Html;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
-import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceFragmentCompat;
 import androidx.preference.PreferenceManager;
 
-import com.example.zayans_eshop.data.ChangePassword;
 import com.example.zayans_eshop.data.UserAccountUpdaterEngine;
-
-import java.util.Objects;
 
 public class SettingsActivity extends AppCompatActivity {
 
@@ -28,14 +21,14 @@ public class SettingsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.settings_activity);
 
-        Button back = findViewById(R.id.header_back_button);
+        /*Button back = findViewById(R.id.header_back_button);
         back.setVisibility(View.VISIBLE);
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 onBackPressed();
             }
-        });
+        });*/
 
         getSupportFragmentManager()
                 .beginTransaction()
@@ -78,35 +71,34 @@ public class SettingsActivity extends AppCompatActivity {
                     return false;
                 }
             });
-
-            Preference save = findPreference("saveSettings");
-            assert save != null;
-            save.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
-                @Override
-                public boolean onPreferenceClick(Preference preference) {
-                    SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(requireActivity());
-                    UserAccountUpdaterEngine userAccountUpdaterEngine = new UserAccountUpdaterEngine(getActivity());
-                    userAccountUpdaterEngine.execute(
-                            sp.getString("userName", ""),
-                            sp.getString("uniqId", ""),
-                            sp.getString("userPhone", ""),
-                            sp.getString("userEmail", ""),
-                            sp.getString("userLocation", "")
-                    );
-                    return false;
-                }
-            });
-
-            Preference updatePass = findPreference("changePassword");
-            assert updatePass != null;
-            updatePass.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
-                @Override
-                public boolean onPreferenceClick(Preference preference) {
-                    Intent  intent=new Intent(getActivity(), ChangePassword.class);
-                    requireActivity().startActivity(intent);
-                    return false;
-                }
-            });
         }
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(SettingsActivity.this);
+        UserAccountUpdaterEngine userAccountUpdaterEngine = new UserAccountUpdaterEngine(SettingsActivity.this);
+        userAccountUpdaterEngine.execute(
+                sp.getString("userName", ""),
+                sp.getString("uniqId", ""),
+                sp.getString("userPhone", ""),
+                sp.getString("userEmail", ""),
+                sp.getString("userLocation", "")
+        );
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(SettingsActivity.this);
+        UserAccountUpdaterEngine userAccountUpdaterEngine = new UserAccountUpdaterEngine(SettingsActivity.this);
+        userAccountUpdaterEngine.execute(
+                sp.getString("userName", ""),
+                sp.getString("uniqId", ""),
+                sp.getString("userPhone", ""),
+                sp.getString("userEmail", ""),
+                sp.getString("userLocation", "")
+        );
     }
 }

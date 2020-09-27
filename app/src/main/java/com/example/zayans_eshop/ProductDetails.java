@@ -26,14 +26,14 @@ public class ProductDetails extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.product_details);
 
-        Button back = findViewById(R.id.header_back_button);
+        /*Button back = findViewById(R.id.header_back_button);
         back.setVisibility(View.VISIBLE);
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 onBackPressed();
             }
-        });
+        });*/
 
         Intent intent = getIntent();
 

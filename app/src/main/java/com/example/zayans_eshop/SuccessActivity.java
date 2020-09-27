@@ -22,14 +22,14 @@ public class SuccessActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_success);
 
-        Button back = findViewById(R.id.header_back_button);
+        /*Button back = findViewById(R.id.header_back_button);
         back.setVisibility(View.VISIBLE);
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 onBackPressed();
             }
-        });
+        });*/
 
         ProgressBar orderProgress = findViewById(R.id.orderProgress);
         TextView placeholder = findViewById(R.id.placeholder);

@@ -17,6 +17,7 @@ import android.widget.TextView;
 
 import android.graphics.Paint;
 
+import com.example.zayans_eshop.FilterMenu;
 import com.example.zayans_eshop.ProductDetails;
 import com.example.zayans_eshop.R;
 import com.squareup.picasso.Picasso;
@@ -39,9 +40,15 @@ public class AdapterProduct extends ArrayAdapter<Product> {
 
 
         if(listItemview==null){
-            listItemview= LayoutInflater.from(getContext()).inflate(R.layout.product_list_item,parent,false);
+            listItemview = LayoutInflater.from(getContext()).inflate(R.layout.product_list_item,parent,false);
         }
 
+        if(FilterMenu.filterFlag){
+            if (currentProduct.getDiscountedPrice() < FilterMenu.minimum || currentProduct.getDiscountedPrice() > FilterMenu.maximum){
+                listItemview.setVisibility(View.GONE);
+                return listItemview;
+            }
+        }
 
         final TextView name = listItemview.findViewById(R.id.name);
         assert currentProduct != null;

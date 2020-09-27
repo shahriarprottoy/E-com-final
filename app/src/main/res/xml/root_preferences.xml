@@ -26,15 +26,10 @@
             app:title="@string/location_title"
             app:useSimpleSummaryProvider="true" />
 
-        <Preference
-            app:icon="@drawable/ic_save_black_24dp"
-            app:key="saveSettings"
-            app:title="Save account info" />
-
-        <Preference
+        <!-- <Preference
             app:icon="@drawable/ic_key_black_24dp"
             app:key="changePassword"
-            app:title="@string/pass_title" />
+            app:title="@string/pass_title" /> -->
 
         <Preference
             app:icon="@drawable/ic_logout_black_24dp"

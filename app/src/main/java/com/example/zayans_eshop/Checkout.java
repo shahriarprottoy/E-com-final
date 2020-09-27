@@ -25,14 +25,14 @@ public class Checkout extends AppCompatActivity {
         setContentView(R.layout.checkoutscreen);
         checkoutActivity = this;
 
-        Button back = findViewById(R.id.header_back_button);
+        /*Button back = findViewById(R.id.header_back_button);
         back.setVisibility(View.VISIBLE);
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 onBackPressed();
             }
-        });
+        });*/
 
         ListView cartListView = findViewById(R.id.order_product_list);
         AdapterOrderProduct mAdapter = new AdapterOrderProduct(Checkout.this, MainActivity.cartProducts);

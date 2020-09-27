@@ -2,7 +2,9 @@ package com.example.zayans_eshop.data;
 
 import android.util.Log;
 
-public class Product {
+import com.example.zayans_eshop.SortMenu;
+
+public class Product implements Comparable<Product> {
 
     private String name;
     private int price;
@@ -181,5 +183,13 @@ public class Product {
         totalCost += deliveryTaken ? deliveryCost*quantity : 0 ;
         totalCost += setupTaken ? setupCost*quantity : 0 ;
         return  totalCost;
+    }
+
+    @Override
+    public int compareTo(Product o) {
+        if(SortMenu.stringFlag)
+            return this.getName().compareTo(o.getName());
+        else
+            return Integer.compare(this.getDiscountedPrice(), o.getDiscountedPrice());
     }
 }

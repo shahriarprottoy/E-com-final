@@ -92,8 +92,6 @@ public class UserAccountUpdaterEngine extends AsyncTask<String, Void, String> {
             MainActivity.userAccount.setUserPhone(userAccount.getUserPhone());
             MainActivity.userAccount.setUserEmail(userAccount.getUserEmail());
             MainActivity.userAccount.setUserLocation(userAccount.getUserLocation());
-            Toast.makeText(context, "Update successful",
-                    Toast.LENGTH_LONG).show();
         } else if (s.equalsIgnoreCase("server crash")) {
             Toast.makeText(context,
                     "An unknown error occurred",
