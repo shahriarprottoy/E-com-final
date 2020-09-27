@@ -77,5 +77,32 @@
         android:text="@string/phone"
         android:textColor="@android:color/black" />
     </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="0dp"
+        android:layout_margin="30dp">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="New here??"
+        android:textSize="20dp"></TextView>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="55dp"
+        android:textSize="12sp"
+        android:layout_marginTop="-8dp"
+        android:text=" Go through our FAQ section if you have any common question about our app"
+        ></TextView>
+    </LinearLayout>
+    <Button
+        android:id="@+id/faq"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/custom_button2"
+        android:text="FREQUENTLY ASKED QUESTIONS"
+        android:layout_gravity="center_horizontal"
+        android:textColor="@android:color/white"></Button>
 </LinearLayout>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

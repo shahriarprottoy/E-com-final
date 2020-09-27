@@ -1,10 +1,8 @@
 package com.example.zayans_eshop.ui;
 
-import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,10 +10,8 @@ import android.widget.Button;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
-import com.example.zayans_eshop.MainActivity;
 import com.example.zayans_eshop.R;
 
 public class messages__fragment extends Fragment {
@@ -25,7 +21,7 @@ public class messages__fragment extends Fragment {
         View root= inflater.inflate(R.layout.messages_fragment,container,false);
         Button phoneContact = root.findViewById(R.id.phoneContact);
         Button emailContact = root.findViewById(R.id.emailContact);
-
+        Button faq = root.findViewById(R.id.faq);
         phoneContact.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -50,6 +46,13 @@ public class messages__fragment extends Fragment {
                 intent.putExtra(Intent.EXTRA_TEXT, text);
 
                 startActivity(Intent.createChooser(intent, "Choose an email app"));
+            }
+        });
+        faq.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(),FAQactivity.class);
+                startActivity(intent);
             }
         });
         return root;
