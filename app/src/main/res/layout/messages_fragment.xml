@@ -3,106 +3,115 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true">
-    <include layout="@layout/header"/>
-<LinearLayout
-    android:layout_marginTop="58dp"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-   >
 
-    <TextView
-        android:id="@+id/text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="22dp"
-        android:text="@string/contact_message"
-        android:textColor="@android:color/darker_gray"
-        android:textSize="25sp"
-        android:textStyle="bold" />
+    <include layout="@layout/header" />
 
-    <TextView
-        android:id="@+id/text2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginRight="20dp"
-        android:text="@string/contact_message2"
-        android:textColor="@android:color/darker_gray"
-        android:textSize="15sp"
-        android:textStyle="bold" />
-    <TextView
-        android:id="@+id/text3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="60dp"
-        android:text="@string/contact_us_by"
-        android:textColor="#1AA4FF"
-        android:textSize="35sp"
-        android:textStyle="bold" />
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:orientation="horizontal">
-    <Button
-        style="?android:attr/borderlessButtonStyle"
-        android:id="@+id/emailContact"
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="10dp"
-        android:drawableTop="@drawable/email"
-        android:text="@string/e_mail"
-        android:textSize="15sp"
-        android:paddingBottom="10dp"
-        android:background="@android:color/white"
-        android:layout_marginEnd="15dp"
-        android:textColor="@android:color/black" />
-
-    <Button
-        style="?android:attr/borderlessButtonStyle"
-        android:id="@+id/phoneContact"
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="10dp"
-        android:drawableTop="@drawable/phone"
-        android:textSize="15sp"
-        android:paddingBottom="10dp"
-        android:background="@android:color/white"
-        android:text="@string/phone"
-        android:textColor="@android:color/black" />
-    </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginTop="0dp"
-        android:layout_margin="30dp">
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="New here??"
-        android:textSize="20dp"></TextView>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="55dp"
-        android:textSize="12sp"
-        android:layout_marginTop="-8dp"
-        android:text=" Go through our FAQ section if you have any common question about our app"
-        ></TextView>
+        android:layout_height="match_parent"
+        android:layout_marginTop="58dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="22dp"
+            android:text="@string/contact_message"
+            android:textColor="@android:color/darker_gray"
+            android:textSize="25sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/text2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="20dp"
+            android:text="@string/contact_message2"
+            android:textColor="@android:color/darker_gray"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/text3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="60dp"
+            android:text="@string/contact_us_by"
+            android:textColor="#1AA4FF"
+            android:textSize="35sp"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/emailContact"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="15dp"
+                android:background="@android:color/white"
+                android:drawableTop="@drawable/email"
+                android:paddingBottom="10dp"
+                android:text="@string/e_mail"
+                android:textColor="@android:color/black"
+                android:textSize="15sp" />
+
+            <Button
+                android:id="@+id/phoneContact"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:background="@android:color/white"
+                android:drawableTop="@drawable/phone"
+                android:paddingBottom="10dp"
+                android:text="@string/phone"
+                android:textColor="@android:color/black"
+                android:textSize="15sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="30dp"
+            android:layout_marginTop="0dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="New here??"
+                android:textSize="20dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="55dp"
+                android:layout_marginTop="-8dp"
+                android:text=" Go through our FAQ section if you have any common question about our app"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/faq"
+            android:paddingHorizontal="25dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/custom_button2"
+            android:text="FREQUENTLY ASKED QUESTIONS"
+            android:textColor="@android:color/white" />
     </LinearLayout>
-    <Button
-        android:id="@+id/faq"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/custom_button2"
-        android:text="FREQUENTLY ASKED QUESTIONS"
-        android:layout_gravity="center_horizontal"
-        android:textColor="@android:color/white"></Button>
-</LinearLayout>
+
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

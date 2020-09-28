@@ -25,7 +25,7 @@ public class messages__fragment extends Fragment {
         phoneContact.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String phone = "+8801798355165";
+                String phone = "+8801997864687";
                 Intent intent = new Intent(Intent.ACTION_DIAL, Uri.fromParts(
                         "tel", phone, null
                 ));
@@ -40,7 +40,7 @@ public class messages__fragment extends Fragment {
                 String text = "I would like to know";
 
                 Intent intent = new Intent(Intent.ACTION_SENDTO, Uri.fromParts(
-                        "mailto", "saimulislam2002@gmail.com", null
+                        "mailto", "zayansmegashop@gmail.com", null
                 ));
                 intent.putExtra(Intent.EXTRA_SUBJECT, subject);
                 intent.putExtra(Intent.EXTRA_TEXT, text);

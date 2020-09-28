@@ -43,11 +43,12 @@
             <Button
                 android:id="@+id/loginbutton"
                 android:layout_width="220dp"
-                android:layout_height="37dp"
+                android:layout_height="41dp"
                 android:layout_gravity="center"
                 android:background="@drawable/custom_button2"
                 android:elevation="12dp"
                 android:paddingHorizontal="30dp"
+                android:paddingBottom="11dp"
                 android:text="LOGIN"
                 android:textAllCaps="false"
                 android:textColor="@android:color/white" />
