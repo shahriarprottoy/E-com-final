@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.example.zayans_eshop">
+    package="com.zayan.eshop">
 
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.INTERNET" />
@@ -14,23 +14,23 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         tools:targetApi="m">
-        <activity android:name=".IntroActivity"></activity>
-        <activity android:name=".ui.FAQactivity" />
-        <activity android:name=".SortMenu" />
-        <activity android:name=".FilterMenu" />
-        <activity android:name=".SuccessActivity" />
+        <activity android:name="com.zayan.eshop.IntroActivity"></activity>
+        <activity android:name="com.zayan.eshop.ui.FAQactivity" />
+        <activity android:name="com.zayan.eshop.SortMenu" />
+        <activity android:name="com.zayan.eshop.FilterMenu" />
+        <activity android:name="com.zayan.eshop.SuccessActivity" />
         <activity
-            android:name=".SettingsActivity"
+            android:name="com.zayan.eshop.SettingsActivity"
             android:label="@string/title_activity_settings" />
-        <activity android:name=".MainActivity">
+        <activity android:name="com.zayan.eshop.MainActivity">
             <meta-data
                 android:name="android.app.default_searchable"
                 android:value=".SearchableActivity" />
         </activity>
-        <activity android:name=".ProductList" />
-        <activity android:name=".ProductDetails" />
+        <activity android:name="com.zayan.eshop.ProductList" />
+        <activity android:name="com.zayan.eshop.ProductDetails" />
         <activity
-            android:name=".Splash"
+            android:name="com.zayan.eshop.Splash"
             android:theme="@style/SplashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -39,10 +39,10 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity android:name=".RegisterActivity" />
-        <activity android:name=".LoginActivity" />
-        <activity android:name=".Unsigned_screen" />
-        <activity android:name=".Checkout" />
+        <activity android:name="com.zayan.eshop.RegisterActivity" />
+        <activity android:name="com.zayan.eshop.LoginActivity" />
+        <activity android:name="com.zayan.eshop.Unsigned_screen" />
+        <activity android:name="com.zayan.eshop.Checkout" />
     </application>
 
 </manifest>

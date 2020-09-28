@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.example.zayans_eshop.ui.FAQactivity">
+    tools:context="com.zayan.eshop.ui.FAQactivity">
 
     <include layout="@layout/header" />
 
