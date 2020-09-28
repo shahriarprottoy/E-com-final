@@ -38,6 +38,10 @@ public class signed__in__account__fragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.signed_in_account_fragment, container, false);
 
+        if (MainActivity.userAccount.getUserName() == null) {
+            requireActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, MainActivity.account__fragment).commit();
+        }
+
         FloatingActionButton fab = root.findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -64,18 +68,12 @@ public class signed__in__account__fragment extends Fragment {
         return root;
     }
 
-    @Override
-    public void onAttach(@NonNull Context context) {
-        super.onAttach(context);
-        ((AppCompatActivity)getActivity()).getSupportActionBar().show();
-
-    }
 
     @Override
     public void onResume() {
         super.onResume();
-        if (!MainActivity.loginFlag) {
-            getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new account__fragment()).commit();
+        if (MainActivity.userAccount.getUserName() == null) {
+            requireActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, MainActivity.account__fragment).commit();
         } else {
             UserAccount userAccount = MainActivity.userAccount;
 

@@ -41,7 +41,6 @@ public  class Unsigned_screen extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        super.onBackPressed();
         finish();
     }
 }

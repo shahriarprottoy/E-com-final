@@ -1,5 +1,6 @@
 package com.example.zayans_eshop.data;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.os.AsyncTask;
 import android.util.Log;
@@ -22,17 +23,15 @@ import java.net.URL;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
 
-import static com.example.zayans_eshop.MainActivity.cart__fragment;
-
 public class BackgroundOrderEngine extends AsyncTask<String, Void, String> {
 
-    private Activity context;
+    @SuppressLint("StaticFieldLeak")
     private ProgressBar orderProgress;
+    @SuppressLint("StaticFieldLeak")
     private TextView placeholder;
 
-    public BackgroundOrderEngine(Activity context, ProgressBar orderProgress, TextView placeholder) {
+    public BackgroundOrderEngine(ProgressBar orderProgress, TextView placeholder) {
         this.orderProgress = orderProgress;
-        this.context = context;
         this.placeholder = placeholder;
     }
 
@@ -95,7 +94,6 @@ public class BackgroundOrderEngine extends AsyncTask<String, Void, String> {
             placeholder.setText("Order Placed!");
             Checkout.checkoutActivity.finish();
             MainActivity.cartProducts.clear();
-            cart__fragment.mAdapter.notifyDataSetChanged();
         } else if (s.equalsIgnoreCase("server crash")) {
             orderProgress.setVisibility(View.INVISIBLE);
             placeholder.setVisibility(View.VISIBLE);

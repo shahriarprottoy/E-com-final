@@ -19,7 +19,7 @@ public class Splash extends Activity {
         super.onCreate(icicle);
         setContentView(R.layout.splashscreen);
 
-        SharedPreferences firstTimePrefs = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
+        SharedPreferences firstTimePrefs = getSharedPreferences("Init",MODE_PRIVATE);
         firstTimeFlag = firstTimePrefs.getBoolean("FirstTime",true);
         final SharedPreferences.Editor editor = firstTimePrefs.edit();
 

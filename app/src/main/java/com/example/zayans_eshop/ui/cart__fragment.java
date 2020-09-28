@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -66,21 +67,18 @@ public class cart__fragment extends Fragment {
         return root;
     }
 
-    @Override
-    public void onAttach(@NonNull Context context) {
-        super.onAttach(context);
-        Objects.requireNonNull(((AppCompatActivity) requireActivity()).getSupportActionBar()).show();
-        if (MainActivity.userAccount.getUserName() == null) {
-                  Intent intent = new Intent(getActivity(), Unsigned_screen.class);
-                  startActivity(intent);
-        }
-    }
 
     @Override
     public void onResume() {
+
+        if(mAdapter != null)
+            mAdapter.notifyDataSetChanged();
+
         if (MainActivity.userAccount.getUserName() == null) {
+            Intent intent = new Intent(getActivity(), Unsigned_screen.class);
+            startActivity(intent);
             MainActivity.bottomNavigationView.getMenu().getItem(0).setChecked(true);
-            MainActivity.fragmentManager.beginTransaction().replace(R.id.fragment_container, new home__fragment()).commit();
+            MainActivity.fragmentManager.beginTransaction().replace(R.id.fragment_container, MainActivity.home__fragment).commit();
         } else {
             RefreshTotal();
         }

@@ -53,10 +53,17 @@ public class SettingsActivity extends AppCompatActivity {
                             SharedPreferences userAccountPrefs = PreferenceManager.getDefaultSharedPreferences(requireActivity());
                             SharedPreferences.Editor editor = userAccountPrefs.edit();
 
-                            editor.clear().apply();
+                            editor.putString("userName", null);
+                            editor.putString("userPhone", null);
+                            editor.putString("userEmail", null);
+                            editor.putString("userLocation", null);
+                            editor.putString("uniqId", null);
+                            editor.apply();
+
                             MainActivity.userAccount.logOut();
+                            MainActivity.cartProducts.clear();
                             MainActivity.loginFlag = false;
-                            requireActivity().onBackPressed();
+                            requireActivity().finish();
                         }
                     });
                     builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
@@ -75,22 +82,7 @@ public class SettingsActivity extends AppCompatActivity {
     }
 
     @Override
-    protected void onPause() {
-        super.onPause();
-        SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(SettingsActivity.this);
-        UserAccountUpdaterEngine userAccountUpdaterEngine = new UserAccountUpdaterEngine(SettingsActivity.this);
-        userAccountUpdaterEngine.execute(
-                sp.getString("userName", ""),
-                sp.getString("uniqId", ""),
-                sp.getString("userPhone", ""),
-                sp.getString("userEmail", ""),
-                sp.getString("userLocation", "")
-        );
-    }
-
-    @Override
     public void onBackPressed() {
-        super.onBackPressed();
         SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(SettingsActivity.this);
         UserAccountUpdaterEngine userAccountUpdaterEngine = new UserAccountUpdaterEngine(SettingsActivity.this);
         userAccountUpdaterEngine.execute(
@@ -100,5 +92,6 @@ public class SettingsActivity extends AppCompatActivity {
                 sp.getString("userEmail", ""),
                 sp.getString("userLocation", "")
         );
+        finish();
     }
 }

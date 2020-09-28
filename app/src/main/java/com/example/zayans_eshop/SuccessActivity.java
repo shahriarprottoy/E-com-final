@@ -52,7 +52,7 @@ public class SuccessActivity extends AppCompatActivity {
                     MainActivity.cartProducts.get(i).getId());
         }
 
-        backgroundOrderEngine = new BackgroundOrderEngine(this, orderProgress, placeholder);
+        backgroundOrderEngine = new BackgroundOrderEngine(orderProgress, placeholder);
         cart__fragment.RefreshTotal();
         backgroundOrderEngine.execute(order.getOrder(), MainActivity.userAccount.getUniqId(), String.valueOf(cart__fragment.total_amount));
         // Order code finishes here

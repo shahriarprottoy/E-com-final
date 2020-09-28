@@ -69,7 +69,6 @@ public class MainActivity extends AppCompatActivity {
                                     account__fragment = new account__fragment();
                                 selectedFragment = account__fragment;
                             } else {
-                                loginFlag = true;
                                 if(signed__in__account__fragment == null)
                                 signed__in__account__fragment = new signed__in__account__fragment();
                                 selectedFragment = signed__in__account__fragment;
@@ -95,7 +94,8 @@ public class MainActivity extends AppCompatActivity {
 
         bottomNavigationView = findViewById(R.id.bottom_navigation);
         bottomNavigationView.setOnNavigationItemSelectedListener(navListener);
-        getSupportFragmentManager().beginTransaction().add(R.id.fragment_container, new home__fragment()).commit();
+        home__fragment = new home__fragment();
+        getSupportFragmentManager().beginTransaction().add(R.id.fragment_container, home__fragment).commit();
 
         userAccount = new UserAccount(null, null, null, null, null);
 
@@ -105,10 +105,5 @@ public class MainActivity extends AppCompatActivity {
         userAccount.setUserEmail(userAccountPrefs.getString("userEmail", null));
         userAccount.setUserLocation(userAccountPrefs.getString("userLocation", null));
         userAccount.setUniqId(userAccountPrefs.getString("uniqId", null));
-
-        if (loginFlag && userAccount.getUserName() != null) {
-            bottomNavigationView.getMenu().getItem(3).setChecked(true);
-            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new signed__in__account__fragment()).commit();
-        }
     }
 }
