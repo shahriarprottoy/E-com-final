@@ -14,10 +14,14 @@ public class FAQactivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_f_a_qactivity);
-        final TextView q1,a1;
-        q1=findViewById(R.id.q1);
-        a1=findViewById(R.id.a1);
-        a1.setVisibility(View.INVISIBLE);
+        final TextView q1, a1, q2, a2;
+        q1 = findViewById(R.id.q1);
+        a1 = findViewById(R.id.a1);
+        q2 = findViewById(R.id.q2);
+        a2 = findViewById(R.id.a2);
+
+        a2.setVisibility(View.GONE);
+        a1.setVisibility(View.GONE);
 
         q1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -28,7 +32,19 @@ public class FAQactivity extends AppCompatActivity {
         a1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                a1.setVisibility(View.INVISIBLE);
+                a1.setVisibility(View.GONE);
+            }
+        });
+        q2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                a2.setVisibility(View.VISIBLE);
+            }
+        });
+        a2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                a2.setVisibility(View.GONE);
             }
         });
     }

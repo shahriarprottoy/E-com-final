@@ -1,15 +1,11 @@
 package com.example.zayans_eshop;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.Html;
 import android.view.View;
 import android.widget.Button;
 import android.widget.GridView;
-import android.widget.ProgressBar;
 
-import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.zayans_eshop.data.AdapterProduct;
@@ -19,6 +15,7 @@ public class ProductList extends AppCompatActivity {
 
     private AdapterProduct mAdapter;
     private GridView gridView;
+    private String argument;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,7 +51,7 @@ public class ProductList extends AppCompatActivity {
         });
         
         Intent intent = getIntent();
-        String argument = null;
+        argument = null;
 
         if (!(intent.getStringExtra("search") == null))
         argument = getIntent().getStringExtra("search");
@@ -70,8 +67,16 @@ public class ProductList extends AppCompatActivity {
 
     @Override
     protected void onResume() {
-        mAdapter = new AdapterProduct(ProductList.this, MainActivity.products);
-        gridView.setAdapter(mAdapter);
+        if(FilterMenu.filterFlag){
+            BackgroundProductRetrieverEngine retriever = new BackgroundProductRetrieverEngine(this, mAdapter);
+            retriever.execute(argument);
+            mAdapter = new AdapterProduct(ProductList.this, MainActivity.products);
+            gridView.setAdapter(mAdapter);
+        } else{
+            mAdapter = new AdapterProduct(ProductList.this, MainActivity.products);
+            gridView.setAdapter(mAdapter);
+        }
+
         super.onResume();
     }
 

@@ -43,13 +43,6 @@ public class AdapterProduct extends ArrayAdapter<Product> {
             listItemview = LayoutInflater.from(getContext()).inflate(R.layout.product_list_item,parent,false);
         }
 
-        if(FilterMenu.filterFlag){
-            if (currentProduct.getDiscountedPrice() < FilterMenu.minimum || currentProduct.getDiscountedPrice() > FilterMenu.maximum){
-                listItemview.setVisibility(View.GONE);
-                return listItemview;
-            }
-        }
-
         final TextView name = listItemview.findViewById(R.id.name);
         assert currentProduct != null;
         name.setText(currentProduct.getName());

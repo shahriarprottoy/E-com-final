@@ -44,4 +44,12 @@
     <string name="max_price">Max Price</string>
     <string name="minimum">Minimum</string>
     <string name="maximum">Maximum</string>
+    <string name="faq1_ans">First you need to have an account in the app. Create an account and log in. Go to a product and add the product to the cart. Then go to the cart and take delivery, setup or both to convenience. You can increase the product amount to order more than one of a product. Then tap the place order button and confirm your order.</string>
+    <string name="faq2_ans">Sorry, but we do not provide password recovery options at the moment. It would be better if you would not forget the password. Still, if it happens, you can just create a new account.</string>
+    <string name="p1title">Zayan\'s eShop</string>
+    <string name="p1description">Your shop from home</string>
+    <string name="p2title">Whole Muktagacha</string>
+    <string name="p2description">We provide Home Delivery in whole Muktagacha</string>
+    <string name="p3title">No setup hassle</string>
+    <string name="p3description">We provide setup service for every product that needs it</string>
 </resources>

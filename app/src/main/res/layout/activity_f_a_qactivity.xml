@@ -1,35 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context="com.example.zayans_eshop.ui.FAQactivity">
 
+    <include layout="@layout/header" />
+
     <TextView
         android:id="@+id/q1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/custom_button_3"
-        android:textColor="@android:color/darker_gray"
-        android:textSize="19dp"
-        android:text="How to place a order by this app?"
         android:layout_margin="15dp"
-        ></TextView>
+        android:background="@drawable/custom_button_3"
+        android:text="How to place a order?"
+        android:textColor="@android:color/darker_gray"
+        android:textSize="19dp" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height=".4dp"
-        android:background="@android:color/black"></LinearLayout>
+        android:background="@android:color/black" />
+
     <TextView
         android:id="@+id/a1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/custom_buttons"
-        android:textColor="@android:color/white"
-        android:textSize="19dp"
-        android:text="first go inside a product and add the product to the cart then to to the cart and add delivery service and setup service by your convenience. You can increase the product amound. Then tap the place order button and confirm your order."
         android:layout_margin="15dp"
-        ></TextView>
+        android:background="@drawable/custom_buttons"
+        android:text="@string/faq1_ans"
+        android:textColor="@android:color/white"
+        android:textSize="19dp" />
+
+    <TextView
+        android:id="@+id/q2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="15dp"
+        android:background="@drawable/custom_button_3"
+        android:text="How to recover forgotten password?"
+        android:textColor="@android:color/darker_gray"
+        android:textSize="19dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height=".4dp"
+        android:background="@android:color/black" />
+
+    <TextView
+        android:id="@+id/a2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="15dp"
+        android:background="@drawable/custom_buttons"
+        android:text="@string/faq2_ans"
+        android:textColor="@android:color/white"
+        android:textSize="19dp" />
 
 </LinearLayout>

@@ -25,7 +25,7 @@
 
     <TextView
         android:id="@+id/textView8"
-        android:textColor="@color/Orange"
+        android:textColor="@color/orange"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="270dp"
@@ -71,6 +71,7 @@
             android:id="@+id/minimum_filter_field"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:inputType="number"
             android:layout_marginLeft="20dp"
             android:layout_marginTop="5dp"
             android:backgroundTint="@color/warning"
@@ -91,6 +92,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="25dp"
+            android:inputType="number"
             android:layout_marginTop="5dp"
             android:backgroundTint="@color/green"
             android:hint="@string/maximum" />

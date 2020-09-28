@@ -10,6 +10,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.widget.AppCompatImageView;
 
+import com.example.zayans_eshop.FilterMenu;
 import com.example.zayans_eshop.MainActivity;
 import com.example.zayans_eshop.R;
 
@@ -142,6 +143,12 @@ public class BackgroundProductRetrieverEngine extends AsyncTask<String, Void, St
                 if (MainActivity.products.get(l).getStock() < 1){
                     MainActivity.products.remove(l);
                     l--;
+                } else if (FilterMenu.filterFlag){
+                    if(MainActivity.products.get(l).getDiscountedPrice() < FilterMenu.minimum
+                            || MainActivity.products.get(l).getDiscountedPrice() > FilterMenu.maximum){
+                        MainActivity.products.remove(l);
+                        l--;
+                    }
                 }
             }
 

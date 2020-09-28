@@ -12,7 +12,7 @@
     <color name="windowBackground">#C9CACA</color>
     <color name="colorControlHighlight">#C9C9CC</color>
     <color name="white">#FFFFFF</color>
-    <color name="Orange">#FF9800</color>
+    <color name="orange">#FF9800</color>
     <color name="warning">#FF6666</color>
     <color name="green">#44BB44</color>
     <color name="text_color">#489BFF</color>
@@ -23,4 +23,7 @@
     <color name="text_shadow_white">#FFFFFF</color>
     <color name="home_color">#4477ff</color>
     <color name="light_gray">#E9E9E9</color>
+    <color name="p1">#FF7700</color>
+    <color name="p2">#364E80</color>
+    <color name="p3">#00A500</color>
 </resources>

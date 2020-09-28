@@ -3,6 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.zayans_eshop">
 
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:icon="@mipmap/ic_launcher"
         android:label="Zshop "
@@ -11,7 +14,8 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         tools:targetApi="m">
-        <activity android:name=".ui.FAQactivity"></activity>
+        <activity android:name=".IntroActivity"></activity>
+        <activity android:name=".ui.FAQactivity" />
         <activity android:name=".SortMenu" />
         <activity android:name=".FilterMenu" />
         <activity android:name=".SuccessActivity" />
@@ -40,8 +44,5 @@
         <activity android:name=".Unsigned_screen" />
         <activity android:name=".Checkout" />
     </application>
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-
-    <uses-permission android:name="android.permission.INTERNET" />
 
 </manifest>
